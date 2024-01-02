@@ -1,0 +1,20 @@
+id,code_edi,name,name@esp,description,country_id
+tax_group_iva_01,01,VAT,IVA,Impuesto de Valor Agregado,base.co
+tax_group_ic_02,02,CT,IC,Impuesto al Consumo,base.co
+tax_group_ica_03,03,ICA,ICA,"Impuesto de Industria Comercio y Aviso",base.co
+tax_group_inc_04,04,NCT,INC,Impuesto Nacional al Consumo,base.co
+tax_group_rteiva_05,05,VatWth,ReteIVA,Retención sobre el IVA,base.co
+tax_group_rterta_06,06,IncWth,ReteRenta,Retención sobre Renta,base.co
+tax_group_rteica_07,07,IcaWth,ReteICA,Retención sobre el ICA,base.co
+tax_group_rtefte_08,08,SrcWth,ReteFuente,Retención en la fuente,base.co
+tax_group_hrtcltra_20,20,HrtCtr,FtoHorticultura,Cuota de Fomento Hortifrutícula,base.co
+tax_group_tmbre_21,21,Stamp,Timbre,Impuesto de Timbre,base.co
+tax_group_blsa_22,22,Bag,Bolsas,Impuesto al Consumo de Bolsa Plástica,base.co
+tax_group_crbno_23,23,Co2,INCarbono,Impuesto Nacional al Carbono,base.co
+tax_group_cmbstble_24,24,Fuel,INCombustibles,Impuesto Nacional a los Combustibles,base.co
+tax_group_sbretsa_25,25,FuelOvr,Sobretasa Combustibles,Sobretasa a los combustibles,base.co
+tax_group_mincmbstble_26,26,RetCtb,Sordicom,Contribución minoristas (Combustibles),base.co
+tax_group_norspnsble_zy,ZY,Not causa,No causa,No responsable de tributo,base.co
+tax_group_otro_zz,ZZ,Tax figure name,Nombre de la figura tributaria,"Otros tributos, tasas, contribuciones, y similares",base.co
+tax_group_icprcntual_08,08,IC%,IC%,IC Porcentual,base.co
+tax_group_icdto_30,30,Ic Data,IC Datos,Ic Datos,base.co

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+        <record id="view_cancel_payslip_form" model="ir.ui.view">
+            <field name="name">view.cancel.payslip.form</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+            <!-- Advance Payment -->
+                <button name="action_payslip_cancel" position="before">
+                    <button name="action_payslip_payment" type="object" string="Create Payment/Advance" class="oe_highlight"/>
+                </button>
+            
+                <!--<button name="action_payslip_cancel" position="attributes">
+                    <attribute name="invisible">draft,verify,done</attribute>
+                </button>-->
+            </field>
+        </record>
+ 
+        <!-- Advance Payment -->
+
+        <record id="payslip_advance_form" model="ir.ui.view">
+            <field name="name">hr.payslip.move.advance.form</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll_account.hr_payslip_view_form"/>
+            <field name="arch" type="xml">
+                <field name="move_id" position="after">
+                    <field name="payment_advance_id" invisible="state != 'verify'"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_hr_payslip_line_pivot" model="ir.ui.view">
+            <field name="name">hr.payslip.line.pivot</field>
+            <field name="model">hr.payslip.line</field>
+            <field name="arch" type="xml">
+                <pivot string="Budget Analysis" disable_linking="True">
+                    <field name="employee_id" type="row"/>
+                    <field name="category_id" type="col"/>
+                    <field name="code" type="col"/>
+                    <field name="amount" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="action_payslip_detail" model="ir.actions.act_window">
+            <field name="name">Payslip Detail</field>
+            <field name="res_model">hr.payslip.line</field>
+            <field name="view_mode">pivot</field>
+            <field name="help">Payslip detail.</field>
+        </record>
+
+        <menuitem name="Payslips Detail" action="action_payslip_detail" id="menu_action_payslip_detail"
+                  parent="hr_payroll.menu_hr_payroll_report" sequence="20"/>
+    </data>
+</odoo>

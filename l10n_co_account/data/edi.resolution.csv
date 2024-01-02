@@ -1,0 +1,3 @@
+"id","company_id","seq_from","seq_to","send_seq","number","name","type","date","start_date","end_date"
+"12345","Zerodoo S.A.S.",1,50,0,"12345","Resolucion Electronica","by_computer","2022-01-01","2022-01-01","2022-06-30"
+"67890","Zerodoo S.A.S.",51,100,50,"67890","Resolucion Electronica","by_computer","2022-07-01","2022-07-01","2022-12-31"

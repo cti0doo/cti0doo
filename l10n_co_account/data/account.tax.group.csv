@@ -1,0 +1,20 @@
+id,code_edi,name,description,retention
+tax_group_iva_01,"01","IVA","Impuesto de Valor Agregado",FALSE
+tax_group_ic_02,"02","IC","Impuesto al Consumo",FALSE
+tax_group_ica_03,"03","ICA","Impuesto de Industria, Comercio y Aviso",FALSE
+tax_group_inc_04,"04","INC","Impuesto Nacional al Consumo",FALSE
+tax_group_rteiva_05,"05","ReteIVA","Retención sobre el IVA",TRUE
+tax_group_rterta_06,"06","ReteRenta","Retención sobre Renta",TRUE
+tax_group_rteica_07,"07","ReteICA","Retención sobre el ICA",TRUE
+tax_group_rtefte_08,"08","ReteFuente","Retención en la fuente",TRUE
+tax_group_hrtcltra_20,"20","FtoHorticultura","Cuota de Fomento Hortifrutícula",FALSE
+tax_group_tmbre_21,"21","Timbre","Impuesto de Timbre",FALSE
+tax_group_blsa_22,"22","Bolsas","Impuesto al Consumo de Bolsa Plástica",FALSE
+tax_group_crbno_23,"23","INCarbono","Impuesto Nacional al Carbono",FALSE
+tax_group_cmbstble_24,"24","INCombustibles","Impuesto Nacional a los Combustibles",FALSE
+tax_group_sbretsa_25,"25","Sobretasa Combustibles","Sobretasa a los combustibles",FALSE
+tax_group_mincmbstble_26,"26","Sordicom","Contribución minoristas (Combustibles)",FALSE
+tax_group_norspnsble_zy,"ZY","No causa","No responsable de tributo",FALSE
+tax_group_otro_zz,"ZZ","Nombre de la figura tributaria","Otros tributos, tasas, contribuciones, y similares",FALSE
+tax_group_icprcntual_08,"08","IC Porcentual",IC Porcentual,FALSE
+tax_group_icdto_30,"30","IC Datos",Ic Datos,FALSE

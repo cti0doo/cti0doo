@@ -1,0 +1,109 @@
+id,vat,vat_vd,name,l10n_latam_identification_type_id:id,ciiu_id,lang
+800001322,800001322,6,Cafamaz,l10n_co_account.it_nit,6511,es_CO
+800088702,800088702,2,EPS Sura,l10n_co_account.it_nit,6521,es_CO
+800112806,800112806,2,Fondo de Ferrocarriles Nacionales de Colombia (EPS),l10n_co_account.it_nit,6521,es_CO
+800130907,800130907,4,Salud Total,l10n_co_account.it_nit,6521,es_CO
+800140949,800140949,6,Cafesalud,l10n_co_account.it_nit,6521,es_CO
+800197268,800197268,4,DIAN,l10n_co_account.it_nit,6511,es_CO
+800211025,800211025,1,Comfatolima,l10n_co_account.it_nit,6511,es_CO
+800216278,800216278,0,Pensiones de Antioquia,l10n_co_account.it_nit,6532,es_CO
+800219488,800219488,4,Comfiar,l10n_co_account.it_nit,6511,es_CO
+800224808,800224808,8,Porvenir,l10n_co_account.it_nit,6532,es_CO
+800226175,800226175,3,Colmena,l10n_co_account.it_nit,6511,es_CO
+800227940,800227940,6,Colfondos,l10n_co_account.it_nit,6532,es_CO
+800229739,800229739,0,Protección,l10n_co_account.it_nit,6532,es_CO
+800213969,800213969,4,Comcaja,l10n_co_account.it_nit,6511,es_CO
+800249241,800249241,0,Coosalud,l10n_co_account.it_nit,6521,es_CO
+800251440,800251440,6,Sarutas,l10n_co_account.it_nit,6521,es_CO
+800253055,800253055,2,Old Mutual,l10n_co_account.it_nit,6532,es_CO
+800256161,800256161,9,ARP Sura (Antes Suratep),l10n_co_account.it_nit,6511,es_CO
+804002105,804002105,0,Comparta,l10n_co_account.it_nit,6521,es_CO
+805000427,805000427,1,Coomeva,l10n_co_account.it_nit,6521,es_CO
+805001157,805001157,2,S.O.S. Servicio Occidental de Salud S.A.,l10n_co_account.it_nit,6521,es_CO
+806008394,806008394,7,Mutual Ser,l10n_co_account.it_nit,6521,es_CO
+809008362,809008362,2,Pijaosalud,l10n_co_account.it_nit,6521,es_CO
+811004055,811004055,5,Emdisalud,l10n_co_account.it_nit,6521,es_CO
+812002376,812002376,9,Manexka,l10n_co_account.it_nit,6521,es_CO
+814000337,814000337,1,Emssanar,l10n_co_account.it_nit,6521,es_CO
+817000248,817000248,3,Asmet Salud,l10n_co_account.it_nit,6521,es_CO
+817001773,817001773,3,A.I.C.,l10n_co_account.it_nit,6521,es_CO
+818000140,818000140,0,Ambuq,l10n_co_account.it_nit,6521,es_CO
+824001398,824001398,1,Dusakawi,l10n_co_account.it_nit,6521,es_CO
+830003564,830003564,7,Famisanar,l10n_co_account.it_nit,6521,es_CO
+830008686,830008686,1,La Equidad Seguros,l10n_co_account.it_nit,6511,es_CO
+830009783,830009783,0,Cruz Blanca,l10n_co_account.it_nit,6521,es_CO
+830054904,830054904,6,Mapfre Colombia Vida Seguros S.A.,l10n_co_account.it_nit,6511,es_CO
+830074184,830074184,5,Saludvida,l10n_co_account.it_nit,6521,es_CO
+830113813,830113813,0,Aliansalud EPS (Antes Colmédica),l10n_co_account.it_nit,6521,es_CO
+830125132,830125132,2,Old Mutual Alternativo,l10n_co_account.it_nit,6532,es_CO
+832000760,832000760,8,Ecoopsos,l10n_co_account.it_nit,6521,es_CO
+837000084,837000084,5,Mallamas,l10n_co_account.it_nit,6521,es_CO
+839000495,839000495,6,Anas Wayuu,l10n_co_account.it_nit,6521,es_CO
+844003392,844003392,8,Comfacasanare,l10n_co_account.it_nit,6511,es_CO
+860002183,860002183,9,Colpatria ARP,l10n_co_account.it_nit,6522,es_CO
+860002503,860002503,2,Seguros Bolívar,l10n_co_account.it_nit,6511,es_CO
+860007336,860007336,1,Colsubsidio,l10n_co_account.it_nit,6511,es_CO
+860007379,860007379,8,Caxdac,l10n_co_account.it_nit,6532,es_CO
+860008645,860008645,7,Liberty,l10n_co_account.it_nit,6511,es_CO
+860011153,860011153,6,Positiva Compañía de Seguros,l10n_co_account.it_nit,6511,es_CO
+860013570,860013570,3,Cafam,l10n_co_account.it_nit,6511,es_CO
+860022137,860022137,5,Seguros de Vida Aurora,l10n_co_account.it_nit,6511,es_CO
+860045904,860045904,7,Comfacundi,l10n_co_account.it_nit,6511,es_CO
+860066942,860066942,7,Compensar,l10n_co_account.it_nit,6521,es_CO
+860503617,860503617,3,Alfa,l10n_co_account.it_nit,6511,es_CO
+890000381,890000381,0,Comfenalco Quindío,l10n_co_account.it_nit,6511,es_CO
+890101994,890101994,9,Comfamiliar Atlántico,l10n_co_account.it_nit,6511,es_CO
+890102002,890102002,2,Combarranquilla,l10n_co_account.it_nit,6511,es_CO
+890102044,890102044,1,Cajacopi Atlántico,l10n_co_account.it_nit,6511,es_CO
+890102257,890102257,3,Universidad del Atlántico,l10n_co_account.it_nit,6521,es_CO
+890200106,890200106,1,Cajasan,l10n_co_account.it_nit,6511,es_CO
+890201578,890201578,7,Comfenalco Santander,l10n_co_account.it_nit,6511,es_CO
+890201383,890201383,0,Universidad Industrial de Santander,l10n_co_account.it_nit,6521,es_CO
+890270275,890270275,5,Cafaba,l10n_co_account.it_nit,6511,es_CO
+890303093,890303093,5,Comfenalco Valle,l10n_co_account.it_nit,6511,es_CO
+890303208,890303208,5,Comfandi,l10n_co_account.it_nit,6511,es_CO
+890399010,890399010,6,Universidad del Valle,l10n_co_account.it_nit,6521,es_CO
+890480023,890480023,7,Comfenalco Cartagena,l10n_co_account.it_nit,6511,es_CO
+890480110,890480110,1,Comfamiliar Cartagena,l10n_co_account.it_nit,6511,es_CO
+890500516,890500516,3,Comfanorte,l10n_co_account.it_nit,6511,es_CO
+890500675,890500675,6,Comfaoriente,l10n_co_account.it_nit,6511,es_CO
+890700148,890700148,4,Comfenalco Tolima,l10n_co_account.it_nit,6511,es_CO
+890704737,890704737,0,Cafasur,l10n_co_account.it_nit,6511,es_CO
+890806490,890806490,5,Confamiliares,l10n_co_account.it_nit,6511,es_CO
+890900840,890900840,1,Comfamiliar Camacol,l10n_co_account.it_nit,6511,es_CO
+890900841,890900841,9,Comfama,l10n_co_account.it_nit,6511,es_CO
+890900842,890900842,6,Comfenalco Antioquia,l10n_co_account.it_nit,6511,es_CO
+890904996,890904996,1,Empresas Públicas de Medellín Departamento Médico,l10n_co_account.it_nit,6521,es_CO
+890980040,890980040,8,Universidad de Antioquia,l10n_co_account.it_nit,6521,es_CO
+891080005,891080005,1,Comfacor,l10n_co_account.it_nit,6511,es_CO
+891080013,891080013,3,Universidad de Córdoba,l10n_co_account.it_nit,6521,es_CO
+891180008,891180008,2,Comfamiliar Huila,l10n_co_account.it_nit,6511,es_CO
+891190047,891190047,2,Comfaca,l10n_co_account.it_nit,6511,es_CO
+891200337,891200337,8,Comfamiliar Putumayo,l10n_co_account.it_nit,6511,es_CO
+891280008,891280008,1,Comfamiliar Nariño,l10n_co_account.it_nit,6511,es_CO
+891480000,891480000,1,Comfamiliar Risaralda,l10n_co_account.it_nit,6511,es_CO
+891500182,891500182,0,Comfacauca,l10n_co_account.it_nit,6511,es_CO
+891500139,891500139,2,Universidad del Cauca,l10n_co_account.it_nit,6521,es_CO
+891600091,891600091,8,ComfaChocó,l10n_co_account.it_nit,6511,es_CO
+891780093,891780093,3,Cajamag,l10n_co_account.it_nit,6511,es_CO
+891800213,891800213,8,Comfaboy,l10n_co_account.it_nit,6511,es_CO
+891800330,891800330,1,Universidad Pedagógica - UPTC,l10n_co_account.it_nit,6521,es_CO
+891856000,891856000,7,Capresoca,l10n_co_account.it_nit,6521,es_CO
+892000146,892000146,3,Cofrem,l10n_co_account.it_nit,6511,es_CO
+892115006,892115006,5,Comfamiliar Guajira,l10n_co_account.it_nit,6511,es_CO
+892200015,892200015,5,Comfasucre,l10n_co_account.it_nit,6511,es_CO
+892399989,892399989,8,Comfacesar,l10n_co_account.it_nit,6511,es_CO
+892400320,892400320,5,Cajasai,l10n_co_account.it_nit,6511,es_CO
+899999001,899999001,7,MEN,l10n_co_account.it_nit,6511,es_CO
+899999034,899999034,1,SENA,l10n_co_account.it_nit,6511,es_CO
+899999054,899999054,7,ESAP,l10n_co_account.it_nit,6511,es_CO
+899999063,899999063,3,Universidad Nacional de Colombia,l10n_co_account.it_nit,6521,es_CO
+899999107,899999107,9,Convida,l10n_co_account.it_nit,6521,es_CO
+899999239,899999239,2,ICBF,l10n_co_account.it_nit,6511,es_CO
+899999734,899999734,7,Fonprecon,l10n_co_account.it_nit,6532,es_CO
+900156264,900156264,2,Nueva E.P.S.,l10n_co_account.it_nit,6521,es_CO
+900298372,900298372,9,Capital Salud,l10n_co_account.it_nit,6521,es_CO
+900336004,900336004,7,Colpensiones,l10n_co_account.it_nit,6513,es_CO
+900462447,900462447,5,Fosyga,l10n_co_account.it_nit,6521,es_CO
+900604350,900604350,0,Savia Salud,l10n_co_account.it_nit,6521,es_CO
+901487212,901487212,3,Fosyga Derecho Corporativo SAS,l10n_co_account.it_nit,6521,es_CO

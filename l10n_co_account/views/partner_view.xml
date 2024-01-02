@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_partner_name_form">
+            <field name="name">res.partner.name</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='vat']" position="after">
+                    <tree attrs="{'invisible':[('company_type','=','company')]}">
+                        <field name="firstname" attrs="{'required':[('company_type','=','person')]}"/>
+                        <field name="other_name"/>
+                        <field name="lastname" attrs="{'required':[('company_type','=','person')]}"/>   
+                        <field name="other_lastname"/>
+                    </tree>   
+                </xpath>
+                <field name="city" position="replace">
+                    <field name="city_id" placeholder="City" class="o_address_city"
+                           options='{"no_open": True}'
+                           attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                    <field name="city" invisible="1"/>
+                </field>        
+                <xpath expr="//group/group/field[@name='industry_id']" position="after">
+                        <field name="ciiu_id" domain="[('industry_id','=',industry_id)]" attrs="{'required': [('company_type','=','company')], 'invisible': [('company_type','=','person')]}"/>
+                </xpath>
+                <xpath expr="//page[@name='sales_purchases']/group[@name='container_row_2']" position="inside">
+                    <group name="retention" string="Retention">
+                        <field name="retention"/>
+                    </group>
+                </xpath>
+                <xpath expr="//group/group/field[@name='property_account_position_id']" position="after">
+                    <field name="ei_fiscal_responsibility_ids" widget="many2many_tags"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>
