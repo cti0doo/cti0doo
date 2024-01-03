@@ -1,0 +1,83 @@
+<odoo>
+    <data>
+        <!-- start:views -->
+        <record model="ir.ui.view" id="edi_resolution_tree_view">
+            <field name="name">edi_resolution_tree</field>
+            <field name="model">edi.resolution</field>
+            <field name="arch" type="xml">
+                <tree string="Resolutions">
+                    <field name="company_id" />
+                    <field name="category" />
+                    <field name="name" />
+                    <field name="number" />
+                    <field name="date" />
+                    <field name="seq_from" />
+                    <field name="seq_to" />
+                    <field name="start_date" />
+                    <field name="end_date" />
+                    <field name="send_seq" />
+                    <field name="type" />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="company_resolution_form_view">
+            <field name="name">edi_resolution_form</field>
+            <field name="model">edi.resolution</field>
+            <field name="arch" type="xml">
+                <form string="Resolution">
+                    <sheet>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="category" />
+                            <field name="name"/>
+                            <field name="number"/>
+                            <field name="date"/>
+                            <field name="prefix"/>
+                            <field name="type"/>
+                            <field name="technical_key"
+                                   attrs="{'invisible':[('type', '!=', 'electronic-invoice')],
+                                           'required': [('type', '=', 'electronic-invoice')]}"
+                            />
+                        </group>
+                        <group>
+                            <field name="seq_from"/>
+                            <field name="seq_to"/>
+                            <field name="send_seq"/>
+                        </group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="state"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- end:views -->
+
+        <!-- start:actions -->
+        <record model="ir.actions.act_window"
+            id="company_resolution_list_action">
+            <field name="name">Edi Resolutions</field>
+            <field name="res_model">edi.resolution</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first Resolution
+                </p>
+            </field>
+        </record>
+        <!-- end:actions -->
+
+        <!-- start;menus -->
+        <menuitem
+            action="company_resolution_list_action"
+            name="EDI Resolutions"
+            id="company_resolution_config_submenu"
+            parent="account.account_account_menu"
+            sequence="100"/>
+        <!-- end:menus -->
+
+    </data>
+</odoo>

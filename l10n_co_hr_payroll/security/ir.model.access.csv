@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_resource_calendar_attendance_template,access_resource_calendar_attendance_template,model_resource_calendar_attendance_template,base.group_user,1,0,0,0
+access_resource_calendar_template,access_resource_calendar_template,model_resource_calendar_template,base.group_user,1,0,0,0
+access_hr_contract_register,access_hr_contract_register,model_hr_contract_register,base.group_user,1,1,1,1
+access_hr_diagnosis,access_hr_diagnosis,model_hr_diagnosis,base.group_user,1,1,1,1
+access_hr_inputs,access_hr_inputs,model_hr_inputs,base.group_user,1,1,1,1
+access_hr_inputs_type,access_hr_inputs_type,model_hr_inputs_type,base.group_user,1,1,1,1
+access_hr_contribution_register,access_hr_contribution_register,model_hr_contribution_register,base.group_user,1,1,1,1
+access_hr_contribution_partner_register,access_hr_contribution_partner_register,model_hr_contribution_partner_register,base.group_user,1,1,1,1

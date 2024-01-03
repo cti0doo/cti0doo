@@ -1,0 +1,13 @@
+id,name,code,short_name,country_id:id,is_vat,sequence
+it_rc,11 - Registro Civil,11,RC,base.co,FALSE,3
+it_ti,12 - Tarjeta de Identidad,12,TI,base.co,FALSE,4
+it_cc,13 - Cedula de Ciudadania,13,CC,base.co,TRUE,2
+it_te,21 - Tarjeta de Extranjeria,21,TE,base.co,False,5
+it_ce,22 - Cedula de Extanjeria,22,CE,base.co,False,6
+it_nit,31 - Número de Identificación Tributaria,31,NIT,base.co,TRUE,1
+l10n_latam_base.it_pass,41 - Passport,41,PAS,,FALSE,7
+l10n_latam_base.it_fid,42 - Tarjeta de Extranjería,42,FID,,FALSE,9
+it_niup,91 - Numero Unico Identifiación Personal,91,NIUP,base.co,False,11
+it_dc,91 - Tarjeta Diplomática,91,TD,base.co,FALSE,12
+it_rut,91 - Registro Unico Tributario,91,RUT,base.co,FALSE,13
+l10n_latam_base.it_vat,91 - Vat,91,VAT,,TRUE,80

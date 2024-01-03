@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+    <!-- Advance Payment -->
+        <record id="hr_payslip_run_form" model="ir.ui.view">
+            <field name="name">hr.payslip.run.form</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_validate']" position="before">
+                    <button name="confirm_payslip_run" type="object" string="Confirm" invisible="state != 'verify'"
+                            class="oe_highlight"/>
+                    <button name="compute_payslips" type="object" string="Compute payslips" invisible="state != 'verify'"
+                            class="oe_highlight"/>
+                    <button name="action_payslips_payment" type="object" string="Create Payment" invisible="state != 'verify'" class="oe_highlight"/>
+                </xpath>
+            </field>
+        </record>
+    
+        <record id="view_hr_salary_rule_form" model="ir.ui.view">
+            <field name="name">view.hr.salary.rule.form</field>
+            <field name="model">hr.salary.rule</field>
+            <field name="inherit_id" ref="hr_payroll.hr_salary_rule_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="register_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="payment_journal_advance_form" model="ir.ui.view">
+            <field name="name">payment.journal.advance.form</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="journal_id"/>
+                    <field name="advance_batch_payment_id" readonly="True"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

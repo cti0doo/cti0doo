@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_partner_form">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <!--xpath expr="//group/group/field[@name='city']" position="replace"
+                <field name="city" position="replace">
+                    <field name="city_id" domain="[('state_id','=',state_id)]" placeholder="City" class="o_address_city_id"
+                           options='{"no_open": True}'
+                           attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                    <field name="city" invisible="1"/>
+                </field>-->
+
+                <field name="zip" position="replace">
+                    <field name="zip_id" domain="[('city_id','=',city_id)]" placeholder="Zip" class="o_address_zip_id"
+                           options='{"no_open": True}'
+                           readonly="[(type, '=', 'contact'),(parent_id, '!=', False)]"/>
+                           <!--attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>-->
+                    <field name="zip" invisible="1"/>
+                </field>
+            
+                <!--<xpath expr="//group/group/field[@name='industry_id']" position="after">
+                        <field name="ciiu_id" domain="industry_id == industry_id"
+                               required="company_type == 'company'"
+                               invisible="company_type == 'person'"/>
+                </xpath>-->
+                <xpath expr="//page[@name='sales_purchases']/group[@name='container_row_2']" position="inside">
+                    <group name="retention" string="Retention">
+                        <field name="retention"/>
+                    </group>
+                </xpath>
+                <xpath expr="//group/group/field[@name='property_account_position_id']" position="attributes">
+                    <attribute name="options">{'no_open': False}</attribute>
+                </xpath>
+                <xpath expr="//group/group/field[@name='property_account_position_id']" position="after">
+                    <field name="ei_fiscal_responsibility_ids" widget="many2many_tags"/>
+                </xpath>
+
+                <xpath expr="//div/field[@name='vat']" position="after">
+                    <field name="vat_vd" nolabel="1" placeholder="dv" style="width: 15%"
+                           required="l10n_latam_identification_type_id == 4"
+                           invisible="l10n_latam_identification_type_id != 4"
+                           help="Verification Digit"/>
+                    <div string="Personal data" invisible="company_type == 'company'">
+                        <field name="firstname" nolabel="1" placeholder="First Name" style="width:15%" class="oe_inline"
+                               required="company_type == 'person'"/>
+                        <field name="other_name" nolabel="1" placeholder="Second Name" style="width:15%" class="oe_inline"/>
+                        <field name="lastname" nolabel="1" placeholder="Last Name" style="width:15%" class="oe_inline"
+                               required="company_type =='person'"/>
+                        <field name="other_lastname" nolabel="1" placeholder="Other Last Name" style="width:15%" class="oe_inline"/>
+                    </div>
+                </xpath>
+                <xpath expr="//group/group/field[@name='name']" position="after">
+                    <field name="stock_holder"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="res_partner_kanban_view">
+            <field name="name">res.partner.kanban</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+            <field name="arch" type="xml">
+                <!--
+                <xpath expr="//field[@name='display_name']" position="after">
+                    <field name="vat"/>
+                </xpath>
+                -->
+                <xpath expr="//templates//ul//li" position="before">
+                    <li t-if="record.vat.raw_value and !record.function.raw_value">
+                        <field name="vat"/>
+                    </li>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

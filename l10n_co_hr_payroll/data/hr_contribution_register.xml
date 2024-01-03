@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- CONTRIBUTIONS -->
+
+        <record model='hr.contribution.register' id='COMPANY'>
+            <field name='name'>Company</field>
+        </record>
+
+        <record model='hr.contribution.register' id='EMPLOYEE'>
+            <field name='name'>Employee</field>
+        </record>
+
+        <record model='hr.contribution.register' id='EPS'>
+            <field name='name'>EPS</field>
+        </record>
+
+        <record model='hr.contribution.register' id='ARL'>
+            <field name='name'>ARL</field>
+        </record>
+
+        <record model='hr.contribution.register' id='AFP'>
+            <field name='name'>AFP</field>
+        </record>
+
+        <record model='hr.contribution.register' id='AFC'>
+            <field name='name'>AFC</field>
+        </record>
+
+        <record model='hr.contribution.register' id='CCF'>
+            <field name='name'>CCF</field>
+        </record>
+
+        <record model='hr.contribution.register' id='ESAP'>
+            <field name='name'>ESAP</field>
+        </record>
+
+        <record model='hr.contribution.register' id='ICBF'>
+            <field name='name'>ICBF</field>
+        </record>
+
+        <record model='hr.contribution.register' id='SENA'>
+            <field name='name'>SENA</field>
+        </record>
+
+        <record model='hr.contribution.register' id='JUD'>
+            <field name='name'>JUD</field>
+        </record>
+
+        <record model='hr.contribution.register' id='OTH'>
+            <field name='name'>OTH</field>
+        </record>
+
+        <record model='hr.contribution.register' id='COO'>
+            <field name='name'>COO</field>
+        </record>
+
+        <record model='hr.contribution.register' id='FON'>
+            <field name='name'>FON</field>
+        </record>
+
+        <record model='hr.contribution.register' id='LOA'>
+            <field name='name'>LOA</field>
+        </record>
+
+        <record model='hr.contribution.register' id='INS'>
+            <field name='name'>INS</field>
+        </record>
+
+        <record model='hr.contribution.register' id='UNI'>
+            <field name='name'>UNI</field>
+        </record>
+
+        <record model='hr.contribution.register' id='TAX'>
+            <field name='name'>TAX</field>
+        </record>
+
+    </data>
+</odoo>
