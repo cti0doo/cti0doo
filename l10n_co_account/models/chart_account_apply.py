@@ -10,6 +10,14 @@ _logger = logging.getLogger(__name__)
 class ChartAccountApply(models.AbstractModel):
     _inherit = 'account.chart.template'
 
+    @template('co', 'account.account.tag')
+    def _get_co_account_account(self):
+        return self._parse_csv('co', 'account.account.tag', module='l10n_co_account')
+
+    @template('co', 'account.group')
+    def _get_co_account_account(self):
+        return self._parse_csv('co', 'account.group', module='l10n_co_account')
+
     @template('co', 'account.account')
     def _get_co_account_account(self):
         return self._parse_csv('co', 'account.account', module='l10n_co_account')
