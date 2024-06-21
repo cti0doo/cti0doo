@@ -920,7 +920,11 @@ result = rules.NET > categories.NET * 0.10","Payroll",1,"contract.wage",85,"acco
 # Note: returned value have to be set in the variable 'result'
 
 result = contract.wage * 0.10","result = IBC_SS and not payslip.company_id_partner_id.retention","Payroll",1,"contract.wage",85,"account.3_co_puc_237010","account.3_co_puc_510578"
-"l10n_co_hr_payroll.hr_salary_rule_ARL","Professional Risk","ARL","TRUE","Contribution","ARL","Python Code","Always True","Professional Risk",0,0,0,0,,"result = IBC_SS and not payslip.company_id_partner_id.retention","inputs.ARL","Payroll",1,"contract.wage",85,,
+"l10n_co_hr_payroll.hr_salary_rule_ARL","Professional Risk","ARL","TRUE","Contribution","ARL","Python Code","Always True","Professional Risk",0,0,0,0,,"factor = payslip.employee_id.department_id.arl_class if payslip.employee_id.department_id.arl_class else payslip._rule_parameter('ARL') if payslip._rule_parameter('ARL') else '1'
+categoria = 1.044 if factor == '2' else 2.436 if factor == '3' else 4.350 if factor == '4' else 6.960 if factor == 5 else 0.522
+result_qty = 1
+result_rate = categoria
+result = IBC_SS","inputs.ARL","Payroll",1,"contract.wage",85,,
 "l10n_co_hr_payroll.hr_salary_rule_TOT_CON","Total Contributions","TOT_CON","TRUE","Total","Employee","Python Code","Always True","Total Contributions",0,0,0,0,,"result = categories.CON","categories.CON","Payroll",1,"contract.wage",89,"account.3_co_puc_281095","account.3_co_puc_510536"
 "l10n_co_hr_payroll.hr_salary_rule_AFC_ACR","AFC Accrued","AFC_ACR","TRUE","Accrued","Employee","Percentage (%)","Python Expression","AFC Accrued",0,0,0,8.33,"categories.INC + categories.OTH_INC","Total = 0 if contract.integral else 1","Total = 0
 total += 1 if not contract.integral else 0
@@ -947,5 +951,5 @@ result = contract.wage /30","worked_days.EPS_INA_180","Payroll",1,"contract.wage
 "l10n_co_hr_payroll.hr_salary_rule_EPS_INA_COL","EPS Inability Collect","EPS_INA_COL","TRUE","Collection","EPS","Python Code","Python Expression","EPS Inability Collect",0,0,0,0,,"result_qty = worked_days.EPS_INA.number_of_days
 result_rate = (contract.wage * 0.6667 > SMMLV) and  66.67  or  (100 * contract.wage / SMMLV)
 result = contract.wage /30","worked_days.EPS_INA ","Payroll",1,"contract.wage",101,"account.3_co_puc_250505","account.3_co_puc_510595"
-"l10n_co_hr_payroll.hr_salary_rule_NET","Net","NET","TRUE","Net",,"Python Code","Always True","NET",0,0,0,0,,"result = categories['INC'] + categories['OTH_INC'] + categories['OTH_PAY'] - categories['DED'] - categories['DIS']","total = 0
+"l10n_co_hr_payroll.hr_salary_rule_NET","Net","NET","TRUE","Net",,"Python Code","Always True","NET",0,0,0,0,,"result = GROSS + categories.CON + categories.ACR","total = 0
 total = categories.OTH_INC","Payroll",1,"contract.wage",100,,
