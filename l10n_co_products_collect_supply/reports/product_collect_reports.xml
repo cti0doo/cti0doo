@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+                string="Product Collect"
+                id="action_report_product_collect"
+                model="product.collect"
+                report_type="qweb-pdf"
+                name="l10n_co_products_collect_supply.report_productcollect"
+                file="l10n_co_products_collect_supply.report_productcollect"
+                print_report_name="'Product Collect - %s' % (object.name)"
+        />
+    </data>
+</odoo>

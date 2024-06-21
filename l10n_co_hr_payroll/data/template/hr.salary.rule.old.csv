@@ -1,9 +1,7 @@
 "id","name","code","appears_on_payslip","category_id","register_id","amount_select","condition_select","note","amount_fix","condition_range_max","condition_range_min","amount_percentage","amount_percentage_base","amount_python_compute","condition_python","struct_id","quantity","condition_range","sequence","account_credit/id","account_debit/id"
 "l10n_co_hr_payroll.hr_salary_rule_DAYS","Days","DAYS","FALSE","Quotation Base Index","Employee","Python Code","Always True","Days",0,0,0,0,,"total = 0
-date_end = strptime('01/01/2019', '%m/%d/%Y')
 date_end = payslip.date_to
 day_end = int(date_end.day)
-tdate_start = strptime('01/01/2019', '%m/%d/%Y')
 date_start = payslip.date_from
 day_start = int(date_start.day)
 day_end = day_end if day_end  < 28  else 30
@@ -22,11 +20,11 @@ result = total / 30","
 # Note: returned value have to be set in the variable 'result'
 
 result = rules.NET > categories.NET * 0.10","Payroll",1,"contract.wage",0,,
-"l10n_co_hr_payroll.hr_salary_rule_SMMLV","Minimun Salary","SMMLV","FALSE","Quotation Base Index","Employee","Python Code","Python Expression","Minimun Monthly Legal Salary ",0,0,0,0,,"result = payslip.rule_parameter('SMMLV')","total = 0
-total = payslip.rule_parameter('SMMLV') if payslip.rule_parameter('SMMLV') else total
+"l10n_co_hr_payroll.hr_salary_rule_SMMLV","Minimun Salary","SMMLV","FALSE","Quotation Base Index","Employee","Python Code","Python Expression","Minimun Monthly Legal Salary ",0,0,0,0,,"result = payslip._rule_parameter('SMMLV')","total = 0
+total = payslip._rule_parameter('SMMLV') if payslip._rule_parameter('SMMLV') else total
 result = total if total != 0 else 0","Payroll",1,"contract.wage",0,,
-"l10n_co_hr_payroll.hr_salary_rule_UVT","Unit Value Tax","UVT","FALSE","Quotation Base Index","Employee","Python Code","Python Expression","Unit Value Tax",0,0,0,0,,"result = payslip.rule_parameter('UVT')","total = 0
-total = payslip.rule_parameter('UVT') if payslip.rule_parameter('UVT') else total
+"l10n_co_hr_payroll.hr_salary_rule_UVT","Unit Value Tax","UVT","FALSE","Quotation Base Index","Employee","Python Code","Python Expression","Unit Value Tax",0,0,0,0,,"result = payslip._rule_parameter('UVT')","total = 0
+total = payslip._rule_parameter('UVT') if payslip._rule_parameter('UVT') else total
 result = total if total != 0 else 0","Payroll",1,"contract.wage",0,,
 "l10n_co_hr_payroll.hr_salary_rule_BASIC","Basic Salary","BASIC","FALSE","Quotation Base Index","Employee","Python Code","Always True","Basic Salary",0,0,0,0,,"result = contract.wage * DAYS","
  # Available variables:
@@ -153,7 +151,7 @@ for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'SUB'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.SUB.amount if inputs.SUB and inputs.SUB.amount else total * DAYS
 result = total if total != 0 else 0","Payroll",,,21,"account.3_co_puc_250505","account.3_co_puc_510506"
-"l10n_co_hr_payroll.hr_salary_rule_TRA_ASI","Transport Assistance","TRA_ASI","TRUE","Other Income","Employee","Python Code","Python Expression","Transport Assistance",0,0,0,0,,"result = payslip.rule_parameter('AT') * DAYS if payslip.rule_parameter('AT') else 0","total = 0
+"l10n_co_hr_payroll.hr_salary_rule_TRA_ASI","Transport Assistance","TRA_ASI","TRUE","Other Income","Employee","Python Code","Python Expression","Transport Assistance",0,0,0,0,,"result = payslip._rule_parameter('AT') * DAYS if payslip._rule_parameter('AT') else 0","total = 0
 for days in payslip.worked_days_line_ids.filtered(lambda x: x.number_of_days > 0):
  total += days.number_of_days
 result = total if (contract.employee_id.km_home_work >= 2) and (( categories.INC / (SMMLV * DAYS) ) <= 2.0) else 0","Payroll",1,"contract.wage",21,"account.3_co_puc_250505","account.3_co_puc_510506"
@@ -400,12 +398,12 @@ if nro_months > 0:
     date_start = date_start + relativedelta(months=month_initial - 1)
   for slip in contract.payslip_ids.filtered(lambda x: x.date_from >= date_start and x.date_from <= payslip.date_to + relativedelta(days=0)):
     i += 1
-    for income in slip.line_ids.filtered(lambda x: x.code == ('TOT_INC')):
+    for income in slip.line_ids.filtered(lambda x: x.code in ('TOT_INC', 'TOT_OTH_INC')):
       total += income.amount
-  total += TOT_INC + TRA_ASI
+  total += TOT_INC + TOT_OTH_INC
   porc =   date_end.day if date_end.day < 28 else 30
   nro_months = nro_months - ((30 - porc) / 30)
-  total = total
+  total = total / nro_months
 result_qty = 1
 result_rate = 100 / nro_months
 result=total","date_end = strptime('2019-01-01', '%Y-%m-%d')
@@ -429,14 +427,14 @@ if nro_months > 0:
     nro_months = nro_months + 1 - delta_initial
     date_start = date_start + relativedelta(months=month_initial - 1)
   for slip in contract.payslip_ids.filtered(lambda x: x.date_from >= date_start and x.date_from <= date_end):
-    for income in slip.line_ids.filtered(lambda x: x.code == ('TOT_INC')):
+    for income in slip.line_ids.filtered(lambda x: x.code in ('TOT_INC', 'TOT_OTH_INC')):
       total += income.amount
-  total += TOT_INC + TRA_ASI
+  total += TOT_INC + TOT_OTH_INC
   porc =   date_end.day if date_end.day < 28 else 30
   nro_months = nro_months - ((30 - porc) / 30)
-  total = total
+  total = total / nro_months
 result_qty = 1
-result_rate=100 / nro_months
+result_rate=100
 result=total","date_end = strptime('2019-01-01', '%Y-%m-%d')
 date_end = payslip.date_to
 end_month = int(date_end.month)
@@ -794,7 +792,7 @@ result = rules.NET > categories.NET * 0.10","Payroll",1,"contract.wage",79,,
 
 # Note: returned value have to be set in the variable 'result'
 
-result = contract.wage * 0.10","result = IBC_SS and not payslip.company_id_partner_id.retention","Payroll",1,"contract.wage",81,,
+result = contract.wage * 0.10","result = IBC_SS","Payroll",1,"contract.wage",81,,
 "l10n_co_hr_payroll.hr_salary_rule_AFP_PAT","Employer Pension Contribution","AFP_PAT","TRUE","Contribution","Employee","Percentage (%)","Python Expression","Employer Pension Contribution",0,0,0,12.5,"IBC_SS"," # Available variables:
 #----------------------
 # payslip: object containing the payslips
@@ -868,7 +866,7 @@ tre = (AFP_DED + AFC_DED + OTH_EXC+ OTH_DED)
 dis = (incr - ded - tre) * 0.25
 result = incr * 0.60 if (ded + tre + dis) > incr * 0.4 else incr - (ded + tre + dis)","ibc = IBC_SS
 result = ibc > (4 * SMMLV)","Payroll",1,"contract.wage",84,"account.3_co_puc_237006","account.3_co_puc_510568"
-"l10n_co_hr_payroll.hr_salary_rule_ICBF","Colombian Familiar Wellness Institute","ICBF","TRUE","Contribution","ICBF","Percentage (%)","Python Expression","Colombian Familiar Wellness Institute",0,0,0,3,"IBC_SS"," # Available variables:
+"l10n_co_hr_payroll.hr_salary_rule_ICBF","Colombian Familiar Wellness Institute","ICBF","TRUE","Contribution","ICBF","Percentage (%)","Always True","Colombian Familiar Wellness Institute",0,0,0,3,"IBC_SS"," # Available variables:
 #----------------------
 # payslip: object containing the payslips
 # employee: hr.employee object
@@ -880,7 +878,7 @@ result = ibc > (4 * SMMLV)","Payroll",1,"contract.wage",84,"account.3_co_puc_237
 
 # Note: returned value have to be set in the variable 'result'
 
-result = contract.wage * 0.10","result = IBC_SS and not payslip.company_id_partner_id.retention","Payroll",1,"contract.wage",85,"account.3_co_puc_237010","account.3_co_puc_510572"
+result = contract.wage * 0.10","result = not contract.employee_id.company_id or (( (categories.INC + categories.OTH_INC) / SMMLV ) >= 10.0)","Payroll",1,"contract.wage",85,"account.3_co_puc_237010","account.3_co_puc_510572"
 "l10n_co_hr_payroll.hr_salary_rule_CCF","Familiar Compensation Cash","CCF","TRUE","Contribution","CCF","Percentage (%)","Always True","Familiar Compensation Cash",0,0,0,4,"IBC_SS"," # Available variables:
 #----------------------
 # payslip: object containing the payslips
@@ -907,7 +905,7 @@ result = contract.wage * 0.10","
 # Note: returned value have to be set in the variable 'result'
 
 result = rules.NET > categories.NET * 0.10","Payroll",1,"contract.wage",85,"account.3_co_puc_237010","account.3_co_puc_510575"
-"l10n_co_hr_payroll.hr_salary_rule_SENA","Learning National Service","SENA","TRUE","Contribution","SENA","Percentage (%)","Python Expression","Learning National Service",0,0,0,2,"IBC_SS"," # Available variables:
+"l10n_co_hr_payroll.hr_salary_rule_SENA","Learning National Service","SENA","TRUE","Contribution","SENA","Percentage (%)","Always True","Learning National Service",0,0,0,2,"IBC_SS"," # Available variables:
 #----------------------
 # payslip: object containing the payslips
 # employee: hr.employee object
@@ -919,8 +917,12 @@ result = rules.NET > categories.NET * 0.10","Payroll",1,"contract.wage",85,"acco
 
 # Note: returned value have to be set in the variable 'result'
 
-result = contract.wage * 0.10","result = IBC_SS and not payslip.company_id_partner_id.retention","Payroll",1,"contract.wage",85,"account.3_co_puc_237010","account.3_co_puc_510578"
-"l10n_co_hr_payroll.hr_salary_rule_ARL","Professional Risk","ARL","TRUE","Contribution","ARL","Python Code","Always True","Professional Risk",0,0,0,0,,"result = IBC_SS and not payslip.company_id_partner_id.retention","inputs.ARL","Payroll",1,"contract.wage",85,,
+result = contract.wage * 0.10","result = not contract.employee_id.company_id or (( (categories.INC) / SMMLV ) >= 10.0)","Payroll",1,"contract.wage",85,"account.3_co_puc_237010","account.3_co_puc_510578"
+"l10n_co_hr_payroll.hr_salary_rule_ARL","Professional Risk","ARL","TRUE","Contribution","ARL","Python Code","Always True","Professional Risk",0,0,0,0,,"factor = inputs.ARL.amount if inputs.ARL else 1.0
+if not factor in (2.0,3.0,4.0,5.0):
+   factor = 1.0
+categoria = {1.0: 0.522, 2.0: 1.044, 3.0: 2.436, 4.0: 4.350, 5.0: 6.960}
+result = (IBC_SS * categoria[factor]) / 100","inputs.ARL","Payroll",1,"contract.wage",85,,
 "l10n_co_hr_payroll.hr_salary_rule_TOT_CON","Total Contributions","TOT_CON","TRUE","Total","Employee","Python Code","Always True","Total Contributions",0,0,0,0,,"result = categories.CON","categories.CON","Payroll",1,"contract.wage",89,"account.3_co_puc_281095","account.3_co_puc_510536"
 "l10n_co_hr_payroll.hr_salary_rule_AFC_ACR","AFC Accrued","AFC_ACR","TRUE","Accrued","Employee","Percentage (%)","Python Expression","AFC Accrued",0,0,0,8.33,"categories.INC + categories.OTH_INC","Total = 0 if contract.integral else 1","Total = 0
 total += 1 if not contract.integral else 0
@@ -947,5 +949,5 @@ result = contract.wage /30","worked_days.EPS_INA_180","Payroll",1,"contract.wage
 "l10n_co_hr_payroll.hr_salary_rule_EPS_INA_COL","EPS Inability Collect","EPS_INA_COL","TRUE","Collection","EPS","Python Code","Python Expression","EPS Inability Collect",0,0,0,0,,"result_qty = worked_days.EPS_INA.number_of_days
 result_rate = (contract.wage * 0.6667 > SMMLV) and  66.67  or  (100 * contract.wage / SMMLV)
 result = contract.wage /30","worked_days.EPS_INA ","Payroll",1,"contract.wage",101,"account.3_co_puc_250505","account.3_co_puc_510595"
-"l10n_co_hr_payroll.hr_salary_rule_NET","Net","NET","TRUE","Net",,"Python Code","Always True","NET",0,0,0,0,,"result = categories['INC'] + categories['OTH_INC'] + categories['OTH_PAY'] - categories['DED'] - categories['DIS']","total = 0
+"l10n_co_hr_payroll.hr_salary_rule_NET","Net","NET","TRUE","Net",,"Python Code","Always True","NET",0,0,0,0,,"result = GROSS + categories.CON + categories.ACR","total = 0
 total = categories.OTH_INC","Payroll",1,"contract.wage",100,,
