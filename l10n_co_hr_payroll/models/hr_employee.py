@@ -24,6 +24,35 @@ from odoo import models, api, fields
 
 _logger = logging.getLogger(__name__)
 
+class hr_department(models.Model):
+    _inherit = "hr.department"
+
+    arl_class = fields.Selection(
+        selection=[
+            ('1', 'Minimun risk'),
+            ('2', 'Low Risk'),
+            ('3', 'Medium Risk'),
+            ('4', 'High Risk'),
+            ('5', 'Maximun')
+        ],
+        string='Arl Class',
+        required=False
+    )
+
+class hr_job(models.Model):
+    _inherit = "hr.job"
+
+    arl_class = fields.Selection(
+        selection=[
+            ('1', 'Minimun risk'),
+            ('2', 'Low Risk'),
+            ('3', 'Medium Risk'),
+            ('4', 'High Risk'),
+            ('5', 'Maximun')
+        ],
+        string='Arl Class',
+        required=False
+    )
 
 class hr_employee(models.Model):
     _inherit = "hr.employee"
