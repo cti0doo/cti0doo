@@ -862,11 +862,12 @@ for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'KND'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 ","Payroll",1,"contract.wage",83,"account.3_co_puc_236505","account.3_co_puc_250505"
 "l10n_co_hr_payroll.hr_salary_rule_BAS_RET","Base Retention","BAS_RET","FALSE","Quotation Base Index","Employee","Python Code","Python Expression","Base Retention",0,0,0,0,,"result_rate=100
-incr =  (categories.INC - categories.DED) * 30 / worked_days.WORK100.number_of_days
-ded = HOU_DED + DEP_DED + MED_DED
-tre = (AFP_DED + AFC_DED + OTH_EXC+ OTH_DED)
-dis = (incr - ded - tre) * 0.25
-result = incr * 0.60 if (ded + tre + dis) > incr * 0.4 else incr - (ded + tre + dis)","ibc = IBC_SS
+incr =  (categories['INC'] - categories['DED']) * 30 / worked_days['WORK100'].number_of_days
+ded = inputs['HOU_DED'].amount if 'HOU_DED' in inputs else 0 + inputs['DEP_DED'].amount if 'DEP_DED' in inputs else 0 + inputs['MED_DED'].amount if 'MED_DED' in inputs else 0 
+af = inputs['SUB'].amount if 'SUB' in inputs else 0 + inputs['AFC_DED'].amount if 'AFC' in inputs else 0
+oth = inputs['OTH_EXC'].amount if 'OTH_EXC' in inputs else 0 + inputs['OTH_DED'].amount if 'OTH_DED' in inputs else 0
+dis = (incr - ded - af - oth) * 0.25
+result = incr * 0.60 if (ded + af + oth + dis) > incr * 0.4 else incr - (ded + af + oth + dis)","ibc = IBC_SS
 result = ibc > (4 * SMMLV)","Payroll",1,"contract.wage",84,"account.3_co_puc_237006","account.3_co_puc_510568"
 "l10n_co_hr_payroll.hr_salary_rule_ICBF","Colombian Familiar Wellness Institute","ICBF","TRUE","Contribution","ICBF","Percentage (%)","Python Expression","Colombian Familiar Wellness Institute",0,0,0,3,"IBC_SS"," # Available variables:
 #----------------------
@@ -920,7 +921,7 @@ result = rules.NET > categories.NET * 0.10","Payroll",1,"contract.wage",85,"acco
 # Note: returned value have to be set in the variable 'result'
 
 result = contract.wage * 0.10","result = IBC_SS and not payslip.company_id_partner_id.retention","Payroll",1,"contract.wage",85,"account.3_co_puc_237010","account.3_co_puc_510578"
-"l10n_co_hr_payroll.hr_salary_rule_ARL","Professional Risk","ARL","TRUE","Contribution","ARL","Python Code","Always True","Professional Risk",0,0,0,0,,"factor = payslip.employee_id.department_id.arl_class if payslip.employee_id.department_id.arl_class else payslip._rule_parameter('ARL') if payslip._rule_parameter('ARL') else '1'
+"l10n_co_hr_payroll.hr_salary_rule_ARL","Professional Risk","ARL","TRUE","Contribution","ARL","Python Code","Always True","Professional Risk",0,0,0,0,,"factor = payslip.employee_id.job_id.arl_class if payslip.employee_id.job_id.arl_class else payslip.employee_id.department_id.arl_class if payslip.employee_id.department_id.arl_class else payslip._rule_parameter('ARL') if payslip._rule_parameter('ARL') else '1'
 categoria = 1.044 if factor == '2' else 2.436 if factor == '3' else 4.350 if factor == '4' else 6.960 if factor == 5 else 0.522
 result_qty = 1
 result_rate = categoria
