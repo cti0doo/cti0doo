@@ -49,7 +49,7 @@ class AccountMove(models.Model):
 
     def _get_tax_grouping_key_from_base_line(self, base_line, tax_vals):
         ''' Create the dictionary based on a base line that will be used as key to group taxes together.
-        /!\ Must be consistent with '_get_tax_grouping_key_from_tax_line'.
+         Must be consistent with '_get_tax_grouping_key_from_tax_line'.
         :param base_line:   An account.move.line being a base line (that could contains something in 'tax_ids').
         :param tax_vals:    An element of compute_all(...)['taxes'].
         :return:            A dictionary containing all fields on which the tax will be grouped.
