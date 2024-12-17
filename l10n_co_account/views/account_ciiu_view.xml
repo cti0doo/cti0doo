@@ -12,16 +12,14 @@
                             <field name="industry_id"/>
                             <field name="description"/>
                         </group>
-                        <notebook>
-                            <page string="Lines">
-                                <field name="line_ids">
-                                    <tree string="Lines" editable="buttom">
-                                        <field name="tax_id"/>
-                                        <field name="city_id"/>
-                                    </tree>
-                                </field>
-                            </page>
-                        </notebook>
+                        <group string="Lines">
+                            <field name="line_ids">
+                                <list string="Lines">
+                                    <field name="tax_id"/>
+                                    <field name="city_id"/>
+                                </list>
+                            </field>
+                        </group>
                     </sheet>
                 </form>
             </field>
@@ -31,10 +29,10 @@
             <field name="name">account.ciiu.tree</field>
             <field name="model">account.ciiu</field>
             <field name="arch" type="xml">
-                <tree string="Configuracion para informes de impuestos">
+                <list string="Configuracion para informes de impuestos">
                     <field name="name"/>
                     <field name="description"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -64,10 +62,10 @@
                         </page>
                         <page string="Lines">
                             <field name="line_ids">
-                                <tree string="Lines" editable="buttom">
+                                <list string="Lines">
                                     <field name="tax_id"/>
                                     <field name="city_id"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                     </notebook>

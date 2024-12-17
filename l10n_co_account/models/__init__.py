@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-
-from . import chart_account_apply
+from . import template_co_com
+from . import template_co_fin
+from . import template_co_sol
 from . import account
 from . import res_company
 from . import payment_option

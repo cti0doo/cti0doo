@@ -2,8 +2,8 @@
 from odoo import models, fields
 
 
-class L10nCoDocumentType(models.Model):
+class L10nCoIdentificationType(models.Model):
     _inherit = "l10n_latam.identification.type"
 
-    code = fields.Char("Document Code")
+    code = fields.Char("Code")
     short_name = fields.Char(string="Short Name")

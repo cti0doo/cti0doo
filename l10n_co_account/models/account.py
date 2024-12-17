@@ -43,7 +43,7 @@ class accountJournal(models.Model):
 class AccountMove(models.Model):
     _inherit = "account.move"
 
-    payment_option_id = fields.Many2one('payment.option', string="Payment Option",
+    payment_option_id = fields.Many2one('payment.option', string="Move Payment Option",
                                         default=lambda self: self.env.ref('payment_option_1',
                                                                           raise_if_not_found=False))
 

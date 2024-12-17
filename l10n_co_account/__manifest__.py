@@ -28,10 +28,10 @@
 
     # always loaded
     'data': [
-        'data/account.group.csv',
+#        'data/account.group.csv',
         'data/account.account.tag.csv',
         'data/l10n_latam.identification.type.csv',
-        'data/account.tax.group.csv',
+#        'data/account.tax.group.csv',
         'data/account_batch_payment_data.xml',
         'data/payment.option.csv',
         'data/res_groups.xml',

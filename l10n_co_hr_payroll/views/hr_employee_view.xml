@@ -21,22 +21,22 @@
                 </xpath>
             </field>
         </record>
-         <record id="view_jobt_tree" model="ir.ui.view">
-            <field name="name">hr.department.form</field>
-            <field name="model">hr.department</field>
-            <field name="inherit_id" ref="hr.view_job_tree"/>
+         <record id="view_job_tree" model="ir.ui.view">
+            <field name="name">hr.job.tree</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_hr_job_tree"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='manager_id']" position="after">
+                <xpath expr="//field[@name='name']" position="after">
                     <field name="arl_class"/>
                 </xpath>
             </field>
         </record>
         <record id="view_job_form" model="ir.ui.view">
-            <field name="name">hr.department.tree</field>
-            <field name="model">hr.department</field>
-            <field name="inherit_id" ref="hr.view_job_form"/>
+            <field name="name">hr.job.form</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_hr_job_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='manager_id']" position="after">
+                <xpath expr="//field[@name='name']" position="after">
                     <field name="arl_class"/>
                 </xpath>
             </field>
@@ -64,10 +64,10 @@
                     <page string="Contribution register">
                         <group>
                             <field name="register_ids">
-                                <tree editable="buttom">
+                                <list string='Registers'>
                                     <field name="register_id"/>
                                     <field name="partner_id"/>
-                                </tree>
+                                </list>
                             </field>
                         </group>
                     </page>
@@ -76,12 +76,12 @@
                     </page>
                     <page string="inputs">
                         <field name="inputs_ids">
-                            <tree string="inputs" editable="buttom">
+                            <list string="inputs">
                                 <field name="type"/>
                                 <field name="amount"/>
                                 <field name="date_from"/>
                                 <field name="date_to"/>
-                            </tree>
+                            </list>
                         </field>
                     </page>
                 </xpath>

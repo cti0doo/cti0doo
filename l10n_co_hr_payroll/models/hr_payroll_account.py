@@ -22,7 +22,7 @@
 import logging
 
 from odoo import models, fields, api
-from odoo.exceptions import warnings
+#from odoo.exceptions import warnings
 from odoo.tools.translate import _
 
 class HrContributionRegisterPartnerExtended(models.Model):
