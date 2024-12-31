@@ -3,8 +3,6 @@
     'name': "Colombian Accounting",
 
     'summary': """
-        Accounting Templates
-        Cities
         Ciiu
         Documnet Type & Verification Digit
         ReteIca""",
@@ -19,7 +17,7 @@
     'contributor': 'Carlos Martinez, Wilfredo Moreno, Rafael Riveros',
     'website': "http://www.cti.com.co",
     'category': 'Localization',
-    'version': '16.0.1',
+    'version': '0.1',
     'license': 'OPL-1',
 
     'sequence': 110,
@@ -35,7 +33,7 @@
         'data/account_batch_payment_data.xml',
         'data/payment.option.csv',
         'data/res_groups.xml',
-###     'data/edi.resolution.csv',
+###       'data/edi.resolution.csv',
 #        'views/chart_account_apply_view.xml',
 #        'views/account_journal_view.xml',
 #        'views/edi_resolution.xml',
@@ -46,7 +44,7 @@
         'views/account_view.xml',
         'data/account_reports.xml',
         'views/res_company_view.xml',
-#        'views/res_partner_view.xml',
+#        'views/res_partner_view.xml'
         'wizard/retention_views.xml',
         'views/tax_group.xml',
         'views/tax_view.xml',

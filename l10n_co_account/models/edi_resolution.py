@@ -132,7 +132,7 @@ class edi_resolution(models.Model):
 #    def _check_unique_resolution(self):
 #        for record in self:
 
-#            resolution = self.env['l10n_co_account.edi_resolution'].search([
+#            resolution = self.env['l10n_co.edi_resolution'].search([
 #                ('company_id', '=', record.company_id.id),
 #                ('journal_id', '=', record.journal_id.id),
 #                ('start_date', '=', record.start_date),

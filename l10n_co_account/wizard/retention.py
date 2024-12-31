@@ -5,7 +5,7 @@ from odoo import api, fields, models
 
 
 class RetentionReportWizard(models.TransientModel):
-    _name = 'l10n_co_account.retention_report.wizard'
+    _name = 'l10n_co.retention_report.wizard'
     _description = "Colombian Retention Report Wizard"
 
     expedition_date = fields.Date(string=u'Fecha de Expedición', default=fields.Date.context_today, required=True)
@@ -19,4 +19,4 @@ class RetentionReportWizard(models.TransientModel):
             'report_name': self._context.get('report_name'),
         }
 
-        return self.env.ref('l10n_co_account.action_certification').report_action([], data=data)
+        return self.env.ref('l10n_co.action_certification').report_action([], data=data)

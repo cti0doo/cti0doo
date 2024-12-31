@@ -143,10 +143,10 @@
         <report
             id="action_certification"
             string="Certification Report"
-            model="l10n_co_account.certification"
+            model="l10n_co.certification"
             report_type="qweb-pdf"
-            name="l10n_co_account.certification"
-            file="l10n_co_account.certification"
+            name="l10n_co.certification"
+            file="l10n_co.certification"
             groups="account.group_account_user"
             menu="False"/>
     </data>

@@ -161,9 +161,9 @@ class ReportCertificationReport(models.Model):
         return {
             'type': 'ir.actions.act_window',
             'view_mode': 'form',
-            'res_model': 'l10n_co_account.retention_report.wizard',
-            'views': [(self.env.ref('l10n_co_account.retention_report_wizard_form').id, 'form')],
-            'view_id': self.env.ref('l10n_co_account.retention_report_wizard_form').id,
+            'res_model': 'l10n_co.retention_report.wizard',
+            'views': [(self.env.ref('l10n_co.retention_report_wizard_form').id, 'form')],
+            'view_id': self.env.ref('l10n_co.retention_report_wizard_form').id,
             'target': 'new',
             'context': {'lines': lines, 'report_name': self._name},
         }

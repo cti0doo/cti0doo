@@ -1,0 +1,56 @@
+id,name,code_prefix_start,code_prefix_end,parent_id/
+group_1_act,Assets,10,10,
+group_1_1_efe_equ,Cash and cash equivalents,11,11,group_1_act
+group_1_2_inv_cor,Current investments,1205,1205,group_1_act
+group_1_2_fin_cor,Other current financial assets,1210,1295,group_1_act
+group_1_3_cta_cob,Accounts receivable,1305,1305,group_1_act
+group_1_3_imp_dif,Deferred Tax Asset,1310,1310,group_1_act
+group_1_3_otr_cob,Trade accounts receivable and other current accounts receivable,1315,1395,group_1_act
+group_1_4_stk_cor,Current inventories,1405,1405,group_1_act
+group_1_4_stk_noc,Non-current inventories,1410,1495,group_1_act
+group_1_5_bio_cor,Current biological assets,1505,1505,group_1_act
+group_1_5_pro_des,"Properties, plant and equipment",1510,1510,group_1_act
+group_1_5_pro_inv,Investment properties,1515,1595,group_1_act
+group_1_7_fin_noc,Other non-current financial assets,17,17,group_1_act
+group_1_8_pro_cor,Other current provisions,18,18,group_1_act
+group_1_9_act_int,Intangible assets,1905,1905,group_1_act
+group_1_9_art_cul,Other Assets Art and culture,1910,1995,group_1_act
+group_2_pas,Liability,20,20,
+group_2_1_cta_pag,Trade accounts payable and other accounts payable,21,21,group_2_pas
+group_2_2_fin_cor,Current financial obligations,2205,2205,group_2_pas
+group_2_2_obl_fin,Financial obligations,2210,2295,group_2_pas
+group_2_3_ben_emp,Current provisions for employee benefits,23,23,group_2_pas
+group_2_4_imp_cor,Current tax liabilities,24,24,group_2_pas
+group_2_5_fin_noc,Other non-current financial liabilities,25,25,group_2_pas
+group_2_6_nof_cor,Other current non-financial liabilities,26,26,group_2_pas
+group_3_pat,Equity,30,30,
+group_3_1_cap_emi,Issued capital,31,31,group_3_pat
+group_3_2_par_pat,Other Equity Interests,32,32,group_3_pat
+group_3_2_pri_emi,Share Premium,3205,3205,group_3_pat
+group_3_2_sup_rev,Revaluation Surplus,3220,3220,group_3_pat
+group_3_3_res_vas,Reserves,33,33,group_3_pat
+group_3_4_otr_res,Other reserves,34,34,group_3_pat
+group_3_5_plu_lia,Capital gain,35,35,group_3_pat
+group_3_7_sup_cap,Supplementary Investment To The Assigned Capital,37,37,group_3_pat
+group_3_8_art_cul,Other Assets Art and Culture (Equity),38,38,group_3_pat
+group_3_9_pyg_acu,Accumulated Gains (Losses),37,37,group_3_pat
+group_3_9_res_eje,Result of the excersice,38,38,group_3_pat
+group_4_ing,Incomes,40,40,
+group_4_1_ing_ord,Ordinary activities income,4105,4105,group_4_ing
+group_4_2_ing_fin,Financial income,4110,4195,group_4_ing
+group_4_3_otr_ing,Other income,42,49,group_4_ing
+group_5_gas,Expenses,50,50,group_0_com
+group_5_1_gas_adm,Administration Expenses,51,51,group_5_gas
+group_5_2_gas_ven,Selling expenses,52,52,group_5_gas
+group_5_3_gas_imp,Tax Expense,53,53,group_5_gas
+group_5_4_otr_gas,Other expenses,54,54,group_5_gas
+group_6_ven,Costs of sale,60,60,group_0_com
+group_6_1_cos_dis,Distribution Costs,61,61,group_6_ven
+group_6_2_cos_ven,Costs of sale,62,62,group_6_ven
+group_6_3_cos_fin,Financial costs,63,63,group_6_ven
+group_6_4_otr_cos,Other costs,64,69,group_6_ven
+group_7_pro,Production costs,70,70,group_0_com
+group_7_1_cos_dis,Production costs,71,71,group_7_pro
+group_7_2_cos_ven,Cost of Producers,72,72,group_7_pro
+group_7_3_cos_fin,Production Costs,73,73,group_7_pro
+group_7_4_otr_cos,Other Production Costs,74,74,group_7_pro
