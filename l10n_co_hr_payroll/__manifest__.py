@@ -23,7 +23,7 @@
 ##############################################################################
 {
     'name': 'Payroll Colombia',
-    'version': '17.0',
+    'version': '0.1',
     'category': 'Human Resources',
     'description': """
 Register temporal allowance/deduction data in employee contract.

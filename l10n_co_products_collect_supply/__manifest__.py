@@ -19,7 +19,7 @@
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full list
     'category': 'Operations/Purchase/inventory/Deliver',
-    'version': '17.0',
+    'version': '0.1',
     'license': 'OPL-1',
 
     # any module necessary for this one to work correctly

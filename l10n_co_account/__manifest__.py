@@ -22,7 +22,8 @@
 
     'sequence': 110,
     # any module necessary for this one to work correctly
-    'depends': ['base','account','l10n_latam_base'],
+    'depends': ['base','account','l10n_latam_base','account_debit_note',
+    ],
 
     # always loaded
     'data': [

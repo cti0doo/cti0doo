@@ -20,7 +20,7 @@
 
     'sequence': 110,
     # any module necessary for this one to work correctly
-    #'depends': ['l10n_co_account'],
+    'depends': ['l10n_co_account'],
 
     # always loaded
     'data': [
