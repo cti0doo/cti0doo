@@ -6,7 +6,7 @@
             <field name="name">Product Collect</field>
             <field name="model">product.collect</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="name"/>
                     <field name="picking_type_id"/>
                     <field name="transport_id"/>
@@ -19,7 +19,7 @@
                     <field name="price_total"/>
                     <field name="purchase_id"/>
                     <field name="state"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -50,7 +50,7 @@
                         <notebook>
                             <page string="Lines">
                                 <field name="line_ids" readonly="'state','!=','draft'">
-                                    <tree string="Lines" editable="top">
+                                    <list string="Lines" editable="top">
                                         <field name="partner_id"/>
                                         <field name="qty_po" invisible="('factor','=', 1)"/>
                                         <field name="factor" invisible="1"/>
@@ -60,7 +60,7 @@
                                         <field name="price_unit" invisible="1"/>
                                         <field name="price_total"/>
                                         <field name="purchase_id" invisible="1"/>
-                                    </tree>
+                                    </list>
                                 </field>
                                 <group class="oe_subtotal_footer oe_right">
                                     <field name="price_total"/>
