@@ -5,12 +5,12 @@
             <field name="name">account.payment.order.tree</field>
             <field name="model">account.payment.order</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="name"/>
                     <field name="journal_id"/>
                     <field name="date"/>
                     <field name="amount"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -51,12 +51,12 @@
                         <notebook>
                             <page string="Payments">
                                 <field name="payment_ids">
-                                    <tree>
+                                    <list>
                                         <field name="date"/>
                                         <field name="name"/>
                                         <field name="journal_id"/>
                                         <field name="amount"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </page>
                             <page string="Description">
@@ -85,10 +85,10 @@
             <field name="name">account.payment.order.type.tree</field>
             <field name="model">account.payment.order.type</field>
             <field name="arch" type="xml">
-                <tree editable="bottom">
+                <list editable="bottom">
                     <field name="name"/>
                     <field name="account_ids"/>
-                </tree>
+                </list>
             </field>
         </record>
 

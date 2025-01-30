@@ -11,7 +11,7 @@
                             <notebook>
                                 <page string="Header">
                                     <field name="header_ids">
-                                        <tree string="Configuration" editable="bottom">
+                                        <list string="Configuration" editable="bottom">
                                             <field name="sequence"/>
                                             <field name="name"/>
                                             <field name="type"/>
@@ -21,12 +21,12 @@
                                             <field name="function"/>
                                             <field name="format"/>
                                             <field name="type_format"/>
-                                        </tree>
+                                        </list>
                                     </field>
                                 </page>
                                 <page string="Body">
                                     <field name="conf_ids">
-                                        <tree string="Configuration" editable="bottom">
+                                        <list string="Configuration" editable="bottom">
                                             <field name="sequence"/>
                                             <field name="name"/>
                                             <field name="type"/>
@@ -36,7 +36,7 @@
                                             <field name="function"/>
                                             <field name="format"/>
                                             <field name="type_format"/>
-                                        </tree>
+                                        </list>
                                     </field>
                                 </page>
                                 <page string="Legend">
@@ -93,18 +93,18 @@
                                 <field name="separator_columns"/>
                             </group>
                             <field name="statement_ids">
-                                <tree string="Extract statement" editable="bottom">
+                                <list string="Extract statement" editable="bottom">
                                     <field name="sequence"/>
                                     <field name="name"/>
                                     <field name="field"/>
                                     <field name="position"/>
                                     <field name="parse"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                         <page string="Footer">
                             <field name="footer_ids">
-                                <tree string="Footer" editable="bottom">
+                                <list string="Footer" editable="bottom">
                                     <field name="sequence"/>
                                     <field name="name"/>
                                     <field name="type"/>
@@ -114,7 +114,7 @@
                                     <field name="function"/>
                                     <field name="format"/>
                                     <field name="type_format"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                         <page string="Legend">
