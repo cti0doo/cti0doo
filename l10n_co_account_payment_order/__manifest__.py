@@ -20,7 +20,7 @@
     'license': 'OPL-1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','l10n_co', 'payment'],
+    'depends': ['base','l10n_co'],
 
     # always loaded
     'data': [
