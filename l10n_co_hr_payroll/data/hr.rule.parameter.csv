@@ -12,6 +12,8 @@ l10n_co_hr_payroll.hr_rule_parameter_SMMLV,Current Legal Minimun Monthy Salary,,
 ,,,,l10n_co_hr_payroll.hr_rule_parameter_SMMLV_2021,2021-01-01,908526
 ,,,,l10n_co_hr_payroll.hr_rule_parameter_SMMLV_2022,2022-01-01,1000000
 ,,,,l10n_co_hr_payroll.hr_rule_parameter_SMMLV_2023,2023-01-01,1160000
+,,,,l10n_co_hr_payroll.hr_rule_parameter_SMMLV_2024,2024-01-01,1300000
+,,,,l10n_co_hr_payroll.hr_rule_parameter_SMMLV_2025,2025-01-01,1423500
 l10n_co_hr_payroll.hr_rule_parameter_AT,Transport Assistance,,AT,l10n_co_hr_payroll.hr_rule_parameter_AT_2011,2011-01-01,63600
 ,,,,l10n_co_hr_payroll.hr_rule_parameter_AT_2012,2012-01-01,67800
 ,,,,l10n_co_hr_payroll.hr_rule_parameter_AT_2013,2013-01-01,70500
@@ -25,6 +27,8 @@ l10n_co_hr_payroll.hr_rule_parameter_AT,Transport Assistance,,AT,l10n_co_hr_payr
 ,,,,l10n_co_hr_payroll.hr_rule_parameter_AT_2021,2021-01-01,106454
 ,,,,l10n_co_hr_payroll.hr_rule_parameter_AT_2022,2022-01-01,117172
 ,,,,l10n_co_hr_payroll.hr_rule_parameter_AT_2023,2023-01-01,140606
+,,,,l10n_co_hr_payroll.hr_rule_parameter_AT_2024,2024-01-01,162000
+,,,,l10n_co_hr_payroll.hr_rule_parameter_AT_2025,2025-01-01,200000
 l10n_co_hr_payroll.hr_rule_parameter_UVT,Tax Value Unit,,UVT,l10n_co_hr_payroll.hr_rule_parameter_UVT_2011,2011-01-01,25132
 ,,,,l10n_co_hr_payroll.hr_rule_parameter_UVT_2012,2012-01-01,26049
 ,,,,l10n_co_hr_payroll.hr_rule_parameter_UVT_2013,2013-01-01,26841
@@ -38,3 +42,5 @@ l10n_co_hr_payroll.hr_rule_parameter_UVT,Tax Value Unit,,UVT,l10n_co_hr_payroll.
 ,,,,l10n_co_hr_payroll.hr_rule_parameter_UVT_2021,2021-01-01,36308
 ,,,,l10n_co_hr_payroll.hr_rule_parameter_UVT_2022,2022-01-01,38004
 ,,,,l10n_co_hr_payroll.hr_rule_parameter_UVT_2023,2023-01-01,42412
+,,,,l10n_co_hr_payroll.hr_rule_parameter_UVT_2024,2024-01-01,47065
+,,,,l10n_co_hr_payroll.hr_rule_parameter_UVT_2025,2025-01-01,49799
