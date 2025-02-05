@@ -243,7 +243,7 @@ class AccountPaymentOrderWizard(models.TransientModel):
     @api.model
     def create(self, vals):
         vals['move_ids'] = [tuple(vals['move_ids'][0])]
-        return super().create(vals)
+        return super(AccountPaymentOrderWizard, self).create(vals)
 
     def _prepare_payments(self, data):
         new_data = {}

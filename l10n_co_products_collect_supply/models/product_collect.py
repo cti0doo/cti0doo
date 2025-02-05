@@ -69,7 +69,7 @@ class ProductCollect(models.Model):
         if vals.get('name', 'New') != 'New':
             vals['name'] = 'New'
         vals['name'] = self.env['ir.sequence'].next_by_code('product.collect') or '/'
-        return super().create(vals)
+        return super(ProductCollect, self).create(vals)
 
     def create_po(self, product, lines, order_id, transport):
         po = self.env['purchase.order']

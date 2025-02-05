@@ -42,7 +42,7 @@ class ProductTemplate(models.Model):
             else:
                 vals['supplier_taxes_id'] = new_taxes['supplier_taxes_id']
 
-        return super().create(vals)
+        return super(ProductTemplate, self).create(vals)
 
     
     def write(self, vals):
