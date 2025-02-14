@@ -16,8 +16,8 @@ class ResCompanyTaxes(models.Model):
     #company_registry = fields.Char('Company Registry', related='partner_id.vat', size=64)
     retention = fields.Boolean(string='Apply UVT rule', default=False,
                                help='this option allows to indicate if the company applies withholding to the rest of the third party')
-    company_resolution_ids = fields.One2many(
-        'edi.resolution',
-        'company_id',
-        string='Resolutions'
-    )
+#    company_resolution_ids = fields.One2many(
+#        'edi.resolution',
+#        'company_id',
+#        string='Resolutions'
+#    )

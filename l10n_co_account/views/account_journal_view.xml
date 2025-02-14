@@ -10,10 +10,12 @@
                     <field name="payment_option_id" attrs="{'invisible':[('type','!=','sale')]}"/>
                     <field name="city_id"/>
                     <field name="city_mrp_id" attrs="{'invisible':[('type','!=','sale')]}"/>
-                    <field name="resolution_id" domain="[('company_id','=',company_id)]" attrs="{'invisible':[('type','!=','sale')]}"/>
+                    <!-- 
+                    <field name="resolution_id" domain="[('company_id','=',company_id)]" 
+                    attrs="{'invisible':[('type','!=','sale')]}"/>
+                    -->
                 </field>
             </field>
         </record>
     </data>
 </odoo>
-

@@ -66,7 +66,7 @@ class ResBankConfExtractLines(models.Model):
     _description = 'Banks Statements Configuration'
 
     bank_id = fields.Many2one('res.bank', string='Bank', required=False)
-    bank_h_id = fields.Many2one('res.bank', string='Bank', required=False)
+    bank_h_id = fields.Many2one('res.bank', string='Bank H', required=False)
     sequence = fields.Integer('Sequence', required=True)
     name = fields.Char(string='Name', required=True, index=True)
     field = fields.Char(string='Field', required=False, index=True)

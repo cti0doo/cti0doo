@@ -8,4 +8,4 @@ class AccountJournal(models.Model):
     payment_option_id = fields.Many2one('payment.option', string='Payment Option Default', required=False)
     city_id = fields.Many2one('res.city', string='City', required=False)
     city_mrp_id = fields.Many2one('res.city', string='City (MRP)', required=False)
-    resolution_id = fields.Many2one('edi.resolution', string='Edi Resolution', required=False)
+#    resolution_id = fields.Many2one('edi.resolution', string='Edi Resolution', required=False)
