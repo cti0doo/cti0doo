@@ -14,12 +14,14 @@
                         <field name="other_lastname"/>
                     </tree>   
                 </xpath>
+                <!--
                 <field name="city" position="replace">
                     <field name="city_id" placeholder="City" class="o_address_city"
                            options='{"no_open": True}'
                            attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
                     <field name="city" invisible="1"/>
-                </field>        
+                </field>
+                -->        
                 <xpath expr="//group/group/field[@name='industry_id']" position="after">
                         <field name="ciiu_id" domain="[('industry_id','=',industry_id)]" attrs="{'required': [('company_type','=','company')], 'invisible': [('company_type','=','person')]}"/>
                 </xpath>

@@ -22,7 +22,7 @@
 
     'sequence': 110,
     # any module necessary for this one to work correctly
-    'depends': ['base','account','l10n_latam_base','account_debit_note',
+    'depends': ['base','account','l10n_latam_base','l10n_co','account_debit_note',
     ],
 
     # always loaded
@@ -40,7 +40,7 @@
 #        'views/edi_resolution.xml',
 #        'views/fiscal_responsibility_view.xml',
 ###      'views/company_view.xml',
-###      'views/partner_view.xml',
+        'views/partner_view.xml',
         'views/product_view.xml',
         'views/account_view.xml',
         'data/account_reports.xml',
