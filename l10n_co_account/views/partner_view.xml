@@ -6,6 +6,7 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
+                <!--
                 <xpath expr="//group/group/field[@name='vat']" position="after">
                     <tree attrs="{'invisible':[('company_type','=','company')]}">
                         <field name="firstname" attrs="{'required':[('company_type','=','person')]}"/>
@@ -14,7 +15,7 @@
                         <field name="other_lastname"/>
                     </tree>   
                 </xpath>
-                <!--
+                
                 <field name="city" position="replace">
                     <field name="city_id" placeholder="City" class="o_address_city"
                            options='{"no_open": True}'
