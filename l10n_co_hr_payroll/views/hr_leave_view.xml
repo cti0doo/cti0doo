@@ -12,8 +12,8 @@
             </field>
         </record>
 
-        <record id="view_hr_leave_diagnosis_form" model="ir.ui.view">
-            <field name="name">hr.leave.diagnosis.form</field>
+        <record id="view_hr_leave_diagnosis_tree" model="ir.ui.view">
+            <field name="name">hr.leave.diagnosis.tree</field>
             <field name="model">hr.leave</field>
             <field name="inherit_id" ref="hr_holidays.hr_leave_view_tree"/>
             <field name="arch" type="xml">
@@ -22,5 +22,40 @@
                 </field>
             </field>
         </record>
+
+        <record id="view_hr_leave_diagnosis_dashboard" model="ir.ui.view">
+            <field name="name">hr.leave.diagnosis.form</field>
+            <field name="model">hr.leave</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_employee_view_dashboard"/>
+            <field name="arch" type="xml">
+                <field name="holiday_status_id" position="before">
+                    <field name="diagnosis_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_hr_leave_diagnosis_form" model="ir.ui.view">
+            <field name="name">hr.leave.diagnosis.form</field>
+            <field name="model">hr.leave</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_view_form"/>
+            <field name="arch" type="xml">
+               <xpath expr="//field[@name='holiday_status_id']" position="after">
+                    <field name="diagnosis_id" invisible="holiday_status_id != 2"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_hr_leave_diagnosis_dashboard" model="ir.ui.view">
+            <field name="name">hr.leave.diagnosis.form</field>
+            <field name="model">hr.leave</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_employee_view_dashboard"/>
+            <field name="arch" type="xml">
+                <field name="holiday_status_id" position="before">
+                    <field name="diagnosis_id"/>
+                </field>
+            </field>
+        </record>
+
+
     </data>
 </odoo>

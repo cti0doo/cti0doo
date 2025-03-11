@@ -22,7 +22,7 @@ class AccountFiscalPosition(models.Model):
     )
 
     ei_big_contribuitor = fields.Boolean(
-        string='Gran contribuyente'
+        string='Big contribuitor'
     )
 
 #class AccountFiscalPositionTemplate(models.Model):
