@@ -17,8 +17,8 @@
             <field name="model">hr.leave</field>
             <field name="inherit_id" ref="hr_holidays.hr_leave_view_tree"/>
             <field name="arch" type="xml">
-                <field name="holiday_status_id" position="before">
-                    <field name="diagnosis_id"/>
+                <field name="holiday_status_id" position="after">
+                    <field name="diagnosis_id" invisible="holiday_status_id != 2"/>
                 </field>
             </field>
         </record>
@@ -28,8 +28,8 @@
             <field name="model">hr.leave</field>
             <field name="inherit_id" ref="hr_holidays.hr_leave_employee_view_dashboard"/>
             <field name="arch" type="xml">
-                <field name="holiday_status_id" position="before">
-                    <field name="diagnosis_id"/>
+                <field name="holiday_status_id" position="after">
+                    <field name="diagnosis_id" invisible="holiday_status_id != 2"/>
                 </field>
             </field>
         </record>
@@ -50,8 +50,8 @@
             <field name="model">hr.leave</field>
             <field name="inherit_id" ref="hr_holidays.hr_leave_employee_view_dashboard"/>
             <field name="arch" type="xml">
-                <field name="holiday_status_id" position="before">
-                    <field name="diagnosis_id"/>
+                <field name="holiday_status_id" position="after">
+                    <field name="diagnosis_id" invisible="holiday_status_id != 2"/>
                 </field>
             </field>
         </record>
