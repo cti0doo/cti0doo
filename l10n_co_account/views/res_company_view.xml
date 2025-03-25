@@ -6,33 +6,14 @@
             <field name="model">res.company</field>
             <field name="inherit_id" ref="base.view_company_form"/>
             <field name="arch" type="xml">
-<!--                <field name="vat" position="replace"/> -->
-                <xpath expr="//field[@name='partner_id']" position="before">
-                    <field name="partner_id" invisible="1"/>
-<!--                    <field name="partner_id.vat" string="NIT"/>
-                    <field name="partner_id.vat_vd" string="DV" help="Dígito de Verificación" style="width: 5%%"/> -->
-                </xpath>
-                <xpath expr="//field[@name='company_registry']" position="attributes">
-                    <attribute name="readonly">True</attribute>
-                </xpath>
                 <group name="social_media" position="before">
-<!--                <group name="Chart template" string="Chart template">
-                        <field name="chart_template_id" readonly="True"/>
-                    </group> -->
                     <group name="retention" string="Retention">
                         <field name="retention"/>
                     </group>
                 </group>
- <!--               <field name="city" position="replace">
-                        <field name="city_id" placeholder="City" class="o_address_city" options='{"no_open": True}'/>
-                        <field name="city" invisible="1"/>
-
-                </field>-->
-
 
             </field>
         </record>
 
     </data>
 </odoo>
-

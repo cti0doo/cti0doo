@@ -28,7 +28,7 @@ class ProductCategoryTaxtope(models.Model):
 class accountJournal(models.Model):
     _inherit = 'account.journal'
 
-    edi_authorization_number = fields.Text(string='edi_authorization_number')
+#    edi_authorization_number = fields.Text(string='edi_authorization_number')
 
     city_id = fields.Many2one('res.city', string='City', required=False)
     city_mrp_id = fields.Many2one('res.country.state.city', string='City (MRP)', required=False)

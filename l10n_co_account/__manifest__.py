@@ -22,14 +22,14 @@
 
     'sequence': 110,
     # any module necessary for this one to work correctly
-    'depends': ['base','account','l10n_latam_base','l10n_co','account_debit_note',
+    'depends': ['base','account','l10n_latam_base','l10n_co','account_debit_note', 'l10n_co_dian'
     ],
 
     # always loaded
     'data': [
 #        'data/account.group.csv',
         'data/account.account.tag.csv',
-        'data/l10n_latam.identification.type.csv',
+#        'data/l10n_latam.identification.type.csv',
 #        'data/account.tax.group.csv',
         'data/account_batch_payment_data.xml',
         'data/payment.option.csv',

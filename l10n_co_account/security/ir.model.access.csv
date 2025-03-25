@@ -1,8 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_fiscal_responsibility,access_fiscal_responsibility,model_fiscal_responsibility,account.group_account_user,1,1,1,1
 access_account_ciiu,account_ciiu,model_account_ciiu,account.group_account_user,1,1,1,1
 access_account_ciiu_lines,account_ciiu_lines,model_account_ciiu_lines,account.group_account_user,1,1,1,1
-access_res_city_zip,res_city_zip,model_res_city_zip,base.group_user,1,1,1,1
 access_magnetic_media,access_magnetic_media,model_magnetic_media,account.group_account_user,1,1,1,1
 access_magnetic_media_lines,access_magnetic_media_lines,model_magnetic_media_lines,account.group_account_user,1,1,1,1
 access_magnetic_media_lines_concepts,access_magnetic_media_lines_concepts,model_magnetic_media_lines_concepts,account.group_account_user,1,1,1,1

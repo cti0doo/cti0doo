@@ -1,4 +1,4 @@
-id,register_id,code,partner_id,code2
+id,register_id,code,partner_id:id,code2
 co_contribution_partner_AFP_800229739,AFP,230201,800229739,Protección
 co_contribution_partner_AFP_800224808,AFP,230301,800224808,Porvenir
 co_contribution_partner_AFP_800253055,AFP,230901,800253055,Old Mutual
