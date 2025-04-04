@@ -1,0 +1,20 @@
+"id","code_edi","name","description","retention"
+"co_com_tax_group_iva_01",1,"IVA","Impuesto de Valor Agregado",FALSE
+"co_com_tax_group_ic_02",2,"IC","Impuesto al Consumo",FALSE
+"co_com_tax_group_ica_03",3,"ICA","Impuesto de Industria Comercio y Aviso",FALSE
+"co_com_tax_group_inc_04",4,"INC","Impuesto Nacional al Consumo",FALSE
+"co_com_tax_group_rteiva_05",5,"ReteIVA","Retención sobre el IVA",FALSE
+"co_com_tax_group_rterta_06",6,"ReteRenta","Retención sobre Renta",FALSE
+"co_com_tax_group_rteica_07",7,"ReteICA","Retención sobre el ICA",FALSE
+"co_com_tax_group_rtefte_08",8,"ReteFuente","Retención en la fuente",FALSE
+"co_com_tax_group_hrtcltra_20",20,"FtoHorticultura","Cuota de Fomento Hortifrutícula",FALSE
+"co_com_tax_group_tmbre_21",21,"Timbre","Impuesto de Timbre",FALSE
+"co_com_tax_group_blsa_22",22,"Bolsas","Impuesto al Consumo de Bolsa Plástica",FALSE
+"co_com_tax_group_crbno_23",23,"INCarbono","Impuesto Nacional al Carbono",FALSE
+"co_com_tax_group_cmbstble_24",24,"INCombustibles","Impuesto Nacional a los Combustibles",FALSE
+"co_com_tax_group_sbretsa_25",25,"Sobretasa Combustibles","Sobretasa a los combustibles",FALSE
+"co_com_tax_group_mincmbstble_26",26,"Sordicom","Contribución minoristas (Combustibles)",FALSE
+"co_com_tax_group_norspnsble_zy","ZY","No causa","No responsable de tributo",FALSE
+"co_com_tax_group_otro_zz","ZZ","Nombre de la figura tributaria","Otros tributos, tasas, contribuciones, y similares",FALSE
+"co_com_tax_group_icprcntual_08",8,"IC%","IC Porcentual",FALSE
+"co_com_tax_group_icdto_30",30,"IC Datos","Ic Datos",FALSE

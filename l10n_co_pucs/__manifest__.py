@@ -24,8 +24,12 @@
 
     # always loaded
     'data': [
-
-    #    'data/account.group.csv',
+        'data/account.group-co_com.csv',
+        'data/account.account.tag.csv',
+        'data/account.account-co_com.csv',
+        'data/account.tax.group-co_com.csv',
+        'data/account.tax-co_com.csv',
+#        'data/account.fiscal.position-co_com_cmu.csv',
         # security
 
     ],

@@ -29,12 +29,11 @@
     'data': [
 #        'data/account.group.csv',
         'data/account.account.tag.csv',
-#        'data/l10n_latam.identification.type.csv',
-#        'data/account.tax.group.csv',
+        'data/account.account-co.csv',
         'data/account_batch_payment_data.xml',
         'data/payment.option.csv',
         'data/res_groups.xml',
-###       'data/edi.resolution.csv',
+        'data/account.fiscal.position-co.csv',
 #        'views/chart_account_apply_view.xml',
 #        'views/account_journal_view.xml',
 #        'views/edi_resolution.xml',
@@ -80,8 +79,6 @@
 
         # data
         'data/res.bank.csv',
-#        'data/res.country.state.csv',
-#        'data/res.country.state.city.csv',
 #        'data/res.city.zip.csv',
         'data/res.partner.industry.csv',
         'data/account.ciiu.csv',
