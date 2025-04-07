@@ -28,13 +28,13 @@
         'security/ir.model.access.csv',
 
         # data
-        'data/res.bank.xml',
-        'data/res.bank.conf.csv',
-        'data/res.bank.statement.conf.lines.csv',
+    #    'data/res.bank.xml',
+    #    'data/res.bank.conf.csv',
+    #    'data/res.bank.statement.conf.lines.csv',
 
         # views
-        'views/views.xml',
-        'views/bank_view.xml',
+    #    'views/views.xml',
+    #    'views/bank_view.xml',
     #    'views/account_bank_statement_import_views.xml',
     ],
     # only loaded in demonstration mode
