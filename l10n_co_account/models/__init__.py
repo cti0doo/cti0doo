@@ -2,7 +2,6 @@
 from . import account
 from . import res_company
 from . import payment_option
-from . import account_fiscal_position
 from . import res_partner
 from . import account_ciiu
 from . import account_journal

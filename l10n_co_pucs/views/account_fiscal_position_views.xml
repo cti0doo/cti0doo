@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record id="l10n_co_electonic_invoice_settings_account_fiscal_position_form_view" model="ir.ui.view">
+            <field name="name">account.fiscal.position.form</field>
+            <field name="model">account.fiscal.position</field>
+            <field name="inherit_id" ref="account.view_account_position_form"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="ei_code"/>
+                    <field name="ei_big_contribuitor"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="l10n_co_electronic_invoice_settings_account_fiscal_position_tree_view" model="ir.ui.view">
+            <field name="name">account.fiscal.position.tree</field>
+            <field name="model">account.fiscal.position</field>
+            <field name="inherit_id" ref="account.view_account_position_tree"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="ei_code" />
+                    <field name="ei_big_contribuitor" />
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

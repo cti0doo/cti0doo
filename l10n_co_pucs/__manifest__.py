@@ -29,7 +29,10 @@
         'data/account.account-co_com.csv',
         'data/account.tax.group-co_com.csv',
         'data/account.tax-co_com.csv',
-#        'data/account.fiscal.position-co_com_cmu.csv',
+        'data/account.fiscal.position-co_com_cmu.csv',
+        'views/account_fiscal_position_views.xml',
+        'views/tax_group.xml',
+        'views/tax_view.xml',
         # security
 
     ],

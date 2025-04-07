@@ -46,8 +46,6 @@
         'views/res_company_view.xml',
 #        'views/res_partner_view.xml'
         'wizard/retention_views.xml',
-        'views/tax_group.xml',
-        'views/tax_view.xml',
 #        'report/certification_templates.xml',
         # NACIONALES
         'data/1001.xml',
@@ -71,8 +69,7 @@
         'data/magnetic.media.lines.concepts.csv',
         # views
         'views/magnetic_media.xml',
-        'views/account_fiscal_position_views.xml',
-#        'views/account_invoice_view.xml',
+        #        'views/account_invoice_view.xml',
 
         # security
         'security/ir.model.access.csv',
