@@ -23,7 +23,7 @@
     'license': 'OPL-1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','account', 'purchase', 'stock_landed_costs', 'stock_picking_batch','sale_stock','sale_renting'],
+    'depends': ['base','account', 'purchase', 'stock_landed_costs', 'stock_picking_batch','sale_stock','sale_renting', 'l10n_co_account'],
 
     # always loaded
     'data': [
