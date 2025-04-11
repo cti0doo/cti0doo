@@ -44,7 +44,7 @@ You can assign several contracts per employee.
 #        'l10n_co',
         'hr_payroll_account',
         'hr_timesheet',
-        'account_followup',
+#        'account_followup',
     ],
     'data': [
         'security/ir.model.access.csv',
