@@ -225,10 +225,6 @@ amm_1003_1302_M,Valor acumulado del pago o abono sujeto a retención en la fuent
 amm_1003_1302_N,Retención que le practicaron,N,sf,mml_1003_1302,aat_1003_1302_N
 amm_1003_1303_M,Valor acumulado del pago o abono sujeto a retención en la fuente,M,sf,mml_1003_1303,aat_1003_1303_M
 amm_1003_1303_N,Retención que le practicaron,N,sf,mml_1003_1303,aat_1003_1303_N
-amm_1003_1302_M,Valor acumulado del pago o abono sujeto a retención en la fuente,M,sf,mml_1003_1302,aat_1003_1302_M
-amm_1003_1302_N,Retención que le practicaron,N,sf,mml_1003_1302,aat_1003_1302_N
-amm_1003_1303_M,Valor acumulado del pago o abono sujeto a retención en la fuente,M,sf,mml_1003_1303,aat_1003_1303_M
-amm_1003_1303_N,Retención que le practicaron,N,sf,mml_1003_1303,aat_1003_1303_N
 amm_1003_1304_M,Valor acumulado del pago o abono sujeto a retención en la fuente,M,sf,mml_1003_1304,aat_1003_1304_M
 amm_1003_1304_N,Retención que le practicaron,N,sf,mml_1003_1304,aat_1003_1304_N
 amm_1003_1305_M,Valor acumulado del pago o abono sujeto a retención en la fuente,M,sf,mml_1003_1305,aat_1003_1305_M
