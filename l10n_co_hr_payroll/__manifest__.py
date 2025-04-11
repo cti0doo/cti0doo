@@ -42,7 +42,7 @@ You can assign several contracts per employee.
     'depends': [
         'base',
         'l10n_co',
-#        'hr_payroll_account',
+        'hr_payroll_account',
         'hr_timesheet',
         'account_followup',
     ],
