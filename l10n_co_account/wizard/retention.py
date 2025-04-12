@@ -19,4 +19,4 @@ class RetentionReportWizard(models.TransientModel):
             'report_name': self._context.get('report_name'),
         }
 
-        return self.env.ref('l10n_co.action_certification').report_action([], data=data)
+        return self.env.ref('action_certification').report_action([], data=data)
