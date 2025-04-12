@@ -6,3 +6,4 @@ access_magnetic_media_lines,access_magnetic_media_lines,model_magnetic_media_lin
 access_magnetic_media_lines_concepts,access_magnetic_media_lines_concepts,model_magnetic_media_lines_concepts,account.group_account_user,1,1,1,1
 access_payment_option,access_payment_option,model_payment_option,base.group_user,1,0,0,0
 access_magnetic_media_wizard,access_magnetic_media_wizard,model_magnetic_media_wizard,account.group_account_user,1,1,1,1
+access_l10n_co.retention_report.wizard,l10n_co.retention_report.wizard,model_l10n_co.retention_report.wizard,account.group_account_user,1,1,1,1
