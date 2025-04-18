@@ -40,7 +40,7 @@ You can assign several contracts per employee.
     'license': 'OPL-1',
     'sequence': 120,
     'depends': [
-        'base',
+ #       'base',
         'l10n_co_account',
  #       'hr_payroll_account',
         'hr_timesheet',
