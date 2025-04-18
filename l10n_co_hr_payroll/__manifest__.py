@@ -42,9 +42,9 @@ You can assign several contracts per employee.
     'depends': [
         'base',
         'l10n_co_account',
-        'hr_payroll_account',
+ #       'hr_payroll_account',
         'hr_timesheet',
-        'account_followup',
+ #       'account_followup',
     ],
     'data': [
         'security/ir.model.access.csv',
