@@ -41,8 +41,8 @@ You can assign several contracts per employee.
     'sequence': 120,
     'depends': [
  #       'base',
-        'l10n_co_account',
- #       'hr_payroll_account',
+ #       'l10n_co_account',
+        'hr_payroll_account',
         'hr_timesheet',
  #       'account_followup',
     ],
