@@ -1,5 +1,5 @@
-"id","ei_code","ei_big_contribuitor","name","tax_ids/tax_src_id:name","tax_ids/tax_dest_id","account_ids/account_src_id","account_ids/account_dest_id"
-"fis_pos_co_cmu",2,"False","Com�n","15% RteVAT 19%",,,
+"id","ei_code","ei_big_contribuitor","name","tax_ids/tax_src_id:name","tax_ids/tax_dest_id","account_ids/account_src_id:code","account_ids/account_dest_id:code"
+"fis_pos_co_cmu",2,"False","Comun","15% RteVAT 19%",,,
 ,,,,"15% RteVAT 5%",,,
 "fis_pos_co_sim",0,"False","Simplificado","11% RteFte F L E","10% RteFte N",,
 ,,,,"11% RteFte C L E","10% RteFte C T T",,
@@ -41,9 +41,8 @@
 ,,,,"1.38% RteICA",,,
 ,,,,"0.966% RteICA",,,
 "fis_pos_co_int",3,"False","International","19% VAT",,,
-,,,,"19%",,,
+,,,,"19% VAT C",,,
 ,,,,"5% VAT",,,
-,,,,"16% D",,,
 ,,,,"0% IMP VAT",,,
 ,,,,"0% EXC VAT",,,
 ,,,,"0% EXEMPT",,,
@@ -82,12 +81,7 @@
 ,,,,"0.414% RteICA",,,
 ,,,,"1.38% RteICA",,,
 ,,,,"0.966% RteICA",,,
-,,,,"19% RC",,,
-,,,,"19% RS",,,
-,,,,"5% RS",,,
-,,,,"5% RC",,,
-,,,,"5%",,,
-,,,,"16% D",,,
+,,,,"5% VAT C",,,
 ,,,,"0% EXEMPT",,,
 ,,,,"0% E",,,
 ,,,,"2.5% RteFte",,,
@@ -101,7 +95,7 @@
 ,,,,"15% RteVAT 5%",,,
 "fis_pos_co_sde",4,"False","Simplificado Declarante","15% RteVAT 19%",,,
 ,,,,"15% RteVAT 5%",,,
-"fis_pos_co_cau",2,"True","Com�n Autoretenedor","15% RteVAT 19%",,,
+"fis_pos_co_cau",2,"True","Comun Autoretenedor","15% RteVAT 19%",,,
 ,,,,"15% RteVAT 5%",,,
 ,,,,"0.1% RteFte F C",,,
 ,,,,"0.5% RteFte C",,,
@@ -136,14 +130,13 @@
 ,,,,"0.414% RteICA",,,
 ,,,,"1.38% RteICA",,,
 ,,,,"0.966% RteICA",,,
-"fis_pos_co_cnd",4,"False","Com�n No Declarante","11% RteFte F L E","10% RteFte N",,
+"fis_pos_co_cnd",4,"False","Comun No Declarante","11% RteFte F L E","10% RteFte N",,
 ,,,,"11% RteFte C L E","10% RteFte C T T",,
 ,,,,"4% RteFte L L","3.5% RteFte H R",,
 ,,,,"4% RteFte S L","3.5% RteFte T",,
-"fis_pos_co_adm",3,"False","Administraci�n (Interno)","19% VAT",,,
-,,,,"19%",,,
+"fis_pos_co_adm",3,"False","Administracion (Interno)","19% VAT",,,
+,,,,"19% VAT C",,,
 ,,,,"5% VAT",,,
-,,,,"16% D",,,
 ,,,,"0% IMP VAT",,,
 ,,,,"0% EXC VAT",,,
 ,,,,"0% EXEMPT",,,
@@ -182,53 +175,47 @@
 ,,,,"0.414% RteICA",,,
 ,,,,"1.38% RteICA",,,
 ,,,,"0.966% RteICA",,,
-,,,,"19% RC",,,
-,,,,"19% RS",,,
-,,,,"5% RS",,,
-,,,,"5% RC",,,
-,,,,"5%",,,
-,,,,"16% D",,,
+,,,,"5% VAT C",,,
 ,,,,"0% EXEMPT",,,
 ,,,,"0% E",,,
 ,,,,"2.5% RteFte",,,
 ,,,,"3.50% RteFte",,,
 ,,,,"15% RteVAT 5% C",,,
 ,,,,"15% RteVAT 19% C",,,
-,,,,"0.414% RteICA",,,
-,,,,"0.966% RteICA",,,
+,,,,"0.414% RteICA C",,,
+,,,,"0.966% RteICA C",,,
 ,,,,"0% C A",,,
-"fis_pos_co_vta",3,"False","Ventas (Interno)","19% VAT",,"co_puc_510503","co_puc_520503"
-,,,,"19%",,"co_puc_510506","co_puc_520506"
-,,,,"5% VAT",,"co_puc_510512","co_puc_520512"
-,,,,"16% D",,"co_puc_510515","co_puc_520515"
-,,,,"0% IMP VAT",,"co_puc_510518","co_puc_520518"
-,,,,"0% EXC VAT",,"co_puc_510521","co_puc_520521"
-,,,,"0% EXEMPT",,"co_puc_510524","co_puc_520524"
-,,,,"15% RteVAT 19%",,"co_puc_510527","co_puc_520527"
-,,,,"15% RteVAT 5%",,"co_puc_510530","co_puc_520530"
-,,,,"0.1% RteFte F C",,"co_puc_510533","co_puc_520533"
-,,,,"0.5% RteFte C",,"co_puc_510536","co_puc_520536"
-,,,,"10% RteFte C N P",,"co_puc_510539","co_puc_520539"
-,,,,"2.5% RteFte D",,"co_puc_510542","co_puc_520542"
-,,,,"10% RteFte C T T",,"co_puc_510545","co_puc_520545"
-,,,,"1% RteFte A Car",,"co_puc_510548","co_puc_520548"
-,,,,"1% RteFte IMMO",,"co_puc_510551","co_puc_520551"
-,,,,"4% RteFte S L",,"co_puc_510554","co_puc_520554"
-,,,,"1% RteFte F T",,"co_puc_510557","co_puc_520557"
-,,,,"6% RteFte S G",,"co_puc_510559","co_puc_520559"
-,,,,"2% RteFte S C",,"co_puc_510560","co_puc_520560"
-,,,,"3.5% RteFte Soft",,"co_puc_510563","co_puc_520563"
-,,,,"2% RteFte W C IMMO",,"co_puc_510566","co_puc_520566"
-,,,,"4% RteFte L L",,"co_puc_510568","co_puc_520568"
-,,,,"3.5% RteFte IMMO L",,"co_puc_510569","co_puc_520569"
-,,,,"7% RteFte G F",,"co_puc_510570","co_puc_520570"
-,,,,"10% RteFte N",,"co_puc_510572","co_puc_520572"
-,,,,"3.5% RteFte IT",,"co_puc_510575","co_puc_520575"
-,,,,"2.5% RteFte C IMMO",,"co_puc_510578","co_puc_520578"
-,,,,"3.5% RteFte NR",,"co_puc_510581","co_puc_520581"
-,,,,"11% RteFte C L E",,"co_puc_510584","co_puc_520584"
-,,,,"1.5% RteFte A",,"co_puc_510595","co_puc_520595"
-,,,,"3.5% RteFte T",,"co_puc_510599","co_puc_520599"
+"fis_pos_co_vta",3,"False","Ventas (Interno)","19% VAT",,510500,520500
+,,,,"19% VAT C",,,
+,,,,"5% VAT",,,
+,,,,"0% IMP VAT",,,
+,,,,"0% EXC VAT",,,
+,,,,"0% EXEMPT",,,
+,,,,"15% RteVAT 19%",,,
+,,,,"15% RteVAT 5%",,,
+,,,,"0.1% RteFte F C",,,
+,,,,"0.5% RteFte C",,,
+,,,,"10% RteFte C N P",,,
+,,,,"2.5% RteFte D",,,
+,,,,"10% RteFte C T T",,,
+,,,,"1% RteFte A Car",,,
+,,,,"1% RteFte IMMO",,,
+,,,,"4% RteFte S L",,,
+,,,,"1% RteFte F T",,,
+,,,,"6% RteFte S G",,,
+,,,,"2% RteFte S C",,,
+,,,,"3.5% RteFte Soft",,,
+,,,,"2% RteFte W C IMMO",,,
+,,,,"4% RteFte L L",,,
+,,,,"3.5% RteFte IMMO L",,,
+,,,,"7% RteFte G F",,,
+,,,,"10% RteFte N",,,
+,,,,"3.5% RteFte IT",,,
+,,,,"2.5% RteFte C IMMO",,,
+,,,,"3.5% RteFte NR",,,
+,,,,"11% RteFte C L E",,,
+,,,,"1.5% RteFte A",,,
+,,,,"3.5% RteFte T",,,
 ,,,,"1% RteFte T E S",,,
 ,,,,"11% RteFte F L E",,,
 ,,,,"2% RteFte H",,,
@@ -239,55 +226,49 @@
 ,,,,"0.414% RteICA",,,
 ,,,,"1.38% RteICA",,,
 ,,,,"0.966% RteICA",,,
-,,,,"19% RC",,,
-,,,,"19% RS",,,
-,,,,"5% RS",,,
-,,,,"5% RC",,,
-,,,,"5%",,,
-,,,,"16% D",,,
+,,,,"5% VAT C",,,
 ,,,,"0% EXEMPT",,,
 ,,,,"0% E",,,
 ,,,,"2.5% RteFte",,,
 ,,,,"3.50% RteFte",,,
 ,,,,"15% RteVAT 5% C",,,
 ,,,,"15% RteVAT 19% C",,,
-,,,,"0.414% RteICA",,,
-,,,,"0.966% RteICA",,,
+,,,,"0.414% RteICA C",,,
+,,,,"0.966% RteICA C",,,
 ,,,,"0% C A",,,
-,,,,"19% VAT",,,
-,,,,"19%",,,
-"fis_pos_co_prd",3,"False","Producci�n (Interno)","5% VAT",,"co_puc_510503","co_puc_720503"
-,,,,"16% D",,"co_puc_510506","co_puc_720506"
-,,,,"0% IMP VAT",,"co_puc_510512","co_puc_720512"
-,,,,"0% EXC VAT",,"co_puc_510515","co_puc_720515"
-,,,,"0% EXEMPT",,"co_puc_510518","co_puc_720518"
-,,,,"15% RteVAT 19%",,"co_puc_510521","co_puc_720521"
-,,,,"15% RteVAT 5%",,"co_puc_510524","co_puc_720524"
-,,,,"0.1% RteFte F C",,"co_puc_510527","co_puc_720527"
-,,,,"0.5% RteFte C",,"co_puc_510530","co_puc_720530"
-,,,,"10% RteFte C N P",,"co_puc_510533","co_puc_720533"
-,,,,"2.5% RteFte D",,"co_puc_510536","co_puc_720536"
-,,,,"10% RteFte C T T",,"co_puc_510539","co_puc_720539"
-,,,,"1% RteFte A Car",,"co_puc_510542","co_puc_720542"
-,,,,"1% RteFte IMMO",,"co_puc_510545","co_puc_720545"
-,,,,"4% RteFte S L",,"co_puc_510548","co_puc_720548"
-,,,,"1% RteFte F T",,"co_puc_510551","co_puc_720551"
-,,,,"6% RteFte S G",,"co_puc_510554","co_puc_720554"
-,,,,"2% RteFte S C",,"co_puc_510557","co_puc_720557"
-,,,,"3.5% RteFte Soft",,"co_puc_510559","co_puc_720559"
-,,,,"2% RteFte W C IMMO",,"co_puc_510560","co_puc_720560"
-,,,,"4% RteFte L L",,"co_puc_510563","co_puc_720563"
-,,,,"3.5% RteFte IMMO L",,"co_puc_510566","co_puc_720566"
-,,,,"7% RteFte G F",,"co_puc_510568","co_puc_720568"
-,,,,"10% RteFte N",,"co_puc_510569","co_puc_720569"
-,,,,"3.5% RteFte IT",,"co_puc_510570","co_puc_720570"
-,,,,"2.5% RteFte C IMMO",,"co_puc_510572","co_puc_720572"
-,,,,"3.5% RteFte NR",,"co_puc_510575","co_puc_720575"
-,,,,"11% RteFte C L E",,"co_puc_510578","co_puc_720578"
-,,,,"1.5% RteFte A",,"co_puc_510581","co_puc_720581"
-,,,,"3.5% RteFte T",,"co_puc_510584","co_puc_720584"
-,,,,"1% RteFte T E S",,"co_puc_510595","co_puc_720595"
-,,,,"11% RteFte F L E",,"co_puc_510599","co_puc_720599"
+"fis_pos_co_prd",3,"False","Produccion (Interno)","19% VAT",,510500,720000
+,,,,"19% VAT C",,,
+,,,,"5% VAT",,,
+,,,,"0% IMP VAT",,,
+,,,,"0% EXC VAT",,,
+,,,,"0% EXEMPT",,,
+,,,,"15% RteVAT 19%",,,
+,,,,"15% RteVAT 5%",,,
+,,,,"0.1% RteFte F C",,,
+,,,,"0.5% RteFte C",,,
+,,,,"10% RteFte C N P",,,
+,,,,"2.5% RteFte D",,,
+,,,,"10% RteFte C T T",,,
+,,,,"1% RteFte A Car",,,
+,,,,"1% RteFte IMMO",,,
+,,,,"4% RteFte S L",,,
+,,,,"1% RteFte F T",,,
+,,,,"6% RteFte S G",,,
+,,,,"2% RteFte S C",,,
+,,,,"3.5% RteFte Soft",,,
+,,,,"2% RteFte W C IMMO",,,
+,,,,"4% RteFte L L",,,
+,,,,"3.5% RteFte IMMO L",,,
+,,,,"7% RteFte G F",,,
+,,,,"10% RteFte N",,,
+,,,,"3.5% RteFte IT",,,
+,,,,"2.5% RteFte C IMMO",,,
+,,,,"3.5% RteFte NR",,,
+,,,,"11% RteFte C L E",,,
+,,,,"1.5% RteFte A",,,
+,,,,"3.5% RteFte T",,,
+,,,,"1% RteFte T E S",,,
+,,,,"11% RteFte F L E",,,
 ,,,,"2% RteFte H",,,
 ,,,,"3.5% RteFte H R",,,
 ,,,,"0% RteICA",,,
@@ -296,18 +277,13 @@
 ,,,,"0.414% RteICA",,,
 ,,,,"1.38% RteICA",,,
 ,,,,"0.966% RteICA",,,
-,,,,"19% RC",,,
-,,,,"19% RS",,,
-,,,,"5% RS",,,
-,,,,"5% RC",,,
-,,,,"5%",,,
-,,,,"16% D",,,
+,,,,"5% VAT C",,,
 ,,,,"0% EXEMPT",,,
 ,,,,"0% E",,,
 ,,,,"2.5% RteFte",,,
 ,,,,"3.50% RteFte",,,
 ,,,,"15% RteVAT 5% C",,,
 ,,,,"15% RteVAT 19% C",,,
-,,,,"0.414% RteICA",,,
-,,,,"0.966% RteICA",,,
+,,,,"0.414% RteICA C",,,
+,,,,"0.966% RteICA C",,,
 ,,,,"0% C A",,,
