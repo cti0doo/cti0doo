@@ -24,7 +24,7 @@
         </record>
 
         <record id="view_hr_leave_diagnosis_dashboard" model="ir.ui.view">
-            <field name="name">hr.leave.diagnosis.form</field>
+            <field name="name">hr.leave.diagnosis.dashboard</field>
             <field name="model">hr.leave</field>
             <field name="inherit_id" ref="hr_holidays.hr_leave_employee_view_dashboard"/>
             <field name="arch" type="xml">
@@ -44,18 +44,6 @@
                 </xpath>
             </field>
         </record>
-
-        <record id="view_hr_leave_diagnosis_dashboard" model="ir.ui.view">
-            <field name="name">hr.leave.diagnosis.form</field>
-            <field name="model">hr.leave</field>
-            <field name="inherit_id" ref="hr_holidays.hr_leave_employee_view_dashboard"/>
-            <field name="arch" type="xml">
-                <field name="holiday_status_id" position="after">
-                    <field name="diagnosis_id" invisible="holiday_status_id != 2"/>
-                </field>
-            </field>
-        </record>
-
 
     </data>
 </odoo>
