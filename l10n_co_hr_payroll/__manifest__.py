@@ -57,7 +57,7 @@ You can assign several contracts per employee.
         'views/hr_leave_view.xml',
 
         # data
-#        'data/hr_leave_data.xml',
+        'data/hr_leave_data.xml',
 #        'data/resource_calendar.xml',
         'data/res.partner.csv',
         'data/hr_contribution_register.xml',

@@ -22,13 +22,8 @@
                 (
                 SELECT
                 mml.code as A,
-                it.code as B,
+                it.l10n_co_document_code as B,
                 rp.vat as C,
-                rp.vat_vd as D,
-                rp.firstname as E,
-                rp.other_name as F,
-                rp.lastname as G,
-                rp.other_lastname as H,
                 rp.name as I,
                 rc.code as J,
                 (
@@ -52,7 +47,7 @@
                 INNER JOIN account_move_line aml ON aml.account_id = aa.account_id
                 LEFT JOIN res_partner rp ON rp.id = aml.partner_id
                 LEFT JOIN res_country_state rcs ON rcs.id = rp.state_id
-                LEFT JOIN res_country_state_city rcsc ON rcsc.id = rp.city_id
+                LEFT JOIN res_city rcsc ON rcsc.id = rp.city_id
                 LEFT JOIN res_country rc ON rc.id = rp.country_id
                 WHERE
                 mm.id = {id}
@@ -60,13 +55,8 @@
                 AND '{date_to}'
                 GROUP BY
                 mml.code,
-                it.code,
+                it.l10n_co_document_code,
                 rp.vat,
-                rp.vat_vd,
-                rp.firstname,
-                rp.other_name,
-                rp.lastname,
-                rp.other_lastname,
                 rp.name,
                 rp.street,
                 rc.code,
@@ -80,12 +70,7 @@
                 mml.code as A,
                 '43' as B,
                 '222222222' as C,
-                '7' as D,
-                'CUANTIAS MENORES' as E,
-				'' as F,
-				'' as G,
-				'' as H,
-				'' as I,
+                '' as I,
                 NULL as J,
                 (
                 CASE WHEN mmlc.sequence = 'K' AND mmlc.type = 'd' THEN SUM(aml.debit)
@@ -122,10 +107,6 @@
                 A,
                 B,
                 C,
-                D,
-                E,
-                F,
-                G,
                 H,
                 I,
                 J</field>

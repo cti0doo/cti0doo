@@ -10,10 +10,6 @@
                 A as "Concepto",
                 B as "Tipo documento",
                 C as "Número de identificación de informado",
-                D as "Primer apellido del informado",
-                E as "Segundo apellido del informado",
-                F as "Primer nombre del informado",
-                G as "Segundo nombre del informado",
                 H as "Nombre informado",
                 I as "Código país",
                 SUM(J) as "Ingresos brutos recibidos",
@@ -22,12 +18,8 @@
                 (
                 SELECT
                 mml.code as A,
-                it.code as B,
+                it.l10n_co_document_code as B,
                 rp.vat as C,
-                rp.firstname as D,
-                rp.other_name as E,
-                rp.lastname as F,
-                rp.other_lastname as G,
                 rp.name as H,
                 rc.code as I,
                 (
@@ -62,12 +54,8 @@
                 AND '{date_to}'
                 GROUP BY
                 mml.code,
-                it.code,
+                it.l10n_co_document_code,
                 rp.vat,
-                rp.firstname,
-                rp.other_name,
-                rp.lastname,
-                rp.other_lastname,
                 rp.name,
                 rc.code,
                 mmlc.sequence,
@@ -80,10 +68,6 @@
                 mml.code as A,
                 '43' as B,
                 '222222222' as C,
-                '7' as D,
-                '' as E,
-                '' as F,
-                '' as G,
                 'CUANTIAS MENORES' as H,
                 NULL as I,
                 (
@@ -126,10 +110,6 @@
                 A,
                 B,
                 C,
-                D,
-                E,
-                F,
-                G,
                 H,
                 I
                 ORDER BY C</field>

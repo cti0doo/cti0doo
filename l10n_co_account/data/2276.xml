@@ -9,11 +9,7 @@
             <field name="query">SELECT
                 A as "Tipo documento",
                 B as "Número de identificación de beneficiario",
-                C as "Primer apellido del beneficiario",
-                D as "Segundo apellido del beneficiario",
-                E as "Primer nombre del beneficiario",
-                F as "Segundo nombre del beneficiario",
-                G as "Dirección del beneficiario",
+                C as "Nombre del Beneficiario",G as "Dirección del beneficiario",
                 H as "Departamento del beneficiario",
                 I as "Municipio del beneficiario",
                 J as "País del beneficiario",
@@ -37,15 +33,11 @@
                 FROM
                 (
                 SELECT
-                it.code as A,
+                it.l10n_co_document_code as A,
                 rp.vat as B,
-                rp.firstname as C,
-                rp.other_name as D,
-                rp.lastname as E,
-                rp.other_lastname as F,
-                rp.street as G,
+                rp.name as C,rp.street as G,
                 rcs.code as H,
-                rcsc.code as I,
+                rcsc.l10n_co_edi_code as I,
                 rc.code as J,
                 (
                 CASE WHEN mmlc.sequence = 'K' AND mmlc.type = 'd' THEN SUM(aml.debit)
@@ -133,7 +125,7 @@
                 INNER JOIN account_move_line aml ON aml.account_id = aa.account_id
                 LEFT JOIN res_partner rp ON rp.id = aml.partner_id left join l10n_latam_identification_type it ON rp.l10n_latam_identification_type_id = it.id
                 LEFT JOIN res_country_state rcs ON rcs.id = rp.state_id
-                LEFT JOIN res_country_state_city rcsc ON rcsc.id = rp.city_id
+                LEFT JOIN res_city rcsc ON rcsc.id = rp.city_id
                 LEFT JOIN res_country rc ON rc.id = rp.country_id
                 WHERE
                 mm.id = {id}
@@ -141,16 +133,12 @@
                 AND '{date_to}'
                 GROUP BY
                 mml.code,
-                it.code,
+                it.l10n_co_document_code,
                 rp.vat,
-                rp.firstname,
-                rp.other_name,
-                rp.lastname,
-                rp.other_lastname,
                 rp.name,
                 rp.street,
                 rcs.code,
-                rcsc.code,
+                rcsc.l10n_co_edi_code,
                 rc.code,
                 mmlc.sequence,
                 mmlc.type,
@@ -161,11 +149,7 @@
                 SELECT
                 '43' as A,
                 '222222222' as B,
-                '7' as C,
-                'CUANTIAS MENORES' as D,
-                'CUANTIAS MENORES' as E,
-                'CUANTIAS MENORES' as F,
-                'CUANTIAS MENORES' as G,
+                ' ' as C,
                 NULL as H,
                 NULL as I,
                 NULL as J,
@@ -255,7 +239,7 @@
                 LEFT JOIN account_move_line aml ON aml.account_id = aa.account_id
                 LEFT JOIN res_partner rp ON rp.id = aml.partner_id left join l10n_latam_identification_type it ON rp.l10n_latam_identification_type_id = it.id
                 LEFT JOIN res_country_state rcs ON rcs.id = rp.state_id
-                LEFT JOIN res_country_state_city rcsc ON rcsc.id = rp.city_id
+                LEFT JOIN res_city rcsc ON rcsc.id = rp.city_id
                 LEFT JOIN res_country rc ON rc.id = rp.country_id
                 WHERE
                 mm.id = {id}
@@ -263,13 +247,12 @@
                 AND '{date_to}'
                 GROUP BY
                 mml.code,
-                it.code,
+                it.l10n_co_document_code,
                 rp.vat,
-                rp.vat_vd,
                 rp.name,
                 rp.street,
                 rcs.code,
-                rcsc.code,
+                rcsc.l10n_co_edi_code,
                 rc.code,
                 mmlc.sequence,
                 mmlc.type,
@@ -281,10 +264,6 @@
                 A,
                 B,
                 C,
-                D,
-                E,
-                F,
-                G,
                 H,
                 I,
                 J,
