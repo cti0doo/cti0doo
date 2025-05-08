@@ -9,11 +9,6 @@
             <field name="query">SELECT
                 A as "Tipo documento",
                 B as "Número identificación del socio o accionistas",
-                C as "DV",
-                D as "Primer apellido del socio o accionistas",
-                E as "Segundo apellido del socio o accionistas",
-                F as "Primer nombre del socio o accionistas",
-                G as "Segundo nombre del socio o accionistas",
                 H as "Razón social del socio o accionistas",
                 I as "Direccion del socio o accionistas",
                 J as "Código departamento",
@@ -25,17 +20,13 @@
                 FROM
                 (
                 SELECT
-                it.code as A,
+                it.l10n_co_document_code as A,
                 rp.vat as B,
                 rp.vat_vd as C,
-                rp.firstname as D,
-                rp.other_name as E,
-                rp.lastname as F,
-                rp.other_lastname as G,
                 rp.name as H,
                 rp.street as I,
                 rcs.code as J,
-                rcsc.code as K,
+                rcsc.l10n_co_edi_code as K,
                 rc.name as L,
                 (
                 CASE WHEN mmlc.sequence = 'M' AND mmlc.type = 'd' THEN SUM(aml.debit)
@@ -68,7 +59,7 @@
                 INNER JOIN account_move_line aml ON aml.account_id = aa.account_id
                 LEFT JOIN res_partner rp ON rp.id = aml.partner_id left join l10n_latam_identification_type it ON rp.l10n_latam_identification_type_id = it.id
                 LEFT JOIN res_country_state rcs ON rcs.id = rp.state_id
-                LEFT JOIN res_country_state_city rcsc ON rcsc.id = rp.city_id
+                LEFT JOIN res_city rcsc ON rcsc.id = rp.city_id
                 LEFT JOIN res_country rc ON rc.id = rp.country_id
                 WHERE
                 mm.id = {id}
@@ -76,17 +67,12 @@
                 AND '{date_to}'
                 GROUP BY
                 mml.code,
-                it.code,
+                it.l10n_co_document_code,
                 rp.vat,
-                rp.vat_vd,
-                rp.firstname,
-                rp.other_name,
-                rp.lastname,
-                rp.other_lastname,
                 rp.name,
                 rp.street,
                 rcs.code,
-                rcsc.code,
+                rcsc.l10n_co_edi_code,
                 rc.name,
 				mmlc.sequence,
                 mmlc.type,
@@ -97,12 +83,7 @@
                 SELECT
                 '43' as A,
                 '222222222' as B,
-                '7' as C,
-                'CUANTIAS MENORES' as D,
-				'' as E,
-				'' as F,
-				'' as G,
-				'' as H,
+                '' as H,
                 NULL as I,
                 NULL as J,
                 NULL as K,
@@ -152,10 +133,6 @@
                 A,
                 B,
                 C,
-                D,
-                E,
-                F,
-                G,
                 H,
                 I,
                 J,

@@ -10,10 +10,6 @@
                 A as "Concepto",
                 B as "Tipo documento",
                 C as "Número de identificación de informado",
-                D as "Primer apellido del informado",
-                E as "Segundo apellido del informado",
-                F as "Primer nombre del informado",
-                G as "Segundo nombre del informado",
                 H as "Nombre informado",
                 I as "Dirección",
                 J as "Código departamento",
@@ -31,16 +27,12 @@
                 (
                 SELECT
                 mml.code as A,
-                it.code as B,
+                it.l10n_co_document_code as B,
                 rp.vat as C,
-                rp.firstname as D,
-                rp.other_name as E,
-                rp.lastname as F,
-                rp.other_lastname as G,
                 rp.name as H,
                 rp.street as I,
                 rcs.code as J,
-                rcsc.code as K,
+                rcsc.l10n_co_edi_code as K,
                 rc.code as L,
                 (
                 CASE WHEN mmlc.sequence = 'M' AND mmlc.type = 'd' THEN SUM(aml.debit)
@@ -98,7 +90,7 @@
                 INNER JOIN account_move_line aml ON aml.account_id = aa.account_id
                 LEFT JOIN res_partner rp ON rp.id = aml.partner_id left join l10n_latam_identification_type it ON rp.l10n_latam_identification_type_id = it.id
                 LEFT JOIN res_country_state rcs ON rcs.id = rp.state_id
-                LEFT JOIN res_country_state_city rcsc ON rcsc.id = rp.city_id
+                LEFT JOIN res_city rcsc ON rcsc.id = rp.city_id
                 LEFT JOIN res_country rc ON rc.id = rp.country_id
                 WHERE
                 mm.id = {id}
@@ -106,16 +98,12 @@
                 AND '{date_to}'
                 GROUP BY
                 mml.code,
-                it.code,
+                it.l10n_co_document_code,
                 rp.vat,
-                rp.firstname,
-                rp.other_name,
-                rp.lastname,
-                rp.other_lastname,
                 rp.name,
                 rp.street,
                 rcs.code,
-                rcsc.code,
+                rcsc.l10n_co_edi_code,
                 rc.code,
                 mmlc.sequence,
                 mmlc.type,
@@ -127,10 +115,6 @@
                 mml.code as A,
                 '43' as B,
                 '222222222' as C,
-                '7' as D,
-                'CUANTIAS MENORES' as E,
-                'CUANTIAS MENORES' as F,
-                'CUANTIAS MENORES' as G,
                 'CUANTIAS MENORES' as H,
                 NULL as I,
                 NULL as J,
@@ -192,7 +176,7 @@
                 LEFT JOIN account_move_line aml ON aml.account_id = aa.account_id
                 LEFT JOIN res_partner rp ON rp.id = aml.partner_id left join l10n_latam_identification_type it ON rp.l10n_latam_identification_type_id = it.id
                 LEFT JOIN res_country_state rcs ON rcs.id = rp.state_id
-                LEFT JOIN res_country_state_city rcsc ON rcsc.id = rp.city_id
+                LEFT JOIN res_city rcsc ON rcsc.id = rp.city_id
                 LEFT JOIN res_country rc ON rc.id = rp.country_id
                 WHERE
                 mm.id = {id}
@@ -200,13 +184,12 @@
                 AND '{date_to}'
                 GROUP BY
                 mml.code,
-                it.code,
+                it.l10n_co_document_code,
                 rp.vat,
-                rp.vat_vd,
                 rp.name,
                 rp.street,
                 rcs.code,
-                rcsc.code,
+                rcsc.l10n_co_edi_code,
                 rc.code,
                 mmlc.sequence,
                 mmlc.type,
@@ -218,10 +201,6 @@
                 A,
                 B,
                 C,
-                D,
-                E,
-                F,
-                G,
                 H,
                 I,
                 J,

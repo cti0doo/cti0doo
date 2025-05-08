@@ -34,9 +34,9 @@ class HRApplyTemplate(models.TransientModel):
                 [('code', '=', register.code)])
 #            category = self.env['hr.salary.rule.category'].search(
 #                [('name', '=', register.category_id.name)])
-            account_credit = self.env['account.account'].search([('code', '=', register.account_credit.code or False)])
+            account_credit = self.env['account.account'].search([('code', '=', register.account_credit.l10n_co_document_code or False)])
             account_debit = self.env['account.account'].search(
-                [('code', '=', register.account_debit.code or False)])
+                [('code', '=', register.account_debit.l10n_co_document_code or False)])
             parent.update({
                         'account_debit':  account_debit.id,
                         'account_credit': account_credit.id
