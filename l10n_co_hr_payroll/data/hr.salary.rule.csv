@@ -48,7 +48,7 @@ result =  BASIC / total","total = 0
 for days in payslip.worked_days_line_ids.filtered(lambda x: x.number_of_days > 0):
  total += days.number_of_days
 result = total if contract.integral else 0","Payroll",1,"contract.wage",11
-"l10n_co_hr_payroll.hr_salary_rule_MAT","Maternity License","MAT","TRUE","Income","Employee","Python Code","Python Expression","Maternity License",0,0,0,0,,"result_qty = worked_days.MAT.number_of_days
+"l10n_co_hr_payroll.hr_salary_rule_MAT","Maternity Leave","MAT","TRUE","Income","Employee","Python Code","Python Expression","Maternity Leave",0,0,0,0,,"result_qty = worked_days.MAT.number_of_days
 result_rate = 100
 result =  BASIC / total","total = 0
 for days in payslip.worked_days_line_ids.filtered(lambda x: x.number_of_days > 0):
@@ -64,30 +64,30 @@ result =  BASIC / total","total = 0
 for days in payslip.worked_days_line_ids.filtered(lambda x: x.number_of_days > 0):
  total += days.number_of_days
 result = total if not contract.integral else 0","Payroll",1,"contract.wage",11
-"l10n_co_hr_payroll.hr_salary_rule_SAL_ADJ","Salary Adjust","SAL_ADJ","TRUE","Income","Employee","Python Code","Python Expression","Salary Adjust",0,0,0,0,,"result = inputs.SAL_ADJ.amount","inputs.SAL_ADJ","Payroll",1,"contract.wage",11
-"l10n_co_hr_payroll.hr_salary_rule_UNI_PER","Union Permit","UNI_PER","TRUE","Income","Employee","Python Code","Python Expression","Union Permit",0,0,0,0,,"result = round(( contract.wage / 30 ) * worked_days.UNI_PER.number_of_days, 0)","worked_days.UNI_PER","Payroll",1,"contract.wage",11
+"l10n_co_hr_payroll.hr_salary_rule_SAL_ADJ","Salary Adjustment","SAL_ADJ","TRUE","Income","Employee","Python Code","Python Expression","Salary Adjustment",0,0,0,0,,"result = inputs.SAL_ADJ.amount","inputs.SAL_ADJ","Payroll",1,"contract.wage",11
+"l10n_co_hr_payroll.hr_salary_rule_UNI_LEA","Union Leave","UNI_LEA","TRUE","Income","Employee","Python Code","Python Expression","Union Leave",0,0,0,0,,"result = round(( contract.wage / 30 ) * worked_days.UNI_LEA.number_of_days, 0)","worked_days.UNI_LEA","Payroll",1,"contract.wage",11
 "l10n_co_hr_payroll.hr_salary_rule_VAC","Vacations","VAC","TRUE","Income","Employee","Python Code","Python Expression","Vacations",0,0,0,0,,"result_qty = worked_days.VAC.number_of_days
 result_rate = 100
 result =  BASIC / total","total = 0
 for days in payslip.worked_days_line_ids.filtered(lambda x: x.number_of_days > 0):
  total += days.number_of_days
 result = worked_days.VAC.number_of_days if worked_days.VAC and worked_days.VAC.number_of_days else 0","Payroll",1,"contract.wage",11
-"l10n_co_hr_payroll.hr_salary_rule_EDT","Extra Day Time","EDT","TRUE","Income","Employee","Python Code","Python Expression","Extra Day Time",0,0,0,0,,"result_qty  = total
+"l10n_co_hr_payroll.hr_salary_rule_EDT","Extra Day Time","EDT","TRUE","Income","Employee","Python Code","Python Expression","Daytime Overtime",0,0,0,0,,"result_qty  = total
 result_rate = 125
 result = contract.wage / 240","total = 0
 total = inputs.EDT.amount if inputs.EDT and inputs.EDT.amount else total
 result = total if total != 0 else 0","Payroll",1,"contract.wage",13
-"l10n_co_hr_payroll.hr_salary_rule_EDT_SH","Extra Day Time Dominical And Hollidays","EDT_SH","TRUE","Income","Employee","Python Code","Python Expression","Extra Day Time Dominical And Hollidays",0,0,0,0,,"result_qty  = inputs.EDT_SH.amount
+"l10n_co_hr_payroll.hr_salary_rule_EDT_SH","Holiday Overtime","EDT_SH","TRUE","Income","Employee","Python Code","Python Expression","Holiday Overtime",0,0,0,0,,"result_qty  = inputs.EDT_SH.amount
 result_rate = 200
 result = contract.wage / 240","total = 0
 total = inputs.EDT_SH.amount if inputs.EDT_SH and inputs.EDT_SH.amount else total
 result = total if total != 0 else 0","Payroll",1,"contract.wage",13
-"l10n_co_hr_payroll.hr_salary_rule_ENT","Extra Night Time","ENT","TRUE","Income","Employee","Python Code","Python Expression","Extra Night Time",0,0,0,0,,"result_qty  = inputs.ENT.amount
+"l10n_co_hr_payroll.hr_salary_rule_ENT","Overtime Night Hours","ENT","TRUE","Income","Employee","Python Code","Python Expression","Overtime Night Hours",0,0,0,0,,"result_qty  = inputs.ENT.amount
 result_rate = 175
 result = contract.wage / 240","total = 0
 total = inputs.ENT.amount if inputs.ENT and inputs.ENT.amount else total
 result = total if total != 0 else 0","Payroll",1,"contract.wage",13
-"l10n_co_hr_payroll.hr_salary_rule_ENT_SH","Extra Night Time Domincal And Hollidays","ENT_SH","TRUE","Income","Employee","Python Code","Python Expression","Extra Night Time Domincal And Hollidays",0,0,0,0,,"result_qty  = inputs.ENT_SH.amount
+"l10n_co_hr_payroll.hr_salary_rule_ENT_SH","Holiday Night Overtime","ENT_SH","TRUE","Income","Employee","Python Code","Python Expression","Holiday Night Overtime",0,0,0,0,,"result_qty  = inputs.ENT_SH.amount
 result_rate = 250
 result = contract.wage / 240","total = 0
 total = inputs.ENT_SH.amount if inputs.ENT_SH and inputs.ENT_SH.amount else total
@@ -102,32 +102,32 @@ result_rate = inputs.COM.amount * 100 if inputs.COM.amount > 0 and inputs.COM.am
 result = categories.INC if inputs.COMamount > 0 and inputs.COM.amount < 0 else inputs.COM.amount","total = 0
 total = inputs.COM.amount if inputs.COM and  inputs.COM.amount > 0 else 0
 result = total","Payroll",1,"contract.wage",14
-"l10n_co_hr_payroll.hr_salary_rule_ARL_INA","ARL Inability","ARL_INA","TRUE","Income","Employee","Python Code","Python Expression","Professional Risk Inability ",0,0,0,0,,"result_qty = worked_days.ARL_INA.number_of_days
+"l10n_co_hr_payroll.hr_salary_rule_ARL_DIS","ARL DIS","ARL_DIS","TRUE","Income","Employee","Python Code","Python Expression","Professional Risk Disability ",0,0,0,0,,"result_qty = worked_days.ARL_DIS.number_of_days
 result_rate = 100
-result = round(contract.wage / 30, 0)","worked_days.ARL_INA ","Payroll",1,"contract.wage",15
-"l10n_co_hr_payroll.hr_salary_rule_EPS_INA","EPS Inability","EPS_INA","TRUE","Income","Employee","Python Code","Python Expression","Health Inability",0,0,0,0,,"result_qty = worked_days.LEAVE110.number_of_days
+result = round(contract.wage / 30, 0)","worked_days.ARL_DIS ","Payroll",1,"contract.wage",15
+"l10n_co_hr_payroll.hr_salary_rule_EPS_DIS","EPS Disability","EPS_DIS","TRUE","Income","Employee","Python Code","Python Expression","Health Disability",0,0,0,0,,"result_qty = worked_days.LEAVE110.number_of_days
 result_rate = ( contract.wage * 0.6667 > SMMLV) and  33.33  or  100 - ( 100 * SMMLV / contract.wage)
 result = contract.wage /total","total = 0
 for days in payslip.worked_days_line_ids.filtered(lambda x: x.number_of_days > 0):
  total += days.number_of_days
 result = worked_days.LEAVE110.number_of_days if worked_days.LEAVE110 and worked_days.LEAVE110.number_of_days else 0","Payroll",1,"contract.wage",15
-"l10n_co_hr_payroll.hr_salary_rule_EPS_INA_180","EPS Inability > 180 Days","EPS_INA_180","TRUE","Income","Employee","Python Code","Python Expression","Health Inability > 180 Days",0,0,0,0,,"result_qty = worked_days.EPS_INA_180.number_of_days
+"l10n_co_hr_payroll.hr_salary_rule_EPS_DIS_180","EPS Disability > 180 Days","EPS_DIS_180","TRUE","Income","Employee","Python Code","Python Expression","Health Inability > 180 Days",0,0,0,0,,"result_qty = worked_days.EPS_DIS_180.number_of_days
 result_rate = ( contract.wage * 0.5 > SMMLV) and  50.00  or  ( 100 - (100 * contract.wage / SMMLV))
-result = contract.wage /30","worked_days.EPS_INA_180","Payroll",1,"contract.wage",15
-"l10n_co_hr_payroll.hr_salary_rule_EPS_INA_180_SUB","EPS Inability > 180 Days Subsidy","EPS_INA_180_SUB","TRUE","Income","Employee","Python Code","Python Expression","Health Inability > 180 Days Subsidy",0,0,0,0,,"result_qty = worked_days.EPS_INA_180.number_of_days
+result = contract.wage /30","worked_days.EPS_DIS_180","Payroll",1,"contract.wage",15
+"l10n_co_hr_payroll.hr_salary_rule_EPS_DIS_180_SUB","EPS Disability > 180 Days Subsidy","EPS_DIS_180_SUB","TRUE","Income","Employee","Python Code","Python Expression","Health Disability > 180 Days Subsidy",0,0,0,0,,"result_qty = worked_days.EPS_DIS_180.number_of_days
 result_rate = ( contract.wage * 0.5 > SMMLV) and  50.00  or  ( 100 - (100 * contract.wage / SMMLV))
-result = contract.wage /30     ","worked_days.EPS_INA_180","Payroll",1,"contract.wage",15
-"l10n_co_hr_payroll.hr_salary_rule_EPS_INA_SUB","EPS Inability Subsidy","EPS_INA_SUB","TRUE","Income","Employee","Python Code","Python Expression","Health Inability Subsidy",0,0,0,0,,"result_qty = worked_days.EPS_INA.number_of_days
+result = contract.wage /30     ","worked_days.EPS_DIS_180","Payroll",1,"contract.wage",15
+"l10n_co_hr_payroll.hr_salary_rule_EPS_DIS_SUB","EPS Disability Subsidy","EPS_DIS_SUB","TRUE","Income","Employee","Python Code","Python Expression","Health Disability Subsidy",0,0,0,0,,"result_qty = worked_days.EPS_DIS.number_of_days
 result_rate = ( contract.wage * 0.6667 > SMMLV) and  33.33  or  ( 100 - (100 * contract.wage / SMMLV))
-result = contract.wage /30","worked_days.EPS_INA","Payroll",1,"contract.wage",15
-"l10n_co_hr_payroll.hr_salary_rule_EPS_PER","EPS Permit","EPS_PER","TRUE","Income","Employee","Python Code","Python Expression","Health Permission",0,0,0,0,,"result = round(( contract.wage / 30 ) * worked_days.EPS_PER.number_of_days, 0)","worked_days.EPS_PER","Payroll",1,"contract.wage",15
+result = contract.wage /30","worked_days.EPS_DIS","Payroll",1,"contract.wage",15
+"l10n_co_hr_payroll.hr_salary_rule_EPS_LEA","EPS PLeave","EPS_LEA","TRUE","Income","Employee","Python Code","Python Expression","Health Leave",0,0,0,0,,"result = round(( contract.wage / 30 ) * worked_days.EPS_LEA.number_of_days, 0)","worked_days.EPS_LEA","Payroll",1,"contract.wage",15
 "l10n_co_hr_payroll.hr_salary_rule_LEAVE110","Sick Time Off","LEAVE110","TRUE","Income","Employee","Python Code","Python Expression","Sick Time Off",0,0,0,0,,"result_qty = worked_days.LEAVE110.number_of_days
 result_rate = ( contract.wage * 0.6667 > SMMLV) and  66.67  or  ( 100 *  SMMLV / contract.wage)
 result = contract.wage /total","total = 0
 for days in payslip.worked_days_line_ids.filtered(lambda x: x.number_of_days > 0):
  total += days.number_of_days
 result = worked_days.LEAVE110.number_of_days if worked_days.LEAVE110 and worked_days.LEAVE110.number_of_days else 0","Payroll",1,"contract.wage",15
-"l10n_co_hr_payroll.hr_salary_rule_SH","Sunday And Holidays Surcharge","SH","TRUE","Income","Employee","Python Code","Python Expression","Sunday And Holidays Surcharge",0,0,0,0,,"result_qty = total
+"l10n_co_hr_payroll.hr_salary_rule_SH","Holidays Surcharge","SH","TRUE","Income","Employee","Python Code","Python Expression","Holidays Surcharge",0,0,0,0,,"result_qty = total
 result_rate = 75 
 result = contract.wage / 240","total = 0
 total = inputs.SH.amount if inputs.SH and inputs.SH.amount else total
@@ -153,7 +153,7 @@ for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'SUB'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.SUB.amount if inputs.SUB and inputs.SUB.amount else total * DAYS
 result = total if total != 0 else 0","Payroll",,,21
-"l10n_co_hr_payroll.hr_salary_rule_TRA_ASI","Transport Assistance","TRA_ASI","TRUE","Other Income","Employee","Python Code","Python Expression","Transport Assistance",0,0,0,0,,"result = payslip.rule_parameter('AT') * DAYS if payslip.rule_parameter('AT') else 0","total = 0
+"l10n_co_hr_payroll.hr_salary_rule_TRA_ASI","Transportation Assistance","TRA_ASI","TRUE","Other Income","Employee","Python Code","Python Expression","Transportation Assistance",0,0,0,0,,"result = payslip.rule_parameter('AT') * DAYS if payslip.rule_parameter('AT') else 0","total = 0
 for days in payslip.worked_days_line_ids.filtered(lambda x: x.number_of_days > 0):
  total += days.number_of_days
 result = total if (contract.employee_id.km_home_work >= 2) and (( categories.INC / (SMMLV * DAYS) ) <= 2.0) else 0","Payroll",1,"contract.wage",21
@@ -219,7 +219,7 @@ result = total","Payroll",1,"contract.wage",31
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
 result = categories.INC if total > -1 and total < 1 else total * DAYS","total = 0
-total = inputs.HOU_ASI.amount if inputs.LAB_LOA_ASI and  inputs.LAB_LOA_ASI.amount > 0 else 0
+total = inputs.HOU_ASI.amount if inputs.HOU_ASI and  inputs.HOU_ASI.amount > 0 else 0
 result = total","Payroll",1,"contract.wage",31
 "l10n_co_hr_payroll.hr_salary_rule_LAB_LOA_ASI","Labor Loan Aid","LAB_LOA_ASI","TRUE","Aid","Employee","Python Code","Python Expression","Labor Loan Assistance",0,0,0,0,,"
 result_qty = 1
@@ -251,11 +251,11 @@ result_rate = total * 100 if total > -1 and total < 1 else 100
 result = categories.INC if total > -1 and total < 1 else total * DAYS","total = 0
 total = inputs.OTH_ASI.amount if inputs.OTH_ASI and  inputs.OTH_ASI.amount > 0 else 0
 result = total","Payroll",1,"contract.wage",31
-"l10n_co_hr_payroll.hr_salary_rule_PRA_ASI","Practitioners","PRA_ASI","TRUE","Subsidy","Employee","Python Code","Python Expression","Practitioners Assistance",0,0,0,0,,"
+"l10n_co_hr_payroll.hr_salary_rule_PRA_ASI","Intern","PRA_ASI","TRUE","Subsidy","Employee","Python Code","Python Expression","Intern Assistance",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
 result = categories.INC if total > -1 and total < 1 else total * DAYS","inputs.PRA_ASI","Payroll",1,"contract.wage",33
-"l10n_co_hr_payroll.hr_salary_rule_PRA_TRA_ASI","Practitioners Transport Assistance","PRA_TRA_ASI","TRUE","Other Income","Employee","Python Code","Python Expression","Practitioners Transport Assistance",0,0,0,0,,"result_qty = 1
+"l10n_co_hr_payroll.hr_salary_rule_PRA_TRA_ASI","Intern Transport Assistance","PRA_TRA_ASI","TRUE","Other Income","Employee","Python Code","Python Expression","Practitioners Transport Assistance",0,0,0,0,,"result_qty = 1
 result_rate = inputs.PRA_TRA_ASI.amount * 100 if inputs.PRA_TRA_ASI.amount > 0 and inputs.PRA_TRA_ASI.amount < 1 else 100
 result = categories.INC if inputs.PRA_TRA_ASI.amount > 0 and inputs.PRA_TRA_ASI.amount < 0 else inputs.PRA_TRA_ASI.amount","inputs.PRA_TRA_ASI","Payroll",1,"contract.wage",31
 "l10n_co_hr_payroll.hr_salary_rule_PRE_ASI","Prescolar Educational Aid","PRE_ASI","TRUE","Aid","Employee","Python Code","Python Expression","Prescolar Educational Assistance",0,0,0,0,,"
@@ -274,7 +274,7 @@ result = total","Payroll",1,"contract.wage",31
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
 result = categories.INC if total > -1 and total < 1 else total * DAYS","inputs.PRO_PRE_ASI","Payroll",1,"contract.wage",33
-"l10n_co_hr_payroll.hr_salary_rule_SEC_ASI","Secondary Educational Aid","SEC_ASI","TRUE","Aid","Employee","Python Code","Python Expression","Secondary Educational Assistance",0,0,0,0,,"
+"l10n_co_hr_payroll.hr_salary_rule_SEC_ASI","Highschool Educational Aid","SEC_ASI","TRUE","Aid","Employee","Python Code","Python Expression","Highschool Educational Assistance",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
 result = categories.INC if total > -1 and total < 1 else total * DAYS","total = 0
@@ -296,14 +296,14 @@ result = total","Payroll",1,"contract.wage",31
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
 result = categories.INC if total > -1 and total < 1 else total * DAYS","total = 0
-total = inputs.ADV_DIS.amount if inputs.ADV_DIS and  inputs.ADV_DIS.amount > 0 else 0
+total = inputs.UNI_ASI.amount if inputs.UNI_ASI and  inputs.UNI_ASI.amount > 0 else 0
 result = total","Payroll",1,"contract.wage",31
 "l10n_co_hr_payroll.hr_salary_rule_VIA","Viatics","VIA","TRUE","Income","Employee","Python Code","Python Expression","Viatics",0,0,0,0,,"result = inputs.VIA.amount","inputs.VIA","Payroll",1,"contract.wage",31
 "l10n_co_hr_payroll.hr_salary_rule_TOT_AUX","Total Assistance","TOT_AUX","TRUE","Total","Employee","Python Code","Python Expression","Total Assistance",0,0,0,0,,"result = categories.AUX","categories.AUX","Payroll",1,"contract.wage",39
-"l10n_co_hr_payroll.hr_salary_rule_AFC","AFC","AFC","TRUE","Other Payments","AFC","Python Code","Python Expression","Unemployment Payment",0,0,0,0,,"result_qty = 1
+"l10n_co_hr_payroll.hr_salary_rule_AFC","AFC","AFC Severance","TRUE","Other Payments","AFC","Python Code","Python Expression","Severance",0,0,0,0,,"result_qty = 1
 result_rate = inputs.AFC.amount * 100 if inputs.AFC.amount > 0 and inputs.AFC.amount < 1 else 100
 result = categories.INC if inputs.AFC.amount > 0 and inputs.AFC.amount < 0 else inputs.AFC.amount","inputs.AFC","Payroll",1,"contract.wage",41
-"l10n_co_hr_payroll.hr_salary_rule_AFC_INT","AFC Interest","AFC_INT","TRUE","Other Payments","Employee","Python Code","Python Expression","Unemployemnt Interest Payment",0,0,0,0,,"
+"l10n_co_hr_payroll.hr_salary_rule_AFC_INT","AFC Interest","AFC_INT","TRUE","Other Payments","Employee","Python Code","Python Expression","Severance Interest Payment",0,0,0,0,,"
 result_qty = 1
 result_rate = inputs.AFC_INT.amount * 100 if inputs.AFC_INT.amount > 0 and inputs.AFC_INT.amount < 1 else 100
 result = categories.INC if inputs.AFC_INT.amount > 0 and inputs.AFC_INT.amount < 0 else inputs.AFC_INT.amount","total = 0
