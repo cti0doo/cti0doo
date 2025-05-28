@@ -11,10 +11,10 @@
         Commercial, Financial and Solidarity Accounting Plans.   
     """,
     'countries': ['co'],
-    'version': '0.1',
+    'version': '0.2',
     'category': 'Accounting/Localizations/Account Charts',
     'author': "CTI Ltda",
-    'contributor': 'Carlos Martinez, Wilfredo Moreno, Rafael Riveros',
+    'contributor': 'Carlos Martinez, Rafael Riveros',
     'website': "http://www.cti.com.co",
     'license': 'OPL-1',
 
@@ -27,10 +27,6 @@
         'data/account.group-co_com.csv',
         'data/account.account.tag.csv',
         'data/account_chart_template_data.xml',
-#        'data/account.account-co_com.csv',
-#        'data/account.tax.group-co_com.csv',
-#        'data/account.tax-co_com.csv',
-#        'data/account.fiscal.position-co_com_cmu.csv',
         'views/account_fiscal_position_views.xml',
         'views/tax_group.xml',
         'views/tax_view.xml',
