@@ -10,10 +10,10 @@ class AccountChartTemplate(models.AbstractModel):
     def _get_co_template_data(self):
         return {
             'name': ('Finnancial Chart of Accounts'),
-            'property_account_receivable_id': 'co_puc_130500',
-            'property_account_payable_id': 'co_puc_220500',
-            'property_account_expense_categ_id': 'co_puc_610000',
-            'property_account_income_categ_id': 'co_puc_417500',
+            'property_account_receivable_id': '165205',
+            'property_account_payable_id': 'co_puc_251695',
+            'property_account_expense_categ_id': 'co_puc_513595',
+            'property_account_income_categ_id': 'co_puc_415095',
         }
 
     @template('co_fin', 'res.company')
@@ -25,14 +25,14 @@ class AccountChartTemplate(models.AbstractModel):
                 'bank_account_code_prefix': '1110',
                 'cash_account_code_prefix': '1105',
                 'transfer_account_code_prefix': '1115',
-                'account_default_pos_receivable_account_id': 'co_puc_130507',
-                'income_currency_exchange_account_id': 'co_puc_421005',
-                'expense_currency_exchange_account_id': 'co_puc_530505',
+                'account_default_pos_receivable_account_id': 'co_puc_165205',
+                'income_currency_exchange_account_id': 'co_puc_421020',
+                'expense_currency_exchange_account_id': 'co_puc_530525',
                 'account_journal_early_pay_discount_loss_account_id': 'co_puc_530535',
                 'account_journal_early_pay_discount_gain_account_id': 'co_puc_421040',
-                'account_sale_tax_id': 'l10n_co_tax_8',
-                'account_purchase_tax_id': 'l10n_co_tax_1',
-                'default_cash_difference_income_account_id': 'co_puc_428000',
-                'default_cash_difference_expense_account_id': 'co_puc_532000',
+                'account_sale_tax_id': 'co_fin_tax_iva_19gt',
+                'account_purchase_tax_id': 'co_fin_tax_iva_19lt',
+                'default_cash_difference_income_account_id': 'co_puc_429553',
+                'default_cash_difference_expense_account_id': 'co_puc_530595',
             },
         }

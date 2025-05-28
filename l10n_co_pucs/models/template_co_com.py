@@ -31,10 +31,10 @@ class AccountChartTemplate(models.AbstractModel):
                 'expense_currency_exchange_account_id': 'co_puc_530525',
                 'account_journal_early_pay_discount_loss_account_id': 'co_puc_530535',
                 'account_journal_early_pay_discount_gain_account_id': 'co_puc_421040',
-                'account_sale_tax_id': 'co_tax_iva_19gt',
-                'account_purchase_tax_id': 'co_tax_iva_19lt',
+                'account_sale_tax_id': 'co_com_tax_iva_19gt',
+                'account_purchase_tax_id': 'co_com_tax_iva_19lt',
                 'default_cash_difference_income_account_id': 'co_puc_429553',
-                'default_cash_difference_expense_account_id': 'co_puc_5329595',
+                'default_cash_difference_expense_account_id': 'co_puc_532000',
              },
         }
         
