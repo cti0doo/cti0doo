@@ -10,12 +10,12 @@
         Colombian Pucs. 
         Commercial, Financial and Solidarity Accounting Plans.   
     """,
-
+    'countries': ['co'],
+    'version': '0.1',
+    'category': 'Accounting/Localizations/Account Charts',
     'author': "CTI Ltda",
     'contributor': 'Carlos Martinez, Wilfredo Moreno, Rafael Riveros',
     'website': "http://www.cti.com.co",
-    'category': 'Localization',
-    'version': '0.1',
     'license': 'OPL-1',
 
     'sequence': 110,

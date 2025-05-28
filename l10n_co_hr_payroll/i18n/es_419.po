@@ -439,7 +439,7 @@ msgid "Medical Loan"
 msgstr "Prestamo Medico"
 
 #. module: l10n_co_hr_payroll
-#: model:hr.salary.rule,name:l10n_co_hr_payroll.hr_salary_rule_OTH ASO
+#: model:hr.salary.rule,name:l10n_co_hr_payroll.hr_salary_rule_OTH_ASO
 msgid "Other Association"
 msgstr "Otras Asociaciones"
 

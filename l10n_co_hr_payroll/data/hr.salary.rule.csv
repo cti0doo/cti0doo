@@ -28,7 +28,7 @@ result = total if total != 0 else 0","Payroll",1,"contract.wage",0
 "l10n_co_hr_payroll.hr_salary_rule_UVT","Unit Value Tax","UVT","FALSE","Quotation Base Index","Employee","Python Code","Python Expression","Unit Value Tax",0,0,0,0,,"result = payslip.rule_parameter('UVT')","total = 0
 total = payslip.rule_parameter('UVT') if payslip.rule_parameter('UVT') else total
 result = total if total != 0 else 0","Payroll",1,"contract.wage",0
-"l10n_co_hr_payroll.hr_salary_rule_BASIC","Basic Salary","BASIC","FALSE","Quotation Base Index","Employee","Python Code","Always True","Basic Salary",0,0,0,0,,"result = contract.wage * DAYS","
+"default_basic_salary_rule","Basic Salary","BASIC","FALSE","Quotation Base Index","Employee","Python Code","Always True","Basic Salary",0,0,0,0,,"result = contract.wage * DAYS","
  # Available variables:
  #----------------------
  # payslip: object containing the payslips
@@ -159,8 +159,6 @@ for days in payslip.worked_days_line_ids.filtered(lambda x: x.number_of_days > 0
 result = total if (contract.employee_id.km_home_work >= 2) and (( categories.INC / (SMMLV * DAYS) ) <= 2.0) else 0","Payroll",1,"contract.wage",21
 "l10n_co_hr_payroll.hr_salary_rule_TOT_OTH_INC","Total Other Incomes","TOT_OTH_INC","TRUE","Total","Employee","Python Code","Always True","Total Other Incomes",0,0,0,0,,"result = categories.OTH_INC","total = 0
 total = categories.OTH_INC","Payroll",1,"contract.wage",29
-"l10n_co_hr_payroll.hr_salary_rule_TOT_INC","Total Incomes","TOT_INC","TRUE","Total","Employee","Python Code","Always True","Total Incomes",0,0,0,0,,"result = categories.TOT_INC","total = 0
-total = categories.OTH_INC","Payroll",1,"contract.wage",30
 "l10n_co_hr_payroll.hr_salary_rule_SAL_ASI","Salary Aid","SAL_ASI","TRUE","Aid","Employee","Python Code","Python Expression","Assistance / Subsidies",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
@@ -254,7 +252,7 @@ result = total","Payroll",1,"contract.wage",31
 "l10n_co_hr_payroll.hr_salary_rule_PRA_ASI","Intern","PRA_ASI","TRUE","Subsidy","Employee","Python Code","Python Expression","Intern Assistance",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
-result = categories.INC if total > -1 and total < 1 else total * DAYS","inputs.PRA_ASI","Payroll",1,"contract.wage",33
+result = categories.INC if total > -1 and total < 1 else total * DAYS","inputs.PRA_ASI","Payroll",1,"contract.wage",31
 "l10n_co_hr_payroll.hr_salary_rule_PRA_TRA_ASI","Intern Transport Assistance","PRA_TRA_ASI","TRUE","Other Income","Employee","Python Code","Python Expression","Practitioners Transport Assistance",0,0,0,0,,"result_qty = 1
 result_rate = inputs.PRA_TRA_ASI.amount * 100 if inputs.PRA_TRA_ASI.amount > 0 and inputs.PRA_TRA_ASI.amount < 1 else 100
 result = categories.INC if inputs.PRA_TRA_ASI.amount > 0 and inputs.PRA_TRA_ASI.amount < 0 else inputs.PRA_TRA_ASI.amount","inputs.PRA_TRA_ASI","Payroll",1,"contract.wage",31
@@ -318,6 +316,8 @@ end_month = int(date_end.month)
 total = inputs.PRM if inputs.PRM else LST_SIX_AVG_INC if end_month in (6,12) else 0
 result = total if total > 0 else 0","Payroll",1,"contract.wage",41
 "l10n_co_hr_payroll.hr_salary_rule_VAC_MON","Vacation In Money","VAC_MON","TRUE","Other Payments","Employee","Python Code","Python Expression","Vacation In Money",0,0,0,100,"IBC_SS","result = inputs.VAC_MON.amount","inputs.VAC_MON","Payroll","30/inputs.VAC_MON","contract.wage",41
+"default_gross_salary_rule","Gross","GROSS","TRUE","Total",,"Python Code","Always True","GROSS",0,0,0,0,,"result = categories.INC + categories.OTH_INC + categories.AUX + categories.OTH_PAY","total = 0
+total = categories.OTH_INC","Payroll",1,"contract.wage",49
 "l10n_co_hr_payroll.hr_salary_rule_IBC_SS","IBC Social Security","IBC_SS","TRUE","Quotation Base Index","Employee","Python Code","Always True","Quotation Base Index Social Security",0,0,0,0,,"result = SMMLV * DAYS if categories.INC < SMMLV * DAYS else  categories.INC * (0.7 if contract.integral else 1)","
 # Available variables:
 #----------------------
@@ -356,7 +356,7 @@ result=total","
 
 # Note: returned value have to be set in the variable 'result'
 
-result = rules.NET > categories.NET * 0.10","Payroll",1,"contract.wage",40
+result = rules.NET > categories.NET * 0.10","Payroll",1,"contract.wage",51
 "l10n_co_hr_payroll.hr_salary_rule_LST_ONE_AVG_INC","Last One Average Income","LST_ONE_AVG_INC","FALSE","Quotation Base Index","Employee","Python Code","Always True","Last One Average Income",0,0,0,0,,"result, total, i = categories.INC, 0, 0
 date_end = strptime('2019-01-01', '%Y-%m-%d')
 date_end = payslip.date_from - relativedelta(days=int(payslip.date_from.day))
@@ -380,7 +380,7 @@ result=total","
 
 # Note: returned value have to be set in the variable 'result'
 
-result = rules.NET > categories.NET * 0.10","Payroll",1,"contract.wage",40
+result = rules.NET > categories.NET * 0.10","Payroll",1,"contract.wage",51
 "l10n_co_hr_payroll.hr_salary_rule_LST_SIX_AVG_INC","Last Six Average Income","LST_SIX_AVG_INC","FALSE","Quotation Base Index","Employee","Python Code","Always True","Last Six Average Income",0,0,0,0,,"result, total, i, j = categories.INC, 0, 0, 0
 date_end = strptime('2019-01-01', '%Y-%m-%d')
 date_end = payslip.date_to
@@ -411,7 +411,7 @@ result_rate = 100 / nro_months
 result=total","date_end = strptime('2019-01-01', '%Y-%m-%d')
 date_end = payslip.date_to
 end_month = int(date_end.month)
-result = True if end_month in (6, 12) else False","Payroll",1,"contract.wage",40
+result = True if end_month in (6, 12) else False","Payroll",1,"contract.wage",51
 "l10n_co_hr_payroll.hr_salary_rule_LST_TWE_AVG_INC","List Twelve Average Income","LST_TWE_AVG_INC","FALSE","Quotation Base Index","Employee","Python Code","Always True","List Twelve Average Income",0,0,0,0,,"result, total, I = categories.INC, 0, 0
 date_end = strptime('2019-01-01', '%Y-%m-%d')
 date_end = payslip.date_to
@@ -440,7 +440,7 @@ result_rate=100 / nro_months
 result=total","date_end = strptime('2019-01-01', '%Y-%m-%d')
 date_end = payslip.date_to
 end_month = int(date_end.month)
-result = True if end_month == 12 else False","Payroll",1,"contract.wage",40
+result = True if end_month == 12 else False","Payroll",1,"contract.wage",51
 "l10n_co_hr_payroll.hr_salary_rule_EPS","Health Contribution","EPS","TRUE","Deduction","EPS","Percentage (%)","Always True","Health Contribution",0,0,0,4,"IBC_SS"," # Available variables:
 #----------------------
 # payslip: object containing the payslips
@@ -467,8 +467,6 @@ result = contract.wage * 0.10","
 # Note: returned value have to be set in the variable 'result'
 
 result = rules.NET > categories.NET * 0.10","Payroll",1,"contract.wage",61
-"l10n_co_hr_payroll.hr_salary_rule_GROSS","Gross","GROSS","TRUE","Total",,"Python Code","Always True","GROSS",0,0,0,0,,"result = categories.INC + categories.OTH_INC + categories.AUX + categories.OTH_PAY","total = 0
-total = categories.OTH_INC","Payroll",1,"contract.wage",49
 "l10n_co_hr_payroll.hr_salary_rule_AFP","Pension Contribution","AFP","TRUE","Deduction","AFP","Percentage (%)","Python Expression","Pension Contribution",0,0,0,4,"IBC_SS"," # Available variables:
 #----------------------
 # payslip: object containing the payslips
@@ -593,7 +591,7 @@ result = categories.INC if total > -1 and total < 1 else total * DAYS","total = 
 for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'CAL_LOA'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.CAL_LOA.amount if inputs.CAL_LOA and inputs.CAL_LOA.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
 "l10n_co_hr_payroll.hr_salary_rule_CAR_LOA","Car Loan","CAR_LOA","TRUE","Deduction","LOA","Python Code","Python Expression","Car Loan",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
@@ -601,7 +599,7 @@ result = categories.INC if total > -1 and total < 1 else total * DAYS","total = 
 for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'CAR_LOA'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.CAR_LOA.amount if inputs.CAR_LOA and inputs.CAR_LOA.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
 "l10n_co_hr_payroll.hr_salary_rule_CTY_UNI","City Union","CTY_UNI","TRUE","Deduction","UNI","Python Code","Python Expression","City Union",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
@@ -609,7 +607,7 @@ result = categories.INC if total > -1 and total < 1 else total * DAYS","result, 
 for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'CTY_UNI'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.CTY_UNI.amount if inputs.CTY_UNI and inputs.CTY_UNI.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
 "l10n_co_hr_payroll.hr_salary_rule_COO","Cooperative","COO","TRUE","Deduction","COO","Python Code","Python Expression","Cooperative",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
@@ -617,7 +615,7 @@ result = categories.INC if total > -1 and total < 1 else total * DAYS","result, 
 for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'COO'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.COO.amount if inputs.COO and inputs.COO.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
 "l10n_co_hr_payroll.hr_salary_rule_EDU_LOA","Educational Loan","EDU_LOA","TRUE","Deduction","LOA","Python Code","Python Expression","Educational Loan",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
@@ -625,7 +623,7 @@ result = categories.INC if total > -1 and total < 1 else total * DAYS","result, 
 for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'EDU_LOA'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.EDU_LOA.amount if inputs.EDU_LOA and inputs.EDU_LOA.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
 "l10n_co_hr_payroll.hr_salary_rule_FON","Employee Association","FON","TRUE","Deduction","FON","Python Code","Python Expression","Employee Association",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
@@ -633,7 +631,7 @@ result = categories.INC if total > -1 and total < 1 else total * DAYS","result, 
 for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'FON'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.FON.amount if inputs.FON and inputs.FON.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
 "l10n_co_hr_payroll.hr_salary_rule_EXE_JUD","Execut Judicial","EXE_JUD","TRUE","Deduction","JUD","Python Code","Python Expression","Execut Judicial",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
@@ -641,7 +639,7 @@ result = categories.INC if total > -1 and total < 1 else total * DAYS","result, 
 for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'EXE_JUD'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.EXE_JUD.amount if inputs.EXE_JUD and inputs.EXE_JUD.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
 "l10n_co_hr_payroll.hr_salary_rule_FEE_JUD","Feed Judicial","FEE_JUD","TRUE","Deduction","JUD","Python Code","Python Expression","Feed Judicial",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
@@ -649,7 +647,7 @@ result = categories.INC if total > -1 and total < 1 else total * DAYS","result, 
 for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'FEE_JUD'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.FEE_JUD.amount if inputs.FEE_JUD and inputs.FEE_JUD.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
 "l10n_co_hr_payroll.hr_salary_rule_HOU_LOA","Housing Loan","HOU_LOA","TRUE","Deduction","LOA","Python Code","Python Expression","Housing Loan",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
@@ -657,7 +655,7 @@ result = categories.INC if total > -1 and total < 1 else total * DAYS","total = 
 for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'HOU_LOA'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.HOU_LOA.amount if inputs.HOU_LOA and inputs.HOU_LOA.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
 "l10n_co_hr_payroll.hr_salary_rule_IND_UNI","Industry Union","IND_UNI","TRUE","Deduction","UNI","Python Code","Python Expression","Industry Union",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
@@ -665,7 +663,7 @@ result = categories.INC if total > -1 and total < 1 else total * DAYS","result, 
 for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'IND_UNI'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.IND_UNI.amount if inputs.IND_UNI and inputs.IND_UNI.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
 "l10n_co_hr_payroll.hr_salary_rule_MED_LOA","Medical Loan","MED_LOA","TRUE","Deduction","LOA","Python Code","Python Expression","Medical Loan",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
@@ -673,7 +671,7 @@ result = categories.INC if total > -1 and total < 1 else total * DAYS","total = 
 for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'MED_LOA'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.MED_LOA.amount if inputs.MED_LOA and inputs.MED_LOA.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
 "l10n_co_hr_payroll.hr_salary_rule_OTH_ASO","Other Association","OTH_ASO","TRUE","Deduction","OTH","Python Code","Python Expression","Other Association",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
@@ -681,13 +679,7 @@ result = categories.INC if total > -1 and total < 1 else total * DAYS","result, 
 for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'OTH_ASO'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.OTH_ASO.amount if inputs.OTH_ASO and inputs.OTH_ASO.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
-"l10n_co_hr_payroll.hr_salary_rule_OTH_DIS","Other Discount","OTH_DIS","TRUE","Discount","OTH","Python Code","Python Expression","Other Discount",0,0,0,0,,"
-result_qty = 1
-result_rate = total * 100 if total > -1 and total < 1 else 100
-result = categories.INC if total > -1 and total < 1 else total * DAYS","total = 0
-total = inputs.OTH_DIS.amount if inputs.OTH_DIS and  inputs.OTH_DIS.amount > 0 else 0
-result = total","Payroll",1,"contract.wage",73
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
 "l10n_co_hr_payroll.hr_salary_rule_OTH_JUD","Other Judicial","OTH_JUD","TRUE","Deduction","OTH","Python Code","Python Expression","Other Judicial",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
@@ -695,7 +687,7 @@ result = categories.INC if total > -1 and total < 1 else total * DAYS","result, 
 for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'OTH_JUD'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.OTH_JUD.amount if inputs.OTH_JUD and inputs.OTH_JUD.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
 "l10n_co_hr_payroll.hr_salary_rule_OTH_LOA","Other Loan","OTH_LOA","TRUE","Deduction","OTH","Python Code","Python Expression","Other Loan",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
@@ -703,7 +695,7 @@ result = categories.INC if total > -1 and total < 1 else total * DAYS","total = 
 for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'OTH_LOA'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.OTH_LOA.amount if inputs.OTH_LOA and inputs.OTH_LOA.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
 "l10n_co_hr_payroll.hr_salary_rule_OTH_UNI","Other Union","OTH_UNI","TRUE","Deduction","OTH","Python Code","Python Expression","Other Union",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
@@ -711,7 +703,48 @@ result = categories.INC if total > -1 and total < 1 else total * DAYS","result, 
 for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'OTH_UNI'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.OTH_UNI.amount if inputs.OTH_UNI and inputs.OTH_UNI.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
+"l10n_co_hr_payroll.hr_salary_rule_REC_LOA","Recreation Loan","REC_LOA","TRUE","Deduction","LOA","Python Code","Python Expression","Recreation Loan",0,0,0,0,,"
+result_qty = 1
+result_rate = total * 100 if total > -1 and total < 1 else 100
+result = categories.INC if total > -1 and total < 1 else total * DAYS","total = 0
+for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'REC_LOA'):
+ total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
+total = inputs.REC_LOA.amount if inputs.REC_LOA and inputs.REC_LOA.amount else total
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
+"l10n_co_hr_payroll.hr_salary_rule_REG_UNI","Region Union","REG_UNI","TRUE","Deduction","UNI","Python Code","Python Expression","Region Union",0,0,0,0,,"
+result_qty = 1
+result_rate = total * 100 if total > -1 and total < 1 else 100
+result = categories.INC if total > -1 and total < 1 else total * DAYS","result, total = categories.INC, 0
+for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'REG_UNI'):
+ total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
+total = inputs.REG_UNI.amount if inputs.REG_UNI and inputs.REG_UNI.amount else total
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
+"l10n_co_hr_payroll.hr_salary_rule_SEC_UNI","Sector Union","SEC_UNI","TRUE","Deduction","UNI","Python Code","Python Expression","Sector Union",0,0,0,0,,"
+result_qty = 1
+result_rate = total * 100 if total > -1 and total < 1 else 100
+result = categories.INC if total > -1 and total < 1 else total * DAYS","result, total = categories.INC, 0
+for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'SEC_UNI'):
+ total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
+total = inputs.SEC_UNI.amount if inputs.SEC_UNI and inputs.SEC_UNI.amount else total
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
+"l10n_co_hr_payroll.hr_salary_rule_SUB_UNI","Subsector Union","SUB_UNI","TRUE","Deduction","UNI","Python Code","Python Expression","Subsector Union",0,0,0,0,,"
+result_qty = 1
+result_rate = total * 100 if total > -1 and total < 1 else 100
+result = categories.INC if total > -1 and total < 1 else total * DAYS","result, total = categories.INC, 0
+for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'SUB_UNI'):
+ total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
+total = inputs.SUB_UNI.amount if inputs.SUB_UNI and inputs.SUB_UNI.amount else total
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
+"l10n_co_hr_payroll.hr_salary_rule_VAR_LOA","Variety Loan","VAR_LOA","TRUE","Deduction","LOA","Python Code","Python Expression","Variety Loan",0,0,0,0,,"
+result_qty = 1
+result_rate = total * 100 if total > -1 and total < 1 else 100
+result = categories.INC if total > -1 and total < 1 else total * DAYS","total = 0
+for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'VAR_LOA'):
+ total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
+total = inputs.VAR_LOA.amount if inputs.VAR_LOA and inputs.VAR_LOA.amount else total
+result = total if total != 0 else 0","Payroll",1,"contract.wage",65
+"l10n_co_hr_payroll.hr_salary_rule_TOT_DED","Total Deductions","TOT_DED","TRUE","Total","Employee","Python Code","Python Expression","Total Deductions",0,0,0,0,,"result_rate = total * 100 if total >= -1 and total <= 1 else 100","result = categories.DED","Payroll",1,"contract.wage",66
 "l10n_co_hr_payroll.hr_salary_rule_POS_CON_LOA","POS Consume Loan","POS_CON_LOA","TRUE","Discount","LOA","Python Code","Python Expression","POS Consume Loan",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
@@ -720,53 +753,18 @@ for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'POS_CON_LOA'
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.POS_CON_LOA.amount if inputs.POS_CON_LOA and inputs.POS_CON_LOA.amount else total
 result = total if total != 0 else 0","Payroll",1,"contract.wage",71
-"l10n_co_hr_payroll.hr_salary_rule_REC_LOA","Recreation Loan","REC_LOA","TRUE","Deduction","LOA","Python Code","Python Expression","Recreation Loan",0,0,0,0,,"
-result_qty = 1
-result_rate = total * 100 if total > -1 and total < 1 else 100
-result = categories.INC if total > -1 and total < 1 else total * DAYS","total = 0
-for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'REC_LOA'):
- total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
-total = inputs.REC_LOA.amount if inputs.REC_LOA and inputs.REC_LOA.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
-"l10n_co_hr_payroll.hr_salary_rule_REG_UNI","Region Union","REG_UNI","TRUE","Deduction","UNI","Python Code","Python Expression","Region Union",0,0,0,0,,"
-result_qty = 1
-result_rate = total * 100 if total > -1 and total < 1 else 100
-result = categories.INC if total > -1 and total < 1 else total * DAYS","result, total = categories.INC, 0
-for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'REG_UNI'):
- total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
-total = inputs.REG_UNI.amount if inputs.REG_UNI and inputs.REG_UNI.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
-"l10n_co_hr_payroll.hr_salary_rule_SEC_UNI","Sector Union","SEC_UNI","TRUE","Deduction","UNI","Python Code","Python Expression","Sector Union",0,0,0,0,,"
-result_qty = 1
-result_rate = total * 100 if total > -1 and total < 1 else 100
-result = categories.INC if total > -1 and total < 1 else total * DAYS","result, total = categories.INC, 0
-for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'SEC_UNI'):
- total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
-total = inputs.SEC_UNI.amount if inputs.SEC_UNI and inputs.SEC_UNI.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
-"l10n_co_hr_payroll.hr_salary_rule_SUB_UNI","Subsector Union","SUB_UNI","TRUE","Deduction","UNI","Python Code","Python Expression","Subsector Union",0,0,0,0,,"
-result_qty = 1
-result_rate = total * 100 if total > -1 and total < 1 else 100
-result = categories.INC if total > -1 and total < 1 else total * DAYS","result, total = categories.INC, 0
-for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'SUB_UNI'):
- total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
-total = inputs.SUB_UNI.amount if inputs.SUB_UNI and inputs.SUB_UNI.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
-"l10n_co_hr_payroll.hr_salary_rule_VAR_LOA","Variety Loan","VAR_LOA","TRUE","Deduction","LOA","Python Code","Python Expression","Variety Loan",0,0,0,0,,"
-result_qty = 1
-result_rate = total * 100 if total > -1 and total < 1 else 100
-result = categories.INC if total > -1 and total < 1 else total * DAYS","total = 0
-for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'VAR_LOA'):
- total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
-total = inputs.VAR_LOA.amount if inputs.VAR_LOA and inputs.VAR_LOA.amount else total
-result = total if total != 0 else 0","Payroll",1,"contract.wage",71
-"l10n_co_hr_payroll.hr_salary_rule_TOT_DED","Total Deductions","TOT_DED","TRUE","Total","Employee","Python Code","Python Expression","Total Deductions",0,0,0,0,,"result_rate = total * 100 if total >= -1 and total <= 1 else 100","result = categories.DED","Payroll",1,"contract.wage",66
 "l10n_co_hr_payroll.hr_salary_rule_ADV_DIS","Advance Payment","ADV_DIS","TRUE","Discount","Employee","Python Code","Python Expression","1st Biweekly Advance Payment",0,0,0,0,,"
 result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 100
 result = categories.INC if total > -1 and total < 1 else total * DAYS","total = 0
 total = inputs.ADV_DIS.amount if inputs.ADV_DIS and  inputs.ADV_DIS.amount > 0 else 0
 result = total","Payroll",1,"contract.wage",73
+"l10n_co_hr_payroll.hr_salary_rule_OTH_DIS","Other Discount","OTH_DIS","TRUE","Discount","OTH","Python Code","Python Expression","Other Discount",0,0,0,0,,"
+result_qty = 1
+result_rate = total * 100 if total > -1 and total < 1 else 100
+result = categories.INC if total > -1 and total < 1 else total * DAYS","total = 0
+total = inputs.OTH_DIS.amount if inputs.OTH_DIS and  inputs.OTH_DIS.amount > 0 else 0
+result = total","Payroll",1,"contract.wage",74
 "l10n_co_hr_payroll.hr_salary_rule_TOT_DIS","Total Discounts","TOT_DIS","TRUE","Total","Employee","Python Code","Python Expression","Total Discounts",0,0,0,0,,"result = categories.DIS","result = categories.DIS","Payroll",1,"contract.wage",78
 "l10n_co_hr_payroll.hr_salary_rule_TOT_PAY","TOTAL TO PAY","TOT_PAY","TRUE","Total","Employee","Python Code","Always True","TOTAL TO PAY",0,0,0,0,,"result = categories.INC + categories.OTH_INC + categories.AUX + categories.OTH_PAY - categories.DED - categories.DIS","
 # Available variables:
@@ -952,5 +950,5 @@ result = contract.wage /30","worked_days.EPS_INA_180","Payroll",1,"contract.wage
 "l10n_co_hr_payroll.hr_salary_rule_EPS_INA_COL","EPS Inability Collect","EPS_INA_COL","TRUE","Collection","EPS","Python Code","Python Expression","EPS Inability Collect",0,0,0,0,,"result_qty = worked_days.EPS_INA.number_of_days
 result_rate = (contract.wage * 0.6667 > SMMLV) and  66.67  or  (100 * contract.wage / SMMLV)
 result = contract.wage /30","worked_days.EPS_INA ","Payroll",1,"contract.wage",101
-"l10n_co_hr_payroll.hr_salary_rule_NET","Net","NET","TRUE","Net",,"Python Code","Always True","NET",0,0,0,0,,"result = GROSS + categories.CON + categories.ACR","total = 0
+"default_net_salary","Net","NET","TRUE","Net",,"Python Code","Always True","NET",0,0,0,0,,"result = GROSS + categories.CON + categories.ACR","total = 0
 total = categories.OTH_INC","Payroll",1,"contract.wage",100
