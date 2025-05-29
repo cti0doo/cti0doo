@@ -21,7 +21,7 @@
     'sequence': 110,
     # any module necessary for this one to work correctly
     'depends': ['l10n_co_account'],
-
+    'auto_install': ['account'],
     # always loaded
     'data': [
         'data/account.group-co_com.csv',
