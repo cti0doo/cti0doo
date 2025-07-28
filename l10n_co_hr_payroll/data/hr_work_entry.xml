@@ -2,71 +2,62 @@
 <odoo>
     <data>
 
-        <record model="hr.work.entry.type" id="PAI_LEA">
+        <record model="hr.work.entry.type" id="work_entry_type_pai_lea">
             <field name="name">Paid Leave</field>
             <field name="code">PAI_LEA</field>
             <field name="is_leave">True</field>
-            <field name="leave_type_ids">leave_pai_lea</field>
+            <field name="leave_type_ids">leave_type_pai_lea</field>
             <field name="color">1</field>
         </record>
 
-        <record model="hr.work.entry.type" id="EPS_INA">
+        <record model="hr.work.entry.type" id="work_entry_type_eps_ina">
             <field name="name">EPS Inability</field>
             <field name="code">EPS_INA</field>
             <field name="is_leave">True</field>
-            <field name="leave_type_ids">leave_eps_ina</field>
+            <field name="leave_type_ids">leave_type_eps_ina</field>
             <field name="color">1</field>
         </record>
 
-        <record model="hr.work.entry.type" id="EPS_INA_180">
+        <record model="hr.work.entry.type" id="work_entry_type_eps_ina_180">
             <field name="name">EPS Inability > 180 days (SALUD 50%)</field>
             <field name="code">EPS_INA_180</field>
             <field name="is_leave">True</field>
-            <field name="leave_type_ids">leave_eps_ina_180</field>
+            <field name="leave_type_ids">leave_type_eps_ina_180</field>
             <field name="color">1</field>
         </record>
 
-        <record model="hr.work.entry.type" id="MAT_LIC">
+        <record model="hr.work.entry.type" id="work_entry_type_mat_lic">
             <field name="name">Maternity License</field>
             <field name="code">MAT_LIC</field>
             <field name="is_leave">True</field>
-            <field name="leave_type_ids">leave_mat_lic</field>
+            <field name="leave_type_ids">leave_type_mat_lic</field>
             <field name="color">1</field>
         </record>
-
-        <record model="hr.work.entry.type" id="EPS_INA_SUB">
-            <field name="name">EPS Inability Subsidie</field>
-            <field name="code">EPS_INA_SUB</field>
-            <field name="is_leave">True</field>
-            <field name="leave_type_ids">leave_eps_ina_sub</field>
-            <field name="color">1</field>
-        </record>
-
 
         <!-- Sick leave -->
-        <record model="hr.work.entry.type" id="ARL_INA">
+        <record model="hr.work.entry.type" id="work_entry_type_arl_ina">
             <field name="name">ARL Inability</field>
             <field name="code">ARL_INA</field>
             <field name="is_leave">True</field>
-            <field name="leave_type_ids">leave_arl_ina</field>
+            <field name="leave_type_ids">leave_type_arl_ina</field>
             <field name="color">1</field>
         </record>
 
         <!--Absences Unpaid Leave -->
-        <record model="hr.work.entry.type" id="ABS">
+        <record model="hr.work.entry.type" id="work_entry_type_abs">
             <field name="name">Absences</field>
             <field name="code">ABS</field>
             <field name="is_leave">True</field>
-            <field name="leave_type_ids">leave_abs</field>
+            <field name="leave_type_ids">leave_type_abs</field>
             <field name="color">5</field>
         </record>
 
         <!--Vacations -->
-        <record model="hr.work.entry.type" id="VAC">
+        <record model="hr.work.entry.type" id="work_entry_type_vac">
             <field name="name">Vacations</field>
             <field name="code">VAC</field>
             <field name="is_leave">True</field>
-            <field name="leave_type_ids">leave_vac</field>
+            <field name="leave_type_ids">leave_type_VAC</field>
             <field name="color">5</field>
         </record>
 

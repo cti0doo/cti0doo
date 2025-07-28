@@ -1,9 +1,7 @@
 "id","name","code","appears_on_payslip","category_id","register_id","amount_select","condition_select","note","amount_fix","condition_range_max","condition_range_min","amount_percentage","amount_percentage_base","amount_python_compute","condition_python","struct_id","quantity","condition_range","sequence"
 "l10n_co_hr_payroll.hr_salary_rule_DAYS","Days","DAYS","FALSE","Quotation Base Index","Employee","Python Code","Always True","Days",0,0,0,0,,"total = 0
-date_end = strptime('01/01/2019', '%m/%d/%Y')
 date_end = payslip.date_to
 day_end = int(date_end.day)
-tdate_start = strptime('01/01/2019', '%m/%d/%Y')
 date_start = payslip.date_from
 day_start = int(date_start.day)
 day_end = day_end if day_end  < 28  else 30
@@ -22,11 +20,11 @@ result = total / 30","
 # Note: returned value have to be set in the variable 'result'
 
 result = rules.NET > categories.NET * 0.10","Payroll",1,"contract.wage",0
-"l10n_co_hr_payroll.hr_salary_rule_SMMLV","Minimun Salary","SMMLV","FALSE","Quotation Base Index","Employee","Python Code","Python Expression","Minimun Monthly Legal Salary ",0,0,0,0,,"result = payslip.rule_parameter('SMMLV')","total = 0
-total = payslip.rule_parameter('SMMLV') if payslip.rule_parameter('SMMLV') else total
+"l10n_co_hr_payroll.hr_salary_rule_SMMLV","Minimun Salary","SMMLV","FALSE","Quotation Base Index","Employee","Python Code","Python Expression","Minimun Monthly Legal Salary ",0,0,0,0,,"result = payslip._rule_parameter('SMMLV')","total = 0
+total = payslip._rule_parameter('SMMLV') if payslip._rule_parameter('SMMLV') else total
 result = total if total != 0 else 0","Payroll",1,"contract.wage",0
-"l10n_co_hr_payroll.hr_salary_rule_UVT","Unit Value Tax","UVT","FALSE","Quotation Base Index","Employee","Python Code","Python Expression","Unit Value Tax",0,0,0,0,,"result = payslip.rule_parameter('UVT')","total = 0
-total = payslip.rule_parameter('UVT') if payslip.rule_parameter('UVT') else total
+"l10n_co_hr_payroll.hr_salary_rule_UVT","Unit Value Tax","UVT","FALSE","Quotation Base Index","Employee","Python Code","Python Expression","Unit Value Tax",0,0,0,0,,"result = payslip._rule_parameter('UVT')","total = 0
+total = payslip._rule_parameter('UVT') if payslip._rule_parameter('UVT') else total
 result = total if total != 0 else 0","Payroll",1,"contract.wage",0
 "default_basic_salary_rule","Basic Salary","BASIC","FALSE","Quotation Base Index","Employee","Python Code","Always True","Basic Salary",0,0,0,0,,"result = contract.wage * DAYS","
  # Available variables:
@@ -48,30 +46,24 @@ result =  BASIC / total","total = 0
 for days in payslip.worked_days_line_ids.filtered(lambda x: x.number_of_days > 0):
  total += days.number_of_days
 result = total if contract.integral else 0","Payroll",1,"contract.wage",11
-"l10n_co_hr_payroll.hr_salary_rule_MAT","Maternity Leave","MAT","TRUE","Income","Employee","Python Code","Python Expression","Maternity Leave",0,0,0,0,,"result_qty = worked_days.MAT.number_of_days
+"l10n_co_hr_payroll.hr_salary_rule_MAT","Maternity Leave","MAT","TRUE","Income","Employee","Python Code","Python Expression","Maternity Leave",0,0,0,0,,"result_qty = worked_days['MAT'].number_of_days
 result_rate = 100
-result =  BASIC / total","total = 0
-for days in payslip.worked_days_line_ids.filtered(lambda x: x.number_of_days > 0):
- total += days.number_of_days
-result = worked_days.MAT.number_of_days if worked_days.MAT and worked_days.MAT.number_of_days else 0","Payroll",1,"contract.wage",11
+result =  BASIC / DAYS","'MAT' in worked_days and worked_days['MAT'].number_of_days","Payroll",1,"contract.wage",11
 "l10n_co_hr_payroll.hr_salary_rule_PAI_LEA","Paid Leave","PAI_LEA","TRUE","Income","Employee","Python Code","Python Expression","Paid Leave",0,0,0,0,,"
-result_qty  = worked_days.PAI_LEA.number_of_days
+result_qty  = worked_days['PAI_LEA'].number_of_days
 result_rate = 100
-result += contract.wage / 30","worked_days.PAI_LEA","Payroll",1,"contract.wage",11
-"l10n_co_hr_payroll.hr_salary_rule_BAS_SAL","Salary","BAS_SAL","TRUE","Income","Employee","Python Code","Python Expression",,0,0,0,0,,"result_qty = worked_days.WORK100.number_of_days
+result += contract.wage / 30","'PAI_LEA' in worked_days","Payroll",1,"contract.wage",11
+"l10n_co_hr_payroll.hr_salary_rule_BAS_SAL","Salary","BAS_SAL","TRUE","Income","Employee","Python Code","Python Expression",,0,0,0,0,,"result_qty = worked_days['WORK100'].number_of_days
 result_rate = 100
 result =  BASIC / total","total = 0
 for days in payslip.worked_days_line_ids.filtered(lambda x: x.number_of_days > 0):
  total += days.number_of_days
 result = total if not contract.integral else 0","Payroll",1,"contract.wage",11
 "l10n_co_hr_payroll.hr_salary_rule_SAL_ADJ","Salary Adjustment","SAL_ADJ","TRUE","Income","Employee","Python Code","Python Expression","Salary Adjustment",0,0,0,0,,"result = inputs.SAL_ADJ.amount","inputs.SAL_ADJ","Payroll",1,"contract.wage",11
-"l10n_co_hr_payroll.hr_salary_rule_UNI_LEA","Union Leave","UNI_LEA","TRUE","Income","Employee","Python Code","Python Expression","Union Leave",0,0,0,0,,"result = round(( contract.wage / 30 ) * worked_days.UNI_LEA.number_of_days, 0)","worked_days.UNI_LEA","Payroll",1,"contract.wage",11
-"l10n_co_hr_payroll.hr_salary_rule_VAC","Vacations","VAC","TRUE","Income","Employee","Python Code","Python Expression","Vacations",0,0,0,0,,"result_qty = worked_days.VAC.number_of_days
+"l10n_co_hr_payroll.hr_salary_rule_UNI_LEA","Union Leave","UNI_LEA","TRUE","Income","Employee","Python Code","Python Expression","Union Leave",0,0,0,0,,"result = round(( contract.wage / 30 ) * worked_days['UNI_LEA'].number_of_days, 0)","'UNI_LEA' in worked_days","Payroll",1,"contract.wage",11
+"l10n_co_hr_payroll.hr_salary_rule_VAC","Vacations","VAC","TRUE","Income","Employee","Python Code","Python Expression","Vacations",0,0,0,0,,"result_qty = worked_days['VAC'].number_of_days
 result_rate = 100
-result =  BASIC / total","total = 0
-for days in payslip.worked_days_line_ids.filtered(lambda x: x.number_of_days > 0):
- total += days.number_of_days
-result = worked_days.VAC.number_of_days if worked_days.VAC and worked_days.VAC.number_of_days else 0","Payroll",1,"contract.wage",11
+result =  BASIC / total","'VAC' in worked_days","Payroll",1,"contract.wage",11
 "l10n_co_hr_payroll.hr_salary_rule_EDT","Extra Day Time","EDT","TRUE","Income","Employee","Python Code","Python Expression","Daytime Overtime",0,0,0,0,,"result_qty  = total
 result_rate = 125
 result = contract.wage / 240","total = 0
@@ -102,18 +94,15 @@ result_rate = inputs.COM.amount * 100 if inputs.COM.amount > 0 and inputs.COM.am
 result = categories.INC if inputs.COMamount > 0 and inputs.COM.amount < 0 else inputs.COM.amount","total = 0
 total = inputs.COM.amount if inputs.COM and  inputs.COM.amount > 0 else 0
 result = total","Payroll",1,"contract.wage",14
-"l10n_co_hr_payroll.hr_salary_rule_ARL_DIS","ARL DIS","ARL_DIS","TRUE","Income","Employee","Python Code","Python Expression","Professional Risk Disability ",0,0,0,0,,"result_qty = worked_days.ARL_DIS.number_of_days
+"l10n_co_hr_payroll.hr_salary_rule_ARL_DIS","ARL DIS","ARL_DIS","TRUE","Income","Employee","Python Code","Python Expression","Professional Risk Disability ",0,0,0,0,,"result_qty = worked_days['ARL_DIS'].number_of_days
 result_rate = 100
-result = round(contract.wage / 30, 0)","worked_days.ARL_DIS ","Payroll",1,"contract.wage",15
-"l10n_co_hr_payroll.hr_salary_rule_EPS_DIS","EPS Disability","EPS_DIS","TRUE","Income","Employee","Python Code","Python Expression","Health Disability",0,0,0,0,,"result_qty = worked_days.LEAVE110.number_of_days
+result = round(contract.wage / 30, 0)","'ARL_DIS' in worked_days","Payroll",1,"contract.wage",15
+"l10n_co_hr_payroll.hr_salary_rule_EPS_DIS","EPS Disability","EPS_DIS","TRUE","Income","Employee","Python Code","Python Expression","Health Disability",0,0,0,0,,"result_qty = worked_days['LEAVE110'].number_of_days
 result_rate = ( contract.wage * 0.6667 > SMMLV) and  33.33  or  100 - ( 100 * SMMLV / contract.wage)
-result = contract.wage /total","total = 0
-for days in payslip.worked_days_line_ids.filtered(lambda x: x.number_of_days > 0):
- total += days.number_of_days
-result = worked_days.LEAVE110.number_of_days if worked_days.LEAVE110 and worked_days.LEAVE110.number_of_days else 0","Payroll",1,"contract.wage",15
+result = contract.wage /total","'LEAVE110' in worked_days","Payroll",1,"contract.wage",15
 "l10n_co_hr_payroll.hr_salary_rule_EPS_DIS_180","EPS Disability > 180 Days","EPS_DIS_180","TRUE","Income","Employee","Python Code","Python Expression","Health Inability > 180 Days",0,0,0,0,,"result_qty = worked_days.EPS_DIS_180.number_of_days
 result_rate = ( contract.wage * 0.5 > SMMLV) and  50.00  or  ( 100 - (100 * contract.wage / SMMLV))
-result = contract.wage /30","worked_days.EPS_DIS_180","Payroll",1,"contract.wage",15
+result = contract.wage /30","worked_days['EPS_DIS_180'],""Payroll","Payroll","contract.wage",15,
 "l10n_co_hr_payroll.hr_salary_rule_EPS_DIS_180_SUB","EPS Disability > 180 Days Subsidy","EPS_DIS_180_SUB","TRUE","Income","Employee","Python Code","Python Expression","Health Disability > 180 Days Subsidy",0,0,0,0,,"result_qty = worked_days.EPS_DIS_180.number_of_days
 result_rate = ( contract.wage * 0.5 > SMMLV) and  50.00  or  ( 100 - (100 * contract.wage / SMMLV))
 result = contract.wage /30     ","worked_days.EPS_DIS_180","Payroll",1,"contract.wage",15
@@ -153,7 +142,7 @@ for input in contract.inputs_ids.filtered(lambda x: x.type.code == 'SUB'):
  total = input.amount if (not input.date_from or (input.date_from and payslip.date_from >= input.date_from)) and (not input.date_to or (input.date_to and input.date_to >= payslip.date_to)) else 0
 total = inputs.SUB.amount if inputs.SUB and inputs.SUB.amount else total * DAYS
 result = total if total != 0 else 0","Payroll",,,21
-"l10n_co_hr_payroll.hr_salary_rule_TRA_ASI","Transportation Assistance","TRA_ASI","TRUE","Other Income","Employee","Python Code","Python Expression","Transportation Assistance",0,0,0,0,,"result = payslip.rule_parameter('AT') * DAYS if payslip.rule_parameter('AT') else 0","total = 0
+"l10n_co_hr_payroll.hr_salary_rule_TRA_ASI","Transportation Assistance","TRA_ASI","TRUE","Other Income","Employee","Python Code","Python Expression","Transportation Assistance",0,0,0,0,,"result = payslip._rule_parameter('AT') * DAYS if payslip._rule_parameter('AT') else 0","total = 0
 for days in payslip.worked_days_line_ids.filtered(lambda x: x.number_of_days > 0):
  total += days.number_of_days
 result = total if (contract.employee_id.km_home_work >= 2) and (( categories.INC / (SMMLV * DAYS) ) <= 2.0) else 0","Payroll",1,"contract.wage",21
@@ -310,7 +299,6 @@ result = total","Payroll",1,"contract.wage",41
 "l10n_co_hr_payroll.hr_salary_rule_PRM","Service Premiun","PRM","TRUE","Other Payments","Employee","Python Code","Python Expression","Service Premiun",0,0,0,"8.33","categories.INC + categories.OTH_INC","result_qty = 1
 result_rate = total * 100 if total > -1 and total < 1 else 50
 result = categories.INC * total if total > -1 and total < 1 else total","total = 0
-date_end = strptime('2019-01-01', '%Y-%m-%d')
 date_end = payslip.date_to
 end_month = int(date_end.month)
 total = inputs.PRM if inputs.PRM else LST_SIX_AVG_INC if end_month in (6,12) else 0
@@ -334,7 +322,6 @@ total = categories.OTH_INC","Payroll",1,"contract.wage",49
 result = rules.NET > categories.NET * 0.10","Payroll",1,"contract.wage",51
 "l10n_co_hr_payroll.hr_salary_rule_LST_AVG_INC","Last Average Income","LST_AVG_INC","FALSE","Quotation Base Index","Employee","Python Code","Always True","Last Average Income",0,0,0,0,,"
 result, total, i = categories.INC, 0, 0
-date_end = strptime('2019-01-01', '%Y-%m-%d')
 date_end = payslip.date_from - relativedelta(days=int(payslip.date_from.day))
 date_start = date_end - relativedelta(days=int(date_end.day))
 date_start = date_start + relativedelta(days= 1)
@@ -358,7 +345,6 @@ result=total","
 
 result = rules.NET > categories.NET * 0.10","Payroll",1,"contract.wage",51
 "l10n_co_hr_payroll.hr_salary_rule_LST_ONE_AVG_INC","Last One Average Income","LST_ONE_AVG_INC","FALSE","Quotation Base Index","Employee","Python Code","Always True","Last One Average Income",0,0,0,0,,"result, total, i = categories.INC, 0, 0
-date_end = strptime('2019-01-01', '%Y-%m-%d')
 date_end = payslip.date_from - relativedelta(days=int(payslip.date_from.day))
 date_start = date_end - relativedelta(days=int(date_end.day))
 date_start = date_start + relativedelta(days= 1)
@@ -382,7 +368,6 @@ result=total","
 
 result = rules.NET > categories.NET * 0.10","Payroll",1,"contract.wage",51
 "l10n_co_hr_payroll.hr_salary_rule_LST_SIX_AVG_INC","Last Six Average Income","LST_SIX_AVG_INC","FALSE","Quotation Base Index","Employee","Python Code","Always True","Last Six Average Income",0,0,0,0,,"result, total, i, j = categories.INC, 0, 0, 0
-date_end = strptime('2019-01-01', '%Y-%m-%d')
 date_end = payslip.date_to
 date_start = payslip.date_to - relativedelta(days=int(payslip.date_to.day))
 date_start = date_start + relativedelta(days=1)
@@ -390,7 +375,6 @@ end_month = int(date_start.month)
 nro_months = end_month  if end_month < 7 else end_month - 6
 if nro_months > 0:
   date_start = date_start - relativedelta(months=nro_months-1)
-  date_initial = strptime('2019-01-01', '%Y-%m-%d')
   date_initial = contract.date_start
   if date_initial > date_start:
     j += 1
@@ -408,12 +392,10 @@ if nro_months > 0:
   total = total
 result_qty = 1
 result_rate = 100 / nro_months
-result=total","date_end = strptime('2019-01-01', '%Y-%m-%d')
-date_end = payslip.date_to
+result=total","date_end = payslip.date_to
 end_month = int(date_end.month)
 result = True if end_month in (6, 12) else False","Payroll",1,"contract.wage",51
 "l10n_co_hr_payroll.hr_salary_rule_LST_TWE_AVG_INC","List Twelve Average Income","LST_TWE_AVG_INC","FALSE","Quotation Base Index","Employee","Python Code","Always True","List Twelve Average Income",0,0,0,0,,"result, total, I = categories.INC, 0, 0
-date_end = strptime('2019-01-01', '%Y-%m-%d')
 date_end = payslip.date_to
 date_start = payslip.date_to - relativedelta(days=int(payslip.date_to.day))
 date_start = date_start + relativedelta(days=1)
@@ -421,7 +403,6 @@ end_month = int(date_start.month)
 nro_months = end_month
 if nro_months > 0:
   date_start = date_start - relativedelta(months=nro_months-1)
-  date_initial = strptime('2019-01-01', '%Y-%m-%d')
   date_initial = contract.date_start
   if date_initial > date_start:
     month_initial = int(date_initial.month)
@@ -437,8 +418,7 @@ if nro_months > 0:
   total = total
 result_qty = 1
 result_rate=100 / nro_months
-result=total","date_end = strptime('2019-01-01', '%Y-%m-%d')
-date_end = payslip.date_to
+result=total","date_end = payslip.date_to
 end_month = int(date_end.month)
 result = True if end_month == 12 else False","Payroll",1,"contract.wage",51
 "l10n_co_hr_payroll.hr_salary_rule_EPS","Health Contribution","EPS","TRUE","Deduction","EPS","Percentage (%)","Always True","Health Contribution",0,0,0,4,"IBC_SS"," # Available variables:

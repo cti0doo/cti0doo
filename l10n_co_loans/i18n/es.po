@@ -1,0 +1,31 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_co_loans
+# 
+# Translators:
+# Juan Sebastian Castiblanco, 2025
+# Rafael Riveros, 2024
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-04 09:25+0000\n"
+"PO-Revision-Date: 2025-07-11 09:44+0000\n"
+"Last-Translator: Rafael Riveros Castillo <pagc@odoo.com>, 2024\n"
+"Language-Team: Spanish (Latin America) (https://app.transifex.com/odoo/teams/41243/es_419/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es_419\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+#. module: l10n_co_loans_loans
+#: model_terms:ir.ui.view,arch_db:l10n_co_loans.loan_form_view
+msgid "loan_term_unit"
+msgstr "unidad_termino_prestamo"
+
+#. module: l10n_co_loans
+#: model_terms:ir.ui.view,arch_db:account_loans.view_loan_compute_wizard
+msgid "loan_term_unit"
+msgstr "unidad_termino_prestamo"

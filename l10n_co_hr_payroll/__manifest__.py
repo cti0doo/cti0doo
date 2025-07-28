@@ -48,7 +48,8 @@ You can assign several contracts per employee.
     ],
     'data': [
         'security/ir.model.access.csv',
-
+        'data/hr_leave_data.xml',
+        'data/hr_work_entry.xml',
         # views
         'views/hr_employee_view.xml',
         'views/hr_payroll_account_view.xml',
@@ -57,7 +58,6 @@ You can assign several contracts per employee.
         'views/hr_leave_view.xml',
 
         # data
-        'data/hr_leave_data.xml',
 #        'data/resource_calendar.xml',
         'data/res.partner.csv',
         'data/hr_contribution_register.xml',

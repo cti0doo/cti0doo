@@ -2,6 +2,7 @@
 
 
 import logging
+from collections import defaultdict, Counter
 from datetime import datetime
 from datetime import time as datetime_time, timedelta
 #from odoo.addons.hr_payroll.models.browsable_object import BrowsableObject, InputLine, WorkedDays, Payslips
@@ -9,6 +10,12 @@ from dateutil.relativedelta import *
 from odoo.exceptions import UserError
 from odoo.tools import float_compare, float_is_zero
 from odoo import models, fields, api, _
+
+class DefaultDictPayroll(defaultdict):
+    def get(self, key, default=None):
+        if key not in self and default is not None:
+            self[key] = default
+        return self[key]
 
 class HrPayslipWorkedDaysHolidays(models.Model):
     _inherit = 'hr.payslip.worked_days'
@@ -33,6 +40,7 @@ class HrSalaryRuleCategoryExtended(models.Model):
     name = fields.Char(required=True, translate=True)
 
 class HRPayslipExtended(models.Model):
+
     _inherit = 'hr.payslip'
 
     line_ids = fields.One2many('hr.payslip.line', 'slip_id', string='Payslip Lines', readonly=True,
@@ -114,68 +122,30 @@ class HRPayslipExtended(models.Model):
                 return True
 
 
-    def _get_payslip_lines(self):
-        def _sum_salary_rule_category(localdict, category, amount):
-            if category.parent_id:
-                localdict = _sum_salary_rule_category(localdict, category.parent_id, amount)
-            localdict['categories'].dict[category.code] = localdict['categories'].dict.get(category.code, 0) + amount
-            return localdict
+    # def _get_localdict(self):
+    #     self.ensure_one()
+    #     # Check for multiple inputs of the same type and keep a copy of
+    #     # them because otherwise they are lost when building the dict
+    #     input_list = [line.code for line in self.input_line_ids if line.code]
+    #     cnt = Counter(input_list)
+    #     multi_input_lines = [k for k, v in cnt.items() if v > 1]
+    #     same_type_input_lines = {line_code: [line for line in self.input_line_ids if line.code == line_code] for line_code in multi_input_lines}
 
-        self.ensure_one()
-        result = {}
-        rules_dict = {}
-        worked_days_dict = {line.code: line for line in self.worked_days_line_ids if line.code}
-        inputs_dict = {line.code: line for line in self.input_line_ids if line.code}
-
-        employee = self.employee_id
-        contract = self.contract_id
-
-        localdict = {
-            **self._get_base_local_dict(),
-            **{
-                'categories': BrowsableObject(employee.id, {}, self.env),
-                'rules': BrowsableObject(employee.id, rules_dict, self.env),
-                'payslip': Payslips(employee.id, self, self.env),
-                'worked_days': WorkedDays(employee.id, worked_days_dict, self.env),
-                'inputs': InputLine(employee.id, inputs_dict, self.env),
-                'employee': employee,
-                'contract': contract,
-                #Safe_Eval modules:
-                'timedelta': timedelta,
-                'strptime': datetime.strptime,
-                'relativedelta': relativedelta
-            }
-        }
-        for rule in sorted(self.struct_id.rule_ids, key=lambda x: x.sequence):
-            localdict.update({
-                'result': None,
-                'result_qty': 1.0,
-                'result_rate': 100})
-            if rule._satisfy_condition(localdict):
-                amount, qty, rate = rule._compute_rule(localdict)
-                #check if there is already a rule computed with that code
-                previous_amount = rule.code in localdict and localdict[rule.code] or 0.0
-                #set/overwrite the amount computed for this rule in the localdict
-                tot_rule = amount * qty * rate / 100.0
-                localdict[rule.code] = tot_rule
-                rules_dict[rule.code] = rule
-                # sum the amount for its salary category
-                localdict = _sum_salary_rule_category(localdict, rule.category_id, tot_rule - previous_amount)
-                # create/overwrite the rule in the temporary results
-                result[rule.code] = {
-                    'sequence': rule.sequence,
-                    'code': rule.code,
-                    'name': rule.name,
-                    'note': rule.note,
-                    'salary_rule_id': rule.id,
-                    'contract_id': contract.id,
-                    'employee_id': employee.id,
-                    'amount': amount,
-                    'quantity': qty,
-                    'rate': rate,
-                    'slip_id': self.id,
-                }
-        return result.values()
+    #     localdict = {
+    #         **self._get_base_local_dict(),
+    #         **{
+    #             'categories': DefaultDictPayroll(lambda: 0),
+    #             'rules': DefaultDictPayroll(lambda: dict(total=0, amount=0, quantity=0)),
+    #             'payslip': self,
+    #             'worked_days': {line.code: line for line in self.worked_days_line_ids if line.code},
+    #             'inputs': {line.code: line for line in self.input_line_ids if line.code},
+    #             'employee': self.employee_id,
+    #             'contract': self.contract_id,
+    #             'result_rules': DefaultDictPayroll(lambda: dict(total=0, amount=0, quantity=0, rate=0)),
+    #             'same_type_input_lines': same_type_input_lines
+    #         }
+    #     }
+    #     return localdict
 
     def hr_verify_sheet(self):
         cr = self._cr
